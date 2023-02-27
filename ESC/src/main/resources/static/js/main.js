@@ -138,10 +138,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 gsap.to(".lev3_img", {
   scrollTrigger: {
-    trigger: ".lev3_text1 > h3",
+    trigger: ".section2_text",
     toggleActions: "resume reverse",
-/*     markers: true,
- */    start: "top center",
+    /* markers: true, */
+    start: "top center",
     end: "bottom center",
     scrub:2
   },
@@ -167,7 +167,97 @@ gsap.to(".lev3_img3", {
     /* markers: true, */
     start: "top center",
     end: "bottom center",
-    scrub:2
+    scrub:1
   },
-  y: -750, duration: 4,
+  x: 850, duration: 2,
 });
+
+
+
+const images = gsap.utils.toArray("section3-img> img");
+const loader = document.querySelector(".loader--text");
+const updateProgress = (instance) =>
+loader.textContent = `${Math.round(
+instance.progressedCount * 100 / images.length)
+}%`;
+
+
+
+const showDemo = () => {
+  document.body.style.overflow = "auto";
+  document.scrollingElement.scrollTo(0, 0);
+  gsap.to(document.querySelector(".loader"), { autoAlpha: 0 });
+
+  gsap.utils.toArray(".section3-img").forEach((section, index) => {
+    const w = section.querySelector(".wraper_img");
+    const [x, xEnd] =
+    index % 2 ?
+    ["100%", (w.scrollWidth - (section.offsetWidth-30)) * -1] :
+    [w.scrollWidth * -1, 0];
+
+    gsap.fromTo(
+    w,
+    { x },
+    {
+      x: xEnd,
+      scrollTrigger: {
+        trigger: ".section3-text",
+        start: "top center",
+        end: "bottom center",
+        scrub: 0.5,
+        toggleActions: "resume"
+       } });
+
+       
+
+  });
+
+ 
+
+  gsap.to(".section3-text", {
+    scrollTrigger: {
+      trigger: ".section3",
+        start: "top center",
+        end: "center center",
+        toggleActions: "resume reverse",
+        scrub: 2
+    },
+    x: -1900, 
+  });
+};
+
+
+imagesLoaded(images).on("progress", updateProgress).on("always", showDemo);
+
+
+window.onload = function(){
+  const tl = new TimelineLite({delay: 1}),
+    firstBg = document.querySelectorAll('.text__first-bg'),
+    secBg = document.querySelectorAll('.text__second-bg'),
+    word  = document.querySelectorAll('.text__word');
+  
+  tl
+    .to(firstBg, 0.7, {scaleX:1})
+    .to(secBg, 0.7, {scaleX:1})
+    .to(word, 0.1, {opacity:1}, "-=0.1")  
+    .to(firstBg, 0.7, {scaleX:0})
+    .to(secBg, 0.7, {scaleX:0});
+  
+}
+
+function kkk(){
+  const t2 = new ScrollTrigger(),
+    firstBg2 = document.querySelector('.kkk__first-bg'),
+    secBg2 = document.querySelector('.kkk__second-bg');
+
+  t2
+    .to(firstBg2, 0.7, {scaleX:1})
+    .to(secBg2, 0.7, {scaleX:1})
+    .to(word, 0.1, {opacity:1}, "-=0.1")  
+    .to(firstBg2, 0.7, {scaleX:0})
+    .to(secBg2, 0.7, {scaleX:0});
+}
+
+
+
+kkk();
