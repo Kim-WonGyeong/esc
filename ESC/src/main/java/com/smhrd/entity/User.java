@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor // 전체생성자
 @Data // Getter, Setter
 public class User {
+	
 	@Id // Primary key
 	@Column(name="user_id")
 	private String userId;
@@ -22,12 +23,5 @@ public class User {
 	private String userGender;
 	@Column(name="user_nick")
 	private String userNick;
-	
-//	@ManyToOne ex)answer.getQuestion().getSubject()
-//	private Question question;
-//		>> 반대로 Question entity 에서는
-//		>> @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
-//		>> private List<Answer> answerList;
-//		>> mappedBy 는 참조 Entity 의 속성명
 	
 }

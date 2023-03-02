@@ -10,7 +10,7 @@ import com.smhrd.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{
 
-	// 회원가입
+	// 회원가입 save();
 	
 	// 로그인
 	public User findByUserIdAndUserPw(String userId, String userPw);
@@ -18,12 +18,11 @@ public interface UserRepository extends JpaRepository<User, String>{
 	// 탈퇴
 	public int deleteUserByUserIdAndUserPw(String userId, String userPw);
 	
-	// MyBatis 처럼 method 위에 annotation 으로 sql문 지정하는 방식
-	// @Query("select * from Users")
-	// public List<Users> testQuery();
-	
 	// test
 	public User findByUserNick(String userNick);
 	List<User> findByUserNickLike(String userNick);
 	
+	// MyBatis 처럼 method 위에 annotation 으로 sql문 지정하는 방식
+	// @Query("select * from Users")
+	// public List<Users> testQuery();
 }

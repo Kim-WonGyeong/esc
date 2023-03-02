@@ -1,14 +1,9 @@
 package com.smhrd;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.smhrd.entity.User;
 import com.smhrd.repository.UserRepository;
 
 @SpringBootTest
@@ -17,6 +12,7 @@ class EscApplicationTests {
 	@Autowired	// DI 기능, 객체 자동 생성, test code 에선 생성자를 통한 DI 불가능 -> @Autowired
 	private UserRepository userRepository;
 	
+//	@Transactional
 	@Test
 	void contextLoads() {
 		
@@ -58,9 +54,28 @@ class EscApplicationTests {
 //		assertEquals("testU1Nick", u.getUserNick());
 		
 //		6) findByUserNickLike
-		List<User> uList = this.userRepository.findByUserNickLike("%test%");
-		User u = uList.get(0);
-		assertEquals("testU1Nick", u.getUserNick());
+//		List<User> uList = this.userRepository.findByUserNickLike("%test%");
+//		User u = uList.get(0);
+//		assertEquals("testU1Nick", u.getUserNick());
+		
+//		7) 데이터 수정하기
+//		Optional<User> oq = this.userRepository.findById("testU1");
+//		assertTrue(oq.isPresent());
+//		User u = oq.get();
+//		u.setUserNick("수정된 testU1 닉네임");
+//		this.userRepository.save(u);
+
+//		8) 데이터 삭제하기
+//		assertEquals(2, this.userRepository.count());
+//		Optional<User> oq2 = this.userRepository.findById("testU2");
+//		assertTrue(oq2.isPresent());
+//		User u2 = oq2.get();
+//		this.userRepository.delete(u2);
+//		assertEquals(1, this.userRepository.count());
+		
+//		9) OneToMany 혼자 끄적끄적
+//		Cosmetic csmt = new Cosmetic();
+//		csmt.getCosIng().get(0).getIng().getIngFcn();
 		
 	}
 }
