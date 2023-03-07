@@ -18,8 +18,7 @@ import lombok.NoArgsConstructor;
 @Data // Getter, Setter
 public class Ingredient {
 	
-	@Id // Primary key
-	@Column(name="ing_seq", length=18)
+	@Id @Column(name="ing_seq")
 	private Long ingSeq;
 	@Column(name="ing_name")
 	private String ingName;
@@ -32,6 +31,12 @@ public class Ingredient {
 	@Column(name="ing_ewg_lev")
 	private String ingEwgLev;
 
+	@OneToMany(cascade = CascadeType.REMOVE, mappedBy="ing")
+	private List<BestIngredient> bestIng;
+	
+	@OneToMany(cascade = CascadeType.REMOVE, mappedBy="ing")
+	private List<WorstIngredient> worstIng;
+	
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy="ing")
 	private List<CosmeticIngredient> ingCos;
 	
