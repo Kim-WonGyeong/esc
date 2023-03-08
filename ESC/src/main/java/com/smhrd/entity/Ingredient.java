@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity(name="ingredients")
+@Entity(name="ingredientss")
 @NoArgsConstructor // 기본생성자
 @AllArgsConstructor // 전체생성자
 @Data // Getter, Setter
