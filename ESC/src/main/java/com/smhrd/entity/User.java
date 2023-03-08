@@ -19,12 +19,15 @@ import lombok.NoArgsConstructor;
 public class User {
 	
 	@Id // Primary key
-	@Column(name="user_id")
+	@Column(name="user_id", updatable = false) // 수정 불가능한 데이터
 	private String userId;
+	
 	@Column(name="user_pw")
 	private String userPw;
+	
 	@Column(name="user_gender")
 	private String userGender;
+	
 	@Column(name="user_nick")
 	private String userNick;
 	
