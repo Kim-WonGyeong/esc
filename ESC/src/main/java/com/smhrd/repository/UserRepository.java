@@ -10,7 +10,8 @@ import com.smhrd.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{
 
-	// 회원가입 save();
+	// 회원가입
+	public void save();
 	
 	// 로그인
 	public User findByUserIdAndUserPw(String userId, String userPw);
