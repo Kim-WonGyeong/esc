@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +35,8 @@
                 <li class="title_item title_item_one "><a href="#">소개</a></li>
                 <li class="title_item title_item_two"><a href="#">진단</a></li>
 <!--                 <li class="title_item-three"><a href="#">다크모드</a></li>
- -->                <li class="title_item-none"><a th:href="@{/login}">로그인</a></li>
+ -->            <li class="title_item-none" th:if="${user != null}">로그아웃</li>
+ 				<li class="title_item-none" th:if="${user == null}"><a th:href="@{/login}">로그인</a></li>
             </div>
 
         </div>
