@@ -12,14 +12,16 @@
 				<th colspan="2">로그인 페이지</th>
 			</tr>
 		</thead>
-		<form th:action="@{|/user/login}" method="post">
+		<form th:action="@{|/user/login}" method="post" th:object="${User}">
 			<tbody>
 				<tr>
 					<td>아이디</td>
+					<!-- th:field="*{USER_ID}" 쓰면 에러 발생 -->
 					<td><input type="text"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
+					<!-- th:field="*{USER_PW}" 쓰면 에러 발생 -->
 					<td><input type="password"></td>
 				</tr>
 				<tr>

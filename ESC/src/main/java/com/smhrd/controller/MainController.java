@@ -21,4 +21,9 @@ public class MainController {
 		// suffix = .html
 		return "redirect:/main"; // templates/main.html
 	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "/login";
+	}
 }
