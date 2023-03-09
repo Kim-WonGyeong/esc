@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // 기본생성자
 @AllArgsConstructor // 전체생성자
 @Data // Getter, Setter
-@IdClass(CosmeticIngredient.class)
+@IdClass(CosmeticIngredientID.class)
 public class CosmeticIngredient implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -28,12 +28,5 @@ public class CosmeticIngredient implements Serializable{
 	@Id @ManyToOne(optional=false)
 	@JoinColumn(name="ing_seq")
 	private Ingredient ing;
-	
-//	@ManyToOne ex)answer.getQuestion().getSubject()
-//	private Question question;
-//		>> 반대로 Question entity 에서는
-//		>> @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
-//		>> private List<Answer> answerList;
-//		>> mappedBy 는 참조 Entity 의 속성명
 
 }
