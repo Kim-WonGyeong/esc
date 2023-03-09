@@ -1,5 +1,7 @@
 package com.smhrd.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -16,10 +18,10 @@ public class UserService {
 	
 	private final UserRepository repository;
 	
-	public User loginService(String UserId, String UserPw) {
+	public User loginService(String userId, String userPw) {
 		
-		User user = this.repository.findByUserIdAndUserPw(UserId, UserPw);
-		return user;
+		User userinfo = repository.findByUserIdAndUserPw(userId, userPw);
+		return userinfo;
 	}
 
 }

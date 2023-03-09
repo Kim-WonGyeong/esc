@@ -19,17 +19,17 @@ import lombok.RequiredArgsConstructor;
 @SessionAttributes("user")
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/user/*")
 public class UserController {
 	
-	private final UserService service; // Dependency Injection 맞나...
+	private final UserService service;
 
 	@PostMapping("/login")
 	public String login(Model model, @RequestParam("UserId") String UserId, @RequestParam("UserPw") String UserPw) {
 		
 		User user = service.loginService(UserId, UserPw);
 		model.addAttribute("user", user);
-		return "redirect:/main";
+		return "main";
 	}
 	
 }
