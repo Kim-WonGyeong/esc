@@ -14,12 +14,11 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class UserService {
 	
-	@Autowired
-	private static UserRepository repository;
+	private final UserRepository repository;
 	
-	public static User loginService(String UserId, String UserPw) {
+	public User loginService(String UserId, String UserPw) {
 		
-		User user = repository.findByUserIdAndUserPw(UserId, UserPw);
+		User user = this.repository.findByUserIdAndUserPw(UserId, UserPw);
 		return user;
 	}
 
