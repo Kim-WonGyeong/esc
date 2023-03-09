@@ -1,11 +1,5 @@
 package com.smhrd.controller;
 
-<<<<<<< HEAD
-=======
-import org.apache.ibatis.annotations.Param;
-import org.hibernate.annotations.Parameter;
-import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> branch 'master' of https://github.com/Kim-WonGyeong/esc.git
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
