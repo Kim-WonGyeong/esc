@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 th:text="${ingredient.ingName}"></h1>
+	<div>
+		<table>
+    		<thead>
+        		<tr>
+            		<th>영문명</th>
+            		<th>EWG 등급</th>
+            		<th>기능</th>
+        		</tr>
+    		</thead>
+    		<tbody>
+        		<tr>
+            		<td th:text="${ingredient.ingNameEng}"></td>
+            		<td th:text="|${ingredient.ingEwg} [${ingredient.ingEwgLev}]|"></td>
+            		<td th:text="${ingredient.ingFcn}"></td>
+        		</tr>
+		    </tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+
+                          ::::::::::       ::::::::       ::::::::                     
+                         :+:             :+:    :+:     :+:    :+:                     
+                        +:+             +:+            +:+                             
+   +#++:++#++:++       +#++:++#        +#++:++#++     +#+              +#++:++#++:++   
+                      +#+                    +#+     +#+                               
+                     #+#             #+#    #+#     #+#    #+#                         
+                    ##########       ########       ########                           
+
+spring-boot.version : ${spring-boot.version}
+application.version : ${application.version}
+application.title : ${application.title}
