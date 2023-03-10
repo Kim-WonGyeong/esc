@@ -40,6 +40,7 @@
 <!--                 <li class="title_item-three"><a href="#">다크모드</a></li>
  -->            <li class="title_item-none" th:if="${user != null}"><a>로그아웃</a></li>
  				<li class="title_item-none" th:if="${user == null}"><a th:href="@{/login}">로그인</a></li>
+ 				<li class="title_item-none" th:if="${user == null}"><a th:href="@{/join}">회원가입</a></li>
             </div>
 
         </div>
