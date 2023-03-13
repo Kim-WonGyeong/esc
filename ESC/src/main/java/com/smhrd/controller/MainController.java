@@ -1,7 +1,10 @@
 package com.smhrd.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.smhrd.entity.User;
 
 @Controller
 public class MainController {
@@ -28,7 +31,9 @@ public class MainController {
 	}
 	
 	@GetMapping("/join")
-	public String join() {
+	public String join(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
 		return "join";
 	}
 }

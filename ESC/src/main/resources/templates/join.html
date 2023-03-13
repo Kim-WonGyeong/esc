@@ -14,27 +14,27 @@
 			</tr>
 		</thead>
 		<!--  th:object="@{user}" -->
-		<form action="${/user/join}" method="post">
+		<form th:action="@{/user/join}" method="post" th:object="${user}">
 			<tbody>
 				<tr>
 					<td>아이디</td>
-					<!-- th:field="*{userId}"  th:field="*{userPw}"  th:field="*{userNick}" -->
-					<td><input type="text" ></td>
+					<!--   th:field="*{userId}"  th:field="*{userPw}"  th:field="*{userNick}"  -->
+					<td><input type="text" th:field="*{userId}"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password"></td>
+					<td><input type="password" th:field="*{userPw}"></td>
 				</tr>
 				<tr>
 					<td>닉네임</td>
-					<td><input type="text"></td>
+					<td><input type="text" th:field="*{userNick}"></td>
 				</tr>
 				<tr>
 					<td>성별</td>
 					<td align="center">
 					<!-- th:field="*{userGender}" th:field="*{userGender}"  -->
-						<input type="radio" name="gender">남성 
-						<input type="radio" name="gender">여성
+						<input type="radio" name="gender" value="male" th:field="*{userGender}">남성 
+						<input type="radio" name="gender" value="female" th:field="*{userGender}">여성
 					</td>
 				</tr>
 				<tr>
