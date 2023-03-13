@@ -22,29 +22,29 @@ import lombok.NoArgsConstructor;
 public class Result {
 	
 	@Id @Column(name="r_seq")
-	private Long rSeq;
+	private Long rseq;
 	
 	@ManyToOne(optional=false)
 	@JoinColumn(name="user_id")
 	private User user;
 	
 	@Column(name="r_date")
-	private LocalDateTime rDate;
+	private LocalDateTime rdate;
 	
 	@Column(name="r_skin")
-	private String rSkin;
+	private String rskin;
 	
 	@Column(name="r_oily")
-	private Long rOily;
+	private Long roily;
 	
 	@Column(name="r_resistant")
-	private Long rResistant;
+	private Long rresistant;
 	
 	@Column(name="r_non_pigment")
-	private Long rNonPigment;
+	private Long rnonPigment;
 	
 	@Column(name="r_tight")
-	private Long rTight;
+	private Long rtight;
 
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "rs")
 	private List<Recommendation> rcms;

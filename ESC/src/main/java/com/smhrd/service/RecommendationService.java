@@ -26,8 +26,7 @@ public class RecommendationService {
 	
 	// Result로 추천 목록 전체조회
 	public List<Cosmetic> getRcms(Result result){
-		Long RSeq = result.getRSeq();
-		List<Recommendation> rcmList = this.recommendationRepository.findAllByRSeq(RSeq);
+		List<Recommendation> rcmList = this.recommendationRepository.findAllByRs(result);
 		List<Cosmetic> rcmCsmtList = new ArrayList<Cosmetic>();
 
 		for(Recommendation rcm : rcmList) {

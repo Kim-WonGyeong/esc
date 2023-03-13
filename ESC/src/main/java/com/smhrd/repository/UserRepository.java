@@ -25,4 +25,6 @@ public interface UserRepository extends JpaRepository<User, String>{
 	// MyBatis 처럼 method 위에 annotation 으로 sql문 지정하는 방식
 	// @Query("select * from Users") 
 	// public List<Users> testQuery();
+	
+	public User findByUserId(String userId);
 }
