@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // 기본생성자
 @AllArgsConstructor // 전체생성자
 @Data // Getter, Setter
-@IdClass(Recommendation.class)
+@IdClass(RecommendationID.class)
 public class Recommendation implements Serializable{
 	private static final long serialVersionUID = 1L;
 

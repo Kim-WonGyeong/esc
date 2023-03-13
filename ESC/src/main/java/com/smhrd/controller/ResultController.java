@@ -62,11 +62,11 @@ public class ResultController {
 		// 저장할 Result 객체
 		Result rs = new Result();
 		rs.setUser(user);
-		rs.setRSkin(rSkin);
-		rs.setROily(rOily);
-		rs.setRResistant(rResistant);
-		rs.setRNonPigment(rNonPigment);
-		rs.setRTight(rTight);
+		rs.setRskin(rSkin);
+		rs.setRoily(rOily);
+		rs.setRresistant(rResistant);
+		rs.setRnonPigment(rNonPigment);
+		rs.setRtight(rTight);
 		
 		// DB에 문진결과 저장
 		Result result = this.resultService.rsSave(rs);

@@ -7,9 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import com.smhrd.entity.Recommendation;
 import com.smhrd.entity.RecommendationID;
+import com.smhrd.entity.Result;
 
 @Repository
 public interface RecommendationRepository extends JpaRepository<Recommendation, RecommendationID>{
 	
-	public List<Recommendation> findAllByRSeq(Long RSeq);
+	List<Recommendation> findAllByRs(Result rs);
 }

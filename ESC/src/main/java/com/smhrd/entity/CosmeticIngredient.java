@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 @Data // Getter, Setter
 @IdClass(CosmeticIngredientID.class)
 public class CosmeticIngredient implements Serializable{
-	
 	private static final long serialVersionUID = 1L;
 
 	@Id @ManyToOne(optional=false)
@@ -28,5 +27,4 @@ public class CosmeticIngredient implements Serializable{
 	@Id @ManyToOne(optional=false)
 	@JoinColumn(name="ing_seq")
 	private Ingredient ing;
-
 }
