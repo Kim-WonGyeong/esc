@@ -28,4 +28,9 @@ public class UserController {
 		return "main";
 	}
 	
+	@PostMapping("/join")
+	public String join(@RequestParam("user") User user) {
+		return "main";
+	}
+	
 }

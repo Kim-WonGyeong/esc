@@ -71,6 +71,8 @@
     left: 41%;
 
     animation: blink-effect 2.5s step-start infinite;
+
+    display: block;
 }
 
 @keyframes blink-effect {

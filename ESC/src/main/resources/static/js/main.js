@@ -244,6 +244,13 @@ gsap.to(".explainup", {
     y: -650,
 });
 
+function temp2 () {
+    document.getElementsByClassName("click_text_top")[0].innerHTML = `
+                <span>Skintype Brief</span>
+                <br><br>클릭하시면 줄임말을 풀어볼 수 있습니다
+                `;
+}
+
 gsap.to(".click_text", {
     scrollTrigger: {
         trigger:".section3-text",
@@ -257,8 +264,10 @@ gsap.to(".click_text", {
             });
         },
         onLeave: function () {
+            temp2();
             $('.click_text').css({
                 "display":"none"
+                
             });
         },
         onEnterBack: function() {
@@ -267,6 +276,7 @@ gsap.to(".click_text", {
             });
         },
         onLeaveBack: function() {
+            temp2();
             $('.click_text').css({
                 "display":"none"
             });
@@ -428,7 +438,7 @@ $('.section1').css({
     bubblyButtons[i].addEventListener('click', animateButton, false);
   } */
 
-
+/* 
 function showText(num) {
     // num에 따라 다른 텍스트를 가져와서 text라는 변수에 저장합니다.
     var showText1 ="";
@@ -501,7 +511,7 @@ function showText(num) {
     // 가져온 텍스트를 화면에 표시합니다.
     document.getElementsByClassName("click_text_top")[0].innerHTML = showText1;
     document.getElementsByClassName("click_text_bottom")[0].innerHTML = showText2;
-} 
+}  */
 
 
 /* const txtX = './';
@@ -544,3 +554,23 @@ gsap.set(chars, { opacity: 0 });
 gsap.timeline({ repeat: -1 })
     .to(chars, { opacity: 1, duration: 0.1, stagger: 0.05 })
     .to(chars, { opacity: 0, duration: 0.1, stagger: 0.05 }, '+1.5'); */
+
+function showText(num) {
+    fetch('textjson.json')
+        .then(response => response.json())
+        .then(json => {
+            const type = json.type[num];
+            const preview = json.preview[num];
+            const describe2 = json.text[num];
+
+            document.getElementsByClassName("click_text_top")[0].innerHTML = `
+            ${type}<br>
+            <h2>${preview}</h2>
+            
+            `;
+
+            document.getElementsByClassName("click_text_bottom")[0].innerHTML = `
+            ${describe2}
+            `;
+        });
+}

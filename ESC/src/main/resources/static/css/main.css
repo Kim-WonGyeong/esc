@@ -263,9 +263,9 @@ a:hover { color: var(--font-color); text-decoration: none;}
 
 .click_text {
     position: absolute;
-    left: 250px;
-    margin-top: 155px;
-    width: 370px;
+    left: 220px;
+    margin-top: 150px;
+    width: 320px;
     height: 630px;
     display: flex;
     flex-direction: column;
@@ -274,23 +274,39 @@ a:hover { color: var(--font-color); text-decoration: none;}
     font-family: var(--pop--font-family);
     text-align: justify;
     font-weight: 800;
+
+    
 }
 
 .click_text_top > span {
     color: #239FCE;
     font-size: 45px;
     font-weight: 1200;
+    
 }
 
 .click_text_top {
-    height: 30%;
-    font-size: 30px;
+    text-align: left;
+}
+
+.click_text_top > h2{
+    margin-top: 20px;
+    font-size: 35px;
 }
 
 .click_text_bottom {
+    margin-top: 20px;
     height: 70%;
-    font-size: 16px;
-    word-break:break-all;
+    font-size: 18px;
+    word-break:keep-all;
+    font-family: sans-serif;
+    text-align: left;
+
+}
+
+.click_text_bottom >h3 {
+    margin-top: 20px;
+    color: #239FCE;
 }
 
 

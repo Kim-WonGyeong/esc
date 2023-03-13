@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rework</title>
 
-    <link rel="stylesheet" href="/css/main.css">
-    <link href="./css/media.css" media="only screen and (max-width: 768px)" rel="stylesheet"> 
-    <link rel="stylesheet" href="./css/font.css">
-
+    <!-- 주석태그를 지워서 사용하세요 -->  
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <link th:href="@{/css/media.css}" media="only screen and (max-width: 768px)" rel="stylesheet">
+     
+   <!--  <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet"  media="only screen and (max-width: 768px)" href="/css/media.css">
+    <link rel="stylesheet" href="/css/font.css"> -->
 
     <!-- 나중에 정리 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +37,7 @@
         // 스크린 크기가 768px 이하인 경우
         if (window.matchMedia('(max-width: 768px)').matches) {
             const script = document.createElement('script');
-            script.src = './js/mobile.js';
+            script.src = '/js/mobile.js';
             document.head.appendChild(script);
 
             // 스크린 크기가 변경될 때마다 handleScreenChange 함수 실행
@@ -44,7 +47,7 @@
         // 스크린 크기가 768px 이상인 경우
         if (window.matchMedia('(min-width: 768px)').matches) {
             const script = document.createElement('script');
-            script.src = './js/main.js';
+            script.src = '/js/main.js';
             document.head.appendChild(script);
 
             // 스크린 크기가 변경될 때마다 handleScreenChange 함수 실행
@@ -67,12 +70,12 @@
     
     
                     <div class="header_link">
-                        <li class="title_item title_item_one "><a href="#">소개</a></li>
-                        <li class="title_item title_item_two"><a href="#">진단</a></li>
+                        <li class="title_item title_item_one"><a href="#">소개</a></li>
+                        <li class="title_item title_item_two" th:if="${user == null}"><a th:href="@{/join}">진단</a></li>
                         <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
-                        <li class="title_item-none title_item_three"><a href="#">로그인</a></li>
+                        <li class="title_item-none" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
+                        <li class="title_item-none title_item title_item_three" th:if="${user == null}"><a th:href="@{/join}">로그인|가입</a></li>
                     </div>
-    
                 </div>
                 <!--         <p class="title_last">PERFECT SKIN</p>-->
             </div>
@@ -174,7 +177,7 @@
             <div class="click_text">
                 <div class="click_text_top">
                     <span>Skintype Brief</span>
-                    <br><br>HERE...
+                    <br><br>클릭하시면 줄임말을 풀어볼 수 있습니다
                 </div>
     
                 <div class="click_text_bottom">
@@ -199,10 +202,10 @@
             <section class="section3-img">
                 <h4> </h4>
                 <ul class="wraper_img">
-                    <li><img src="./img/type/1.png" onclick="showText(13)"></li>
-                    <li><img src="./img/type/2.png" onclick="showText(14)"></li>
-                    <li><img src="./img/type/3.png" onclick="showText(1)"></li>
-                    <li><img src="./img/type/4.png" onclick="showText(2)"></li>
+                    <li><img src="./img/type/1.png" onclick="showText(12)"></li>
+                    <li><img src="./img/type/2.png" onclick="showText(13)"></li>
+                    <li><img src="./img/type/3.png" onclick="showText(0)"></li>
+                    <li><img src="./img/type/4.png" onclick="showText(1)"></li>
                 </ul>
     
             </section>
@@ -211,10 +214,10 @@
     
                 <ul class="wraper_img">
                     <h4> </h4>
-                    <li><img src="./img/type/5.png" onclick="showText(15)"></li>
-                    <li><img src="./img/type/6.png" onclick="showText(16)"></li>
-                    <li><img src="./img/type/7.png" onclick="showText(3)"></li>
-                    <li><img src="./img/type/8.png" onclick="showText(4)"></li>
+                    <li><img src="./img/type/5.png" onclick="showText(14)"></li>
+                    <li><img src="./img/type/6.png" onclick="showText(15)"></li>
+                    <li><img src="./img/type/7.png" onclick="showText(2)"></li>
+                    <li><img src="./img/type/8.png" onclick="showText(3)"></li>
                 </ul>
     
             </section>
@@ -223,10 +226,10 @@
     
                 <ul class="wraper_img">
                     <h4> </h4>
-                    <li><img src="./img/type/9.png" onclick="showText(9)"></li>
-                    <li><img src="./img/type/10.png" onclick="showText(10)"></li>
-                    <li><img src="./img/type/11.png" onclick="showText(5)"></li>
-                    <li><img src="./img/type/12.png" onclick="showText(6)"></li>
+                    <li><img src="./img/type/9.png" onclick="showText(8)"></li>
+                    <li><img src="./img/type/10.png" onclick="showText(9)"></li>
+                    <li><img src="./img/type/11.png" onclick="showText(4)"></li>
+                    <li><img src="./img/type/12.png" onclick="showText(5)"></li>
                 </ul>
     
             </section>
@@ -235,10 +238,10 @@
     
                 <ul class="wraper_img">
                     <h4> </h4>
-                    <li><img src="./img/type/13.png" onclick="showText(11)"></li>
-                    <li><img src="./img/type/14.png" onclick="showText(12)"></li>
-                    <li><img src="./img/type/15.png" onclick="showText(7)"></li>
-                    <li><img src="./img/type/16.png" onclick="showText(8)"></li>
+                    <li><img src="./img/type/13.png" onclick="showText(10)"></li>
+                    <li><img src="./img/type/14.png" onclick="showText(11)"></li>
+                    <li><img src="./img/type/15.png" onclick="showText(6)"></li>
+                    <li><img src="./img/type/16.png" onclick="showText(7)"></li>
                 </ul>
     
             </section>

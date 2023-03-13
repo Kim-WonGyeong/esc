@@ -8,6 +8,7 @@ const menu2 = document.querySelector('.title_item_two');
 const menu3 = document.querySelector('.title_item_three');
 const menu4 = document.querySelector('.header_nonedis')
 
+
 const pic = document.querySelector('.slide_pic_wrap');
 const section1 = document.querySelector('.section1');
 const pic2 = document.querySelector('.slide_pic_img');
