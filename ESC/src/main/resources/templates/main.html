@@ -75,6 +75,7 @@
                         <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
                         <li class="title_item-none" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
                         <li class="title_item-none title_item title_item_three" th:if="${user == null}"><a th:href="@{/join}">로그인|가입</a></li>
+                        <li class="title_item-none" th:if="${user != null}"><a th:href="@{/test}">테스트</a></li>
                     </div>
                 </div>
                 <!--         <p class="title_last">PERFECT SKIN</p>-->
