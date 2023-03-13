@@ -1,5 +1,7 @@
 package com.smhrd.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,13 @@ public class ResultController {
 	
 	private final ResultService resultService;
 	private final UserService userService;
+	
+	@GetMapping("/diagnosis")
+	public String rsDns(Model model, @PathVariable("od") List<String> od) {
+		
+		
+		return "resultHS";
+	}
 	
 	@GetMapping("/save/{id}")
 	public String rsSave(Model model, 

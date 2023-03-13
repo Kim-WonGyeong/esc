@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>문진 페이지</h1>
+	<form id="survey-form" th:action="@{/result/diagnosis}">
+          <h1 id="title">Baumann Skin Type Test</h1>
+
+<br><br>
+          <div id="cbx">
+            <div id="cbx1">
+              <p>
+                1. 세안 이후에 보습제, 자외선 차단제, 색소 화장품, 파우더, 혹은
+                다른 제품을 바르지 않은 상태에서 2~3시간 후에 밝은 조명 아래에서
+                거울을 보면 당신의 이마와 양 볼의 느낌이나 외양은 어떻습니까?
+              </p>
+              <input type="radio" checked="checked" name="od" value="1" />
+              <label>매우 거칠거나, 각질이 일어나거나, 혹은 창백하다.</label> <br>
+              <input type="radio" name="od" value="2" />
+              <labal>꽉 당긴다.</labal> <br>
+              <input type="radio" name="od" value="3" />
+              <labal> 빛의 반사가 없으며 촉촉하다.</labal> <br>
+              <input type="radio" name="od" value="4" />
+              <labal> 밝은 빛을 반사하며 윤기가 난다.</labal> <br>
+            </div>
+<br><br><br>
+            <div id="cbx2">
+              <p>2. 사진에 찍힌 당신의 얼굴은 윤기가 있습니까?</p>
+              <input type="radio" checked="checked" name="od" value="1" />
+              <label>전혀 아니다.</label>  <br>
+              <input type="radio" name="od" value="2" />
+              <label>때때로 그렇다.</label>  <br>
+              <input type="radio" checked="checked" name="od" value="3">
+              <label>자주 그렇다.</label> <br>
+              <input type="radio" name="od" value="4" />
+              <label>항상 그렇다.</label> <br>
+            </div>
+
+            <!--   <label>문의사항이나 개선방안을 기재해주세요</label><br>
+        <textarea placeholder="#"></textarea> -->
+          </div>
+          <input type="submit" name="submit" value="제출" />
+        </form>
+</body>
+</html>
