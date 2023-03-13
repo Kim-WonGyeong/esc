@@ -28,6 +28,11 @@ public class MainController {
 	@GetMapping("/login")
 	public String login() { 
 		return "login";
+	} 
+	
+	@GetMapping("/test")
+	public String test() {
+		return "test";
 	}
 	
 	@GetMapping("/join")
