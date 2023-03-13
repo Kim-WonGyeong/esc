@@ -50,4 +50,12 @@ public class CosmeticController {
 		return "cosmetic_detail";
 	}
 
+	@GetMapping("/cosmetic_list") // 2023-03-13 김원경
+	public String cosmeticList(Model model) {
+		// service.getList(매개변수 : 사용자 피부타입)
+		
+		// model 객체에 list값 보내기
+		
+		return "cosmetic_list";
+	}
 }
