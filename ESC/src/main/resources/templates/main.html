@@ -34,14 +34,13 @@
             <span class="text__second-bg"></span>
 
 
-            <div class="header_link">
-                <li class="title_item title_item_one "><a href="#">소개</a></li>
-                <li class="title_item title_item_two"><a href="#">진단</a></li>
-<!--                 <li class="title_item-three"><a href="#">다크모드</a></li>
- -->            <li class="title_item-none" th:if="${user != null}"><a>로그아웃</a></li>
- 				<li class="title_item-none" th:if="${user == null}"><a th:href="@{/login}">로그인</a></li>
- 				<li class="title_item-none" th:if="${user == null}"><a th:href="@{/join}">회원가입</a></li>
-            </div>
+             <div class="header_link">
+                        <li class="title_item title_item_one"><a href="#">소개</a></li>
+                        <li class="title_item title_item_two" th:if="${user == null}"><a th:href="@{/join}">진단</a></li>
+                        <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
+                        <li class="title_item-none" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
+                        <li class="title_item-none title_item title_item_three" th:if="${user == null}"><a th:href="@{/join}">로그인|가입</a></li>
+                    </div>
 
         </div>
 <!--         <p class="title_last">PERFECT SKIN</p>
@@ -110,8 +109,6 @@
 </section>
 <h1></h1>
 
-
-
 <section class="section2">
     
     <div class="wrap_lev3">
@@ -129,15 +126,7 @@
             </div>
         </div>
     
-        
-        
-    
-   
-    
 </section>
-
-
-
 
 <section class="section3">
 

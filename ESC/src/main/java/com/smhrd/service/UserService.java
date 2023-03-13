@@ -18,5 +18,9 @@ public class UserService {
 		User userinfo = repository.findByUserIdAndUserPw(userId, userPw);
 		return userinfo;
 	}
+	
+	public void joinService(User user) {
+		repository.save(user);
+	}
 
 }

@@ -30,7 +30,8 @@ public class UserController {
 	
 	@PostMapping("/join")
 	public String join(@RequestParam("user") User user) {
-		return "main";
+		service.joinService(user);
+		return "redirect:/main";
 	}
 	
 }
