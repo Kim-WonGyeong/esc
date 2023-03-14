@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<table>
+    <thead>
+        <tr>
+            <th>성분명</th>
+            <th>EWG 등급</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ingredient, index : ${ingList}">
+            <td th:text="${ingredient.ingName}"></td>
+            <td th:text="|${ingredient.ingEwg} [${ingredient.ingEwgLev}]|"></td>
+        </tr>
+    </tbody>
+
+</body>
+</html>

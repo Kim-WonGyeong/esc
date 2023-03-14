@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-
 <head>
 <meta charset="UTF-8">
 <title>회원가입 테스트</title>
@@ -13,15 +12,13 @@
 				<th colspan="2">회원가입 페이지</th>
 			</tr>
 		</thead>
-		<!--  th:object="@{user}" -->
 		<form th:action="@{/user/join}" method="post" th:object="${user}">
 			<tbody>
 				<tr>
 					<td>아이디</td>
-					<!--   th:field="*{userId}"  th:field="*{userPw}"  th:field="*{userNick}"  -->
 					<td><input type="text" th:field="*{userId}"></td>
 				</tr>
-				<tr>
+				<tr> 
 					<td>비밀번호</td>
 					<td><input type="password" th:field="*{userPw}"></td>
 				</tr>
@@ -35,6 +32,7 @@
 					<!-- th:field="*{userGender}" th:field="*{userGender}"  -->
 						<input type="radio" name="gender" value="male" th:field="*{userGender}">남성 
 						<input type="radio" name="gender" value="female" th:field="*{userGender}">여성
+
 					</td>
 				</tr>
 				<tr>
@@ -45,5 +43,6 @@
 			</tbody>
 		</form>
 	</table>
+	<a th:href="@{/login}">로그인</a>
 </body>
 </html>

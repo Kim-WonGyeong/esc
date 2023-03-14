@@ -36,7 +36,6 @@ public class CosmeticService {
 		return ingList;
 	}
 	
-	
 	// 제품번호로 제품 조회
 	public Cosmetic getCosmetic(String csmtNo) {
 		Optional<Cosmetic> cosmetic = this.csmtRepository.findById(csmtNo);
@@ -46,5 +45,10 @@ public class CosmeticService {
 			throw new DataNotFoundException("ingredient not found");
 		}
 	}
-
+	
+	// 카테고리별 제품 조회
+	public List<Cosmetic> csmtByTypeList(String csmtType){
+		List<Cosmetic> csmtByTypeList = this.csmtRepository.findAllByCsmtType(csmtType);
+		return csmtByTypeList;
+	}
 }

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity(name="users")
 @NoArgsConstructor // 기본생성자
 @AllArgsConstructor // 전체생성자
-@Data // Getter, Setter
+@Data // Getter, Setter  
 public class User {
 	
 	@Id // Primary key

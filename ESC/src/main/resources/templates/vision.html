@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="vision.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&family=Poppins:wght@700;800;900&family=Rubik:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://d3js.org/d3.v6.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+
+    <script src="./vision.js" defer></script>
+
+</head>
+<body>
+    <div class="wraper">
+    <div class="card card2 panel">
+        <!-- 1 -->
+        <div class="card_in-header"><p>Find Your Type.</p></div>
+
+        <!-- 2 -->
+        <div class="card_in-check">
+            <div class="card_in-wrap">
+                <img class="tempImg" src="img/temp.jpg" alt="안녕">
+            </div>
+        </div>
+
+
+        <!-- 3 -->
+        <div class="card_in-describe">
+            <p>YOUR TYPE IS MSTP</p>
+        </div>
+    </div>
+
+    <div class="card panel">
+        <div class="card_in-header"><p>Compare Item.</p></div>
+
+
+        <div class="card_in-check">
+            <div class="card_in-wrap">
+                <div class="left"><p>ITEM1</p><img src="./img/pexels1.jpg"></div>
+                <div class="choisItemL">
+                    <ul class="list">
+                        <li>item1 90</li>
+                        <li>item2 80</li>
+                        <li>item3 70</li>
+                        <li>item4 60</li>
+                        <li>item5 20</li>
+                    </ul>
+                </div>
+                <div class="right"><p>ITEM2</p><img src="./img/pexels2.jpg"></div>
+                <div class="choisItemR">
+                    <ul class="list2">
+                        <li>item1 90</li>
+                        <li>item2 80</li>
+                        <li>item3 70</li>
+                        <li>item4 60</li>
+                        <li>item5 20</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card_in-bar">
+            <ul class="tabs">
+                <li class="active" rel="tab1">Tab 1</li>
+                <li rel="tab2">Tab 2</li>
+            </ul>
+        
+        
+            <div class="tab_container">
+        
+                <h3 class="d_active tab_drawer_heading" rel="tab1">Tab 1</h3>
+                <div id="tab1" class="tab_content">
+                    <h2>Tab 1 content</h2>
+                    <svg class="chart"></svg>
+                </div>
+                <!-- #tab1 -->
+
+                <h3 class="tab_drawer_heading" rel="tab2">Tab 2</h3>
+                <div id="tab2" class="tab_content">
+                    <h2>Tab 2 content</h2>
+                    <svg class="chart2"></svg>
+                </div>
+                <!-- #tab2 -->
+
+            </div>
+            <!-- <svg class="chart"></svg> -->
+        </div>
+
+    </div>
+    <div class="icon chartAni">
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+
+   <!--  <div class="chart-part">
+        
+
+    </div> -->
+</div>
+</body>
+</html>
