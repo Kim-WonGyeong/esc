@@ -6,10 +6,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,9 +22,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // 기본생성자
 @AllArgsConstructor // 전체생성자
 @Data
+@SequenceGenerator(
+		name = "result_seq_generator",
+		sequenceName = "result_seq",
+		initialValue = 1,
+		allocationSize = 1
+)
 public class Result {
 	
 	@Id @Column(name="r_seq")
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "result_seq_generator"
+	)
 	private Long rseq;
 	
 	@ManyToOne(optional=false)
