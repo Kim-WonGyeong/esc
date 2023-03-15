@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -31,4 +32,39 @@
 		</form>
 	</table>
 </body>
+=======
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<h2>TEST 화면</h2>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th colspan="2">로그인 페이지</th>
+			</tr>
+		</thead>
+		<form th:action="@{/user/login}" method="post">
+			<tbody>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="UserId" th:value="${UserId}"></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="UserPw" th:value="${UserPw}"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<button type="submit">로그인</button>
+					</td>
+				</tr>
+			</tbody>
+		</form>
+	</table>
+</body>
+>>>>>>> branch 'master' of https://github.com/Kim-WonGyeong/esc.git
 </html>
