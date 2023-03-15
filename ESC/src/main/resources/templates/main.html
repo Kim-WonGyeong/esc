@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rework</title>
 
-	<link th:href="@{/css/main.css}" rel="stylesheet">
-	<!-- 23/03/09 img, js 깨짐 -->
-	
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="./css/media.css" media="only screen and (max-width: 768px)" rel="stylesheet"> 
     <link rel="stylesheet" href="./css/font.css">
+
 
     <!-- 나중에 정리 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,264 +19,318 @@
 
     <script src="https://kit.fontawesome.com/c8ca5d214a.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="./js/main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+
+    
+    <script defer>
+        // 스크린 크기가 변경될 때마다 실행할 함수
+        function handleScreenChange() {
+            location.reload(); // 페이지를 새로고침
+        }
+
+        // 스크린 크기가 768px 이하인 경우
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            const script = document.createElement('script');
+            script.src = './js/mobile.js';
+            document.head.appendChild(script);
+
+            // 스크린 크기가 변경될 때마다 handleScreenChange 함수 실행
+            window.addEventListener('resize', handleScreenChange);
+        }
+
+        // 스크린 크기가 768px 이상인 경우
+        if (window.matchMedia('(min-width: 768px)').matches) {
+            const script = document.createElement('script');
+            script.src = './js/main.js';
+            document.head.appendChild(script);
+
+            // 스크린 크기가 변경될 때마다 handleScreenChange 함수 실행
+            window.addEventListener('resize', handleScreenChange);
+        }
+    </script>
+
 </head>
 <body>
-
-<nav class="header section-1">
-
-    <div class="header_title">
-        <div class="title">ESC
-            <span class="text__first-bg "></span>
-            <span class="text__second-bg"></span>
-
-
-            <div class="header_link">
-                <li class="title_item title_item_one "><a href="#">소개</a></li>
-                <li class="title_item title_item_two"><a href="#">진단</a></li>
-<!--                 <li class="title_item-three"><a href="#">다크모드</a></li>
- -->            <li class="title_item-none" th:if="${user != null}"><a>로그아웃</a></li>
- 				<li class="title_item-none" th:if="${user == null}"><a th:href="@{/login}">로그인</a></li>
-            </div>
-
-        </div>
-<!--         <p class="title_last">PERFECT SKIN</p>
- -->
-    </div>
-
-    <div class="header_text trigger"><span>EXPERT </span>SKINCARE
-    <span class="kk_first"></span>
-    <span class="kk_second"></span>
-    </div>
-</nav>
-
-
-<section class="section1">
-    <div class="slide_pic">
-        <div class="slide_pic_wrap">
-        <img class="slide_pic_img" src="./img/final2.jpg" alt="화장품">
-        </div>
-    </div>
-
-    <div class="explain explainup">
-        <h1>Find Your <span>Type</span></h1>
-        <h2> <br>ESC는 당신의 피부타입을 찾아드립니다<br><br>
-            잘못된 화장품 선택으로부터<br>여러분의 피부건강을 지키세요
-        </h2>
-    </div>
-
-    <div class="explain2 explainup">
-        <h1>Take Care Of <span>Skin</span></h1>
-        <h2> <br>건강한 피부를 결정하는 요소는 생각보다 단순하지 않습니다<br><br>
-            잘못된 화장품 선택으로부터<br>여러분의 피부건강을 지키세요
-        </h2>
-    </div>
-
-    <div class="explain3 explainup">
-        <h1>Skin age does <span>not return</span></h1>
-        <h2> <br>당신의 피부나이는 돌아오지 않습니다<br><br>
-            지금부터 타입에 맞는 화장품 선택으로<br>여러분의 피부건강을 지키세요
-        </h2>
-    </div>
-    
-    <div class="explain4 explainup">
-        <h1>Perfect <span>analytics</span></h1>
-        <h2> <br>ESC는 정교한 분석결과를 제공합니다<br><br>
-            이제 누구나 쉽고 간편하게 피부 건강을 위한<br>전문적인 서비스를 경험할 수 있습니다
-        </h2>
-    </div>
+    <section class="container">
     
     
-    <div class="explain5 explainup">
-        <h1>AI <span>DeepLearning</span></h1>
-        <h2> <br>피부데이터 기반 Ai 딥러닝<br><br>
-            피부에 최적화된 화장품과 <br>바른 라이프스타일을 찾아보세요
-        </h2>
-    </div>
+        <nav class="header section-s panel">
     
-    <!-- <div class="icon_name" id="ab">
-        <i class="fa-sharp fa-solid fa-circle "></i>
-        <i class="fa-sharp fa-solid fa-circle-dot "></i>
-        <i class="fa-sharp fa-solid fa-circle "></i>
-        <p>EXPERT SKINCARE</p>
-    </div>
-
-    <p class="icon_name_title">EXPERT SKINCARE</p> -->
-
-</section>
-<h1></h1>
-
-
-
-<section class="section2">
+            <div class="header_title">
+                <div class="title">ESC
+                    <span class="header_nonedis">click here</span>
+                    <span class="text__first-bg "></span>
+                    <span class="text__second-bg"></span>
     
-    <div class="wrap_lev3">
     
-        <div class="warp_lev3_2 ">
-            <div class="lev3_img">
-                <img src="./img/lev2pic1.png" art="how it work1">
-            </div>
-            <div class="lev3_text1">
-                <h3><br></h3>
-                <h2>바우만 피부검사법으로<br>피부타입을 찾아보세요</h2>
-                <p><br>본인의 피부에 맞는 화장품을 쓰는것은 중요합니다<br><br>사람마다 피부타입은 제각기 다르기 때문에<br>모두가 사용하는 똑같은 제품을 찾기보다는<br>검사를 통해 본인피부타입에 맞는 화장품을<br>찾아보세요</p>
+                    <div class="header_link">
+                        <li class="title_item title_item_one "><a href="#">소개</a></li>
+                        <li class="title_item title_item_two"><a href="#">진단</a></li>
+                        <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
+                        <li class="title_item-none title_item_three"><a href="#">로그인</a></li>
+                    </div>
+    
+                </div>
+                <!--         <p class="title_last">PERFECT SKIN</p>-->
             </div>
     
+            <div class="header_text trigger"><span>EXPERT </span>SKINCARE
+                <span class="kk_first"></span>
+                <span class="kk_second"></span>
             </div>
+        </nav>
+    
+    
+        <section class="section1 panel2">
+            <div class="slide_pic ">
+                <div class="slide_pic_wrap">
+                    <img class="slide_pic_img" src="./img/final2.jpg" alt="화장품">
+                </div>
+            </div>
+    
+            <div class="explain explainup">
+                <h1>Find Your <span>Type</span></h1>
+                <h2> <br>ESC는 당신의 피부타입을 찾아드립니다<br><br>
+                    잘못된 화장품 선택으로부터<br>여러분의 피부건강을 지키세요
+                </h2>
+            </div>
+    
+            <div class="explain2 explainup">
+                <h1>Take Care of <span>Skin</span></h1>
+                <h2> <br>건강한 피부를 결정하는 요소는 생각보다 단순하지 않습니다<br><br>
+                    잘못된 화장품 선택으로부터<br>여러분의 피부건강을 지키세요
+                </h2>
+            </div>
+    
+            <div class="explain3 explainup">
+                <h1>Skin age does <span>not return</span></h1>
+                <h2> <br>당신의 피부나이는 돌아오지 않습니다<br><br>
+                    지금부터 타입에 맞는 화장품 선택으로<br>여러분의 피부건강을 지키세요
+                </h2>
+            </div>
+    
+            <div class="explain4 explainup">
+                <h1>Perfect <span>analytics</span></h1>
+                <h2> <br>ESC는 정교한 분석결과를 제공합니다<br><br>
+                    이제 누구나 쉽고 간편하게 피부 건강을 위한<br>전문적인 서비스를 경험할 수 있습니다
+                </h2>
+            </div>
+    
+    
+            <div class="explain5 explainup">
+                <h1>AI <span>DeepLearning</span></h1>
+                <h2> <br>피부데이터 기반 Ai 딥러닝<br><br>
+                    피부에 최적화된 화장품과 <br>바른 라이프스타일을 찾아보세요
+                </h2>
+            </div>
+    
+            <!-- <div class="icon_name" id="ab">
+            <i class="fa-sharp fa-solid fa-circle "></i>
+            <i class="fa-sharp fa-solid fa-circle-dot "></i>
+            <i class="fa-sharp fa-solid fa-circle "></i>
+            <p>EXPERT SKINCARE</p>
         </div>
     
-        
-        
+        <p class="icon_name_title">EXPERT SKINCARE</p> -->
     
-   
+        </section>
+        <h1></h1>
     
-</section>
+    
+    
+        <section class="section2 panel">
+    
+            <div class="wrap_lev3">
+    
+                <div class="warp_lev3_2 ">
+                    <div class="lev3_img">
+                        <img src="./img/lev2pic1.png" art="how it work1">
+                    </div>
+                    <div class="lev3_text1">
+                        <h3><br></h3>
+                        <h2>바우만 피부검사법으로<br>피부타입을 찾아보세요</h2>
+                        <p><br>본인의 피부에 맞는 화장품을 쓰는것은 중요합니다<br><br>사람마다 피부타입은 제각기 다르기 때문에<br>모두가 사용하는 똑같은 제품을 찾기보다는<br>검사를 통해
+                            본인피부타입에 맞는 화장품을<br>찾아보세요</p>
+                    </div>
+    
+                </div>
+            </div>
+    
+    
+    
+    
+    
+    
+        </section>
+    
+    
+    
+    
+        <section class="section3 section-s panel">
+    
+            <div class="click_text">
+                <div class="click_text_top">
+                    <span>Skintype Brief</span>
+                    <br><br>HERE...
+                </div>
+    
+                <div class="click_text_bottom">
+    
+                </div>
+            </div>
+    
+            <div class="loader df aic jcc">
+                <div>
+                    <h1>Loading</h1>
+                    <h2 class="loader--text">0%</h2>
+                </div>
+            </div>
+    
+    
+            <section class="section3-text-top ">
+                <div class="section3-text">
+                    DRPTDRNTDSPTDSNTDRPWDRNWDSPWDSNWDRPWPDSNTDR&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBaumann&nbspSkinType
+                </div>
+            </section>
+    
+            <section class="section3-img">
+                <h4> </h4>
+                <ul class="wraper_img">
+                    <li><img src="./img/type/1.png" onclick="showText(13)"></li>
+                    <li><img src="./img/type/2.png" onclick="showText(14)"></li>
+                    <li><img src="./img/type/3.png" onclick="showText(1)"></li>
+                    <li><img src="./img/type/4.png" onclick="showText(2)"></li>
+                </ul>
+    
+            </section>
+    
+            <section class="section3-img">
+    
+                <ul class="wraper_img">
+                    <h4> </h4>
+                    <li><img src="./img/type/5.png" onclick="showText(15)"></li>
+                    <li><img src="./img/type/6.png" onclick="showText(16)"></li>
+                    <li><img src="./img/type/7.png" onclick="showText(3)"></li>
+                    <li><img src="./img/type/8.png" onclick="showText(4)"></li>
+                </ul>
+    
+            </section>
+    
+            <section class="section3-img">
+    
+                <ul class="wraper_img">
+                    <h4> </h4>
+                    <li><img src="./img/type/9.png" onclick="showText(9)"></li>
+                    <li><img src="./img/type/10.png" onclick="showText(10)"></li>
+                    <li><img src="./img/type/11.png" onclick="showText(5)"></li>
+                    <li><img src="./img/type/12.png" onclick="showText(6)"></li>
+                </ul>
+    
+            </section>
+    
+            <section class="section3-img">
+    
+                <ul class="wraper_img">
+                    <h4> </h4>
+                    <li><img src="./img/type/13.png" onclick="showText(11)"></li>
+                    <li><img src="./img/type/14.png" onclick="showText(12)"></li>
+                    <li><img src="./img/type/15.png" onclick="showText(7)"></li>
+                    <li><img src="./img/type/16.png" onclick="showText(8)"></li>
+                </ul>
+    
+            </section>
+            <section class="section3-text-top">
+                <div class="section3-text">
+                    DRPTDRNTDSPTDSNTDRPWDRNWDSPWDSNWDRPWPDSNTDR&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a
+                        href="#">CHECK&nbspYOUR&nbspTYPE</a>
+                </div>
+            </section>
+            <span class="check_showtxt"></span>
+    
+        </section>
+    
+        <section class="section2 section2-b panel">
+    
+            <div class="warp_lev3_2_re">
+    
+                <div class="lev3_img2">
+                    <img src="./img/lev2pic2.png" art="how it work1">
+                </div>
+    
+    
+                <div class="lev3_text2">
+                    <h3><br></h3>
+                    <h2><br>정보의 바다에서 많은 정보에<br>헤매고 있나요?</h2>
+                    <p><br>피부타입에 맞는 제품을 추천하기 위해<br>ESC는 수십만건의 데이터를 바탕으로<br>피부와 화장품에 대해 학습하고<br>알고리즘을 설계했습니다<br>필요한 것을 찾아드립니다
+                    </p>
+                </div>
+    
+            </div>
+    
+            <div class="warp_lev3_2_re2 panel">
+                <div class="lev3_img3">
+                    <img src="./img/lev2pic3.png" art="how it work1">
+    
+                </div>
+    
+                <div class="lev3_text3">
+                    <div class="textbox_1">
+                        <h4><br></h4>
+                        <h2> 피부에 맞는<br>제품을 찾아드립니다</h2>
+                        <p><br>바우만 피부타입 문진을 통해<br>피부타입과 그에 맞는 제품을 추천해드립니다</p>
+                    </div>
+    
+                    <div class="textbox_2">
+                        <h2><br> 피부 분석 결과를<br>저장해보세요</h2>
+                        <p><br>로그인 또는 회원가입을 통해<br>피부타입과 추천받은 제품을 저장할 수 있습니다</p>
+                    </div>
+                </div>
+            </div>
+    
+    
+        </section>
+    
+        <span class="btn">Join us!</span>
+    
+        <section class="section4_bottom panel2">
+            <div class="bottom_left">
+                <h1><span>I</span>nformation</h1>
+                <h1><span>A</span>bout us</h1>
+                <h1><span>R</span>eaviews</h1>
+                <h1><span>F</span>AQs</h1>
+            </div>
+            <div class="bottom_right">
+                <div class="bottom_title">
+                    <!-- <img class="Lchange_color" src="#" > -->ESC<!-- <img class="Rchange_color" src="#"> -->
+                    <p class="bottom_last">PERFECT SKIN</p>
+    
+                </div>
+                <div class="oh_wrap">
+                    <img class="oh" src="./img/oh1.png"><img class="oh" src="./img/oh2.png"><img class="oh"
+                        src="./img/oh3.png">
+                </div>
+            </div>
+        </section>
+    
+    
+    
+    </section>
 
 
-
-
-<section class="section3">
-
-    <div class="loader df aic jcc">
+    <footer panel>
         <div>
-            <h1>Loading</h1>
-            <h2 class="loader--text">0%</h2>
+            <h1><a>Sitemap</a></h1>
+            <h1><a>Pivacy Policy</a></h1>
+            <h1><a>Trust And Security</a></h1>
         </div>
-    </div>
-    <section class="section3-text-top ">
-        <div class="section3-text">
-            DRPTDRNTDSPTDSNTDRPWDRNWDSPWDSNWDRPWPDSNTDR&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBaumann&nbspSkinType
+        <div>
+            <h1>Team 데이터처리퍼블릭</h1>
         </div>
-    </section>
+    </footer>
 
-    <section class="section3-img">
-        <h4> </h4>
-        <ul class="wraper_img">
-            <li><img src="./img/type/1.png"></li>
-            <li><img src="./img/type/2.png"></li>
-            <li><img src="./img/type/3.png"></li>
-            <li><img src="./img/type/4.png"></li>
-        </ul>
-
-    </section>
-
-    <section class="section3-img">
-
-        <ul class="wraper_img">
-            <h4> </h4>
-            <li><img src="./img/type/5.png"></li>
-            <li><img src="./img/type/6.png"></li>
-            <li><img src="./img/type/7.png"></li>
-            <li><img src="./img/type/8.png"></li>
-        </ul>
-
-    </section>
-
-    <section class="section3-img">
-
-        <ul class="wraper_img">
-            <h4> </h4>
-            <li><img src="./img/type/9.png"></li>
-            <li><img src="./img/type/10.png"></li>
-            <li><img src="./img/type/11.png"></li>
-            <li><img src="./img/type/12.png"></li>
-        </ul>
-
-    </section>
-
-    <section class="section3-img">
-
-        <ul class="wraper_img">
-            <h4> </h4>
-            <li><img src="./img/type/13.png"></li>
-            <li><img src="./img/type/14.png"></li>
-            <li><img src="./img/type/15.png"></li>
-            <li><img src="./img/type/16.png"></li>
-        </ul>
-
-    </section>
-
-    <section class="section3-text-top">
-        <div class="section3-text">
-            DRPTDRNTDSPTDSNTDRPWDRNWDSPWDSNWDRPWPDSNTDR&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCHECK&nbspYOUR&nbspTYPE
-        </div>
-    </section>
-    
-</section>
-
-<section class="section2">
-
-    <div class="warp_lev3_2_re">
-        <div class="lev3_img2">
-            <img src="./img/lev2pic2.png" art="how it work1">
-        </div>
-       
-
-        <div class="lev3_text2">
-            <h3><br></h3>
-            <h2><br>정보의 바다에서 많은 정보에<br>헤매고 있나요?</h2>
-            <p><br>피부타입에 맞는 제품을 추천하기 위해<br>ESC는 수십만건의 데이터를 바탕으로<br>피부와 화장품에 대해 학습하고<br>알고리즘을 설계했습니다<br>필요한 것을 찾아드립니다</p>
-        </div>
-    </div>
-
-    <div class="warp_lev3_2_re2">
-        <div class="lev3_img3">
-            <img src="./img/lev2pic3.png" art="how it work1">
-            
-        </div>
-
-        <div class="lev3_text3">
-            <div class="textbox_1">
-            <h4><br></h4>
-            <h2> 피부에 맞는<br>제품을 찾아드립니다</h2>
-            <p><br>바우만 피부타입 문진을 통해<br>피부타입과 그에 맞는 제품을 추천해드립니다</p>
-            </div>
-            
-            <div class="textbox_2">
-            <h2><br> 피부 분석 결과를<br>저장해보세요</h2>
-            <p><br>로그인 또는 회원가입을 통해<br>피부타입과 추천받은 제품을 저장할 수 있습니다</p>
-            </div>
-        </div>
-    </div>
-
-
-</section>
-
-
-
-<section class="section4_bottom">
-    <div class="bottom_left">
-        <h1><span>I</span>nformation</h1>
-        <h1><span>A</span>bout us</h1>
-        <h1><span>R</span>eaviews</h1>    
-        <h1><span>F</span>AQs</h1>
-    </div>
-    <div class="bottom_right">
-        <div class="bottom_title"><!-- <img class="Lchange_color" src="#" > -->ESC<!-- <img class="Rchange_color" src="#"> -->
-            <p class="bottom_last">PERFECT SKIN</p>
-            
-        </div>
-        <div class="oh_wrap">
-        <img class="oh" src="./img/oh1.png"><img class="oh" src="./img/oh2.png"><img class="oh" src="./img/oh3.png">
-        </div>
-    </div>
-</section>
-
-
-
-
-<footer>
-    <div>
-    <h1><a>Sitemap</a></h1>
-    <h1><a>Pivacy Policy</a></h1>
-    <h1><a>Trust And Security</a></h1>
-    </div>
-    <div>
-    <h1>Team 데이터처리퍼블릭</h1>
-    </div>
-</footer>
 
 <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 </body>

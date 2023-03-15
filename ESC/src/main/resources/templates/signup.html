@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <script src="https://kit.fontawesome.com/c8ca5d214a.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style type="text/css">
+        @import url("css/signup.css");
+    </style>
+
+
+</head>
+<body>
+  <nav class="header section-s panel">
+    
+    <div class="header_title">
+        <div class="title">ESC
+
+
+            <div class="header_link">
+                <li class="title_item title_item_one "><a href="#">소개</a></li>
+                <li class="title_item title_item_two"><a href="#">진단</a></li>
+                <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
+                
+            </div>
+
+        </div>
+        <!--         <p class="title_last">PERFECT SKIN</p>-->
+    </div>
+    <!--
+    <div class="header_text trigger"><span>EXPERT </span>SKINCARE
+        <span class="kk_first"></span>
+        <span class="kk_second"></span>
+    </div>
+  -->
+</nav>
+
+
+
+
+
+
+
+
+
+
+<br>
+    <div class="container" id="container">
+
+        <div class="form-container sign-up-container">
+          <form>
+            <h1>회원가입</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social"><i class="fab fa-google"></i></a>
+              <a href="#" class="social"> <i class="fab fa-kakao">
+                <img src="./img/2111683.png"  width="14px" height="13px" alt=""></i>
+              </a>
+            </div>
+            <input type="text" placeholder="이름" />
+            <input type="email" placeholder="아이디" />
+            <input type="password" placeholder="비밀번호" />
+            
+            
+
+<!--
+            <form name="flexForm" >
+              <label class="flexForm"><input type="radio" class="gender" name="fDTypes" value="column" checked/><p>남자</p></label>
+              <label class="flexForm"><input type="radio" class="gender" name="fDTypes" value="column-reverse"/><p>여자</p></label>
+              
+            </form>
+    -->   
+       
+    <label style="display: inline-block;">
+      <input type="radio" name="gender" value="male">
+      남자
+    </label>
+    <label style="display: inline-block;">
+      <input type="radio" name="gender" value="female">
+      여자
+    </label>
+            
+            <button onclick="return false;">회원가입</button>
+          </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+          <form>
+            <h1>로그인</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social"><i class="fab fa-google"></i></a>
+              <a href="#" class="social"> <i class="fab fa-kakao">
+                <img src="./img/2111683.png"  width="14px" height="13px" alt=""></i>
+            </a>
+            </div>
+
+            <input type="email" placeholder="아이디" />
+            <input type="password" placeholder="비밀번호" />
+            <a href="#">비밀번호를 잊어버리셨나요?</a>
+            <button onclick="return false;">로그인</button>
+          </form>
+         </div>
+
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>어서오세요</h1>
+              <p>로그인 후 피부분석을 진행해보세요</p>
+              <button class="ghost" id="signIn">로그인</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>환영합니다</h1>
+              <p>ESC는 처음이신가요?</p>
+              <button class="ghost" id="signUp">회원가입</button>
+              
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+<script src="./js/signup.js"></script>
+
+ 
+
+
+</body>
+</html>
