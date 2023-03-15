@@ -1,10 +1,13 @@
 package com.smhrd.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,6 +24,23 @@ public class ResultController {
 	
 	private final ResultService resultService;
 	private final HttpSession httpSession;
+	
+	@GetMapping("/detail/{rseq}")
+	public String rsDetail(Model model, @PathVariable("rseq") Long rseq) {
+		Result result = this.resultService.getResult(rseq);
+		model.addAttribute("result", result);
+		System.out.println(result.getUser().getUserId());
+		return "resultHS";
+	}
+	
+	@GetMapping("/history")
+	public String rsHistory(Model model) {
+		User user = (User) httpSession.getAttribute("user");
+		System.out.println(user.getUserNick());
+		List<Result> rsList = this.resultService.getResultList(user);
+		model.addAttribute("rsList", rsList);
+		return "historyHS";
+	}
 	
 	@GetMapping("/save")
 	public String rsSave(Model model,
@@ -73,5 +93,5 @@ public class ResultController {
 		model.addAttribute(result);
 		return "resultHS";
 	}
-
+	
 }
