@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+    <thead>
+        <tr>
+            <th>진단결과</th>
+            <th>진단일</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="result, index : ${rsList}">
+            <td>
+            	<!-- 진단결과 상세보기 기능 매핑할 것 -->
+            	<a th:href="@{|/result/detail/${result.rseq}|}" 
+            	th:text="${result.rskin}"></a>
+            </td>
+            <td th:text="${result.rdate}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

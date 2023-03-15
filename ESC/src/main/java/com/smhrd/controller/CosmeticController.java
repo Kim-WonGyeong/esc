@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.entity.Cosmetic;
 import com.smhrd.entity.Ingredient;
@@ -38,6 +39,7 @@ public class CosmeticController {
 	
 	private final CosmeticService cosmeticService;
 	
+	// 제품 상세보기 기능
 	@GetMapping("/detail/{csmtNo}")
 	public String csmtDetail(Model model, @PathVariable("csmtNo") String csmtNo) {
 		// Ingredient 객체를 template에 전달
@@ -49,13 +51,20 @@ public class CosmeticController {
 		model.addAttribute("ingList", ingList);
 		return "cosmetic_detail";
 	}
-
-	@GetMapping("/cosmetic_list") // 2023-03-13 김원경
-	public String cosmeticList(Model model) {
-		// service.getList(매개변수 : 사용자 피부타입)
-		
-		// model 객체에 list값 보내기
-		
-		return "cosmetic_list";
+	
+	// 제품 1:1 비교 기능
+	@GetMapping("/comparison")
+	public String csmtComparison(Model model,
+			@RequestParam("csmt1") Cosmetic csmt1,
+			@RequestParam("csmt2") Cosmetic csmt2
+			) {
+		List<Ingredient> csmt1IngList = this.cosmeticService.getCosIngList(csmt1);
+		List<Ingredient> csmt2IngList = this.cosmeticService.getCosIngList(csmt2);
+		model.addAttribute("csmt1", csmt1);
+		model.addAttribute("csmt2", csmt2);
+		model.addAttribute("csmt1IngList", csmt1IngList);
+		model.addAttribute("csmt2IngList", csmt2IngList);
+		return "cmpTestHS";
 	}
+
 }
