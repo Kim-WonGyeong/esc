@@ -32,6 +32,11 @@ public class MainController {
 	
 	@GetMapping("/test")
 	public String test() {
+		return "SkinTest";
+	}
+	
+	@GetMapping("/tesths")
+	public String tesths() {
 		return "testHS";
 	}
 	
