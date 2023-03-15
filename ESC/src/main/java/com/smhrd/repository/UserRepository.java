@@ -12,7 +12,7 @@ public interface UserRepository extends JpaRepository<User, String>{
 
 	// 회원가입 save();
 	
-	// 로그인 : 2023-03-09
+	// 로그인
 	public User findByUserIdAndUserPw(String userId, String userPw);
 	
 	// 탈퇴

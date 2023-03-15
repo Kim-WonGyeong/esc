@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.smhrd.entity.Cosmetic;
+import com.smhrd.entity.Review;
 
 @Repository
 public interface CosmeticRepository extends JpaRepository<Cosmetic, String>{
@@ -14,4 +15,7 @@ public interface CosmeticRepository extends JpaRepository<Cosmetic, String>{
 	// public List<Users> testQuery();
 	
 	public List<Cosmetic> findAllByCsmtType(String csmtType);
-}
+	
+	public List<Cosmetic> findAllByCsmtNoIn(List<Review> reviewList);
+		
+	}
