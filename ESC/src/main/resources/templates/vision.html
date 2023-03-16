@@ -6,68 +6,456 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="vision.css">
-    <link th:href="@{/css/vision.css}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/vision.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&family=Poppins:wght@700;800;900&family=Rubik:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
     
     <script src="https://d3js.org/d3.v6.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
 
-    <script src="./vision.js" defer></script>
+    <script src="/js/vision.js" defer></script>
+    <script src="/js/vision2.js" defer></script>
 
 </head>
 <body>
+    <!-- 왼쪽 -->
+    <div class="wraper2">
+    
+        <div class="card3">
+            <h3>Recomend Item</h3>
+            <img class="button_x" src="/img/asdqwe.png" alt="">
+            <ul class="tabTs">
+                <li class="active" rel="taba">Skin</li>
+                <li rel="tabb">Lotion</li>
+                <li rel="tabc">All-In-One</li>
+                <li rel="tabd">Cream</li>
+                <li rel="tabe">Essence</li>
+                <li rel="tabf">Mist&Oil</li>
+            </ul>
+            <div class="tabT_container">
+    
+    
+                <h3 class="tab_head" rel="taba">스킨,토너</h3>
+                <div id="taba" class="tabT_content">
+                
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리 <h3>322,000원</h3>
+                            <span class="button_cart-1 button_plus" onclick="button_pluss(0)">
+                                담기
+                            </span>
+                        </span>
+                
+                
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018046102ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매) <h3>35,000원</h3>
+                            <span class="button_cart-2 button_plus" onclick="button_pluss(1)">
+                                담기
+                            </span>
+                        </span>
+                
+
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016569308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)
+                        <h3>35,000원</h3>
+                        <span class="button_cart-3 button_plus" onclick="button_pluss(2)">
+                            담기
+                        </span>
+                        </span>
+
+                    </div>
+
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018059308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리
+                        <h3>35,000원</h3>
+                        <span class="button_cart-4 button_plus" onclick="button_pluss(3)">
+                            담기
+                        </span>
+                        </span>
+                
+                    </div>
+                
+                </div>
+    
+                <h3 class="tab_head" rel="tabb">로션,에멀젼</h3>
+                <div id="tabb" class="tabT_content">
+                    
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리 <h3>322,000원</h3>
+                            <span class="button_cart-1 button_plus" onclick="button_pluss(4)">
+                                담기
+                            </span>
+                        </span>
+                
+                
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018046102ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매) <h3>35,000원</h3>
+                            <span class="button_cart-2 button_plus" onclick="button_pluss(5)">
+                                담기
+                            </span>
+                        </span>
+                
+
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016569308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)
+                        <h3>35,000원</h3>
+                        <span class="button_cart-3 button_plus" onclick="button_pluss(6)">
+                            담기
+                        </span>
+                        </span>
+
+                    </div>
+
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018059308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리
+                        <h3>35,000원</h3>
+                        <span class="button_cart-4 button_plus" onclick="button_pluss(7)">
+                            담기
+                        </span>
+                        </span>
+                
+                    </div>
+    
+                </div>
+    
+                <h3 class="tab_head" rel="tabc">올인원</h3>
+                <div id="tabc" class="tabT_content">
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리 <h3>322,000원</h3>
+                            <span class="button_cart-1 button_plus" onclick="button_pluss(8)">
+                                담기
+                            </span>
+                        </span>
+                
+                
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018046102ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매) <h3>35,000원</h3>
+                            <span class="button_cart-2 button_plus" onclick="button_pluss(9)">
+                                담기
+                            </span>
+                        </span>
+                
+
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016569308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)
+                        <h3>35,000원</h3>
+                        <span class="button_cart-3 button_plus" onclick="button_pluss(10)">
+                            담기
+                        </span>
+                        </span>
+
+                    </div>
+
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018059308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리
+                        <h3>35,000원</h3>
+                        <span class="button_cart-4 button_plus" onclick="button_pluss(11)">
+                            담기
+                        </span>
+                        </span>
+                
+                    </div>
+    
+                </div>
+    
+                <h3 class="tab_head" rel="tabd">크림</h3>
+                <div id="tabd" class="tabT_content">
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리 <h3>322,000원</h3>
+                            <span class="button_cart-1 button_plus" onclick="button_pluss(12)">
+                                담기
+                            </span>
+                        </span>
+                
+                
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018046102ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매) <h3>35,000원</h3>
+                            <span class="button_cart-2 button_plus" onclick="button_pluss(13)">
+                                담기
+                            </span>
+                        </span>
+                
+
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016569308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)
+                        <h3>35,000원</h3>
+                        <span class="button_cart-3 button_plus" onclick="button_pluss(14)">
+                            담기
+                        </span>
+                        </span>
+
+                    </div>
+
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018059308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리
+                        <h3>35,000원</h3>
+                        <span class="button_cart-4 button_plus" onclick="button_pluss(15)">
+                            담기
+                        </span>
+                        </span>
+                
+                    </div>
+    
+                </div>
+    
+                <h3 class="tab_head" rel="tabe">에센스</h3>
+                <div id="tabe" class="tabT_content">
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리 <h3>322,000원</h3>
+                            <span class="button_cart-1 button_plus" onclick="button_pluss(16)">
+                                담기
+                            </span>
+                        </span>
+                
+                
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018046102ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매) <h3>35,000원</h3>
+                            <span class="button_cart-2 button_plus" onclick="button_pluss(17)">
+                                담기
+                            </span>
+                        </span>
+                
+
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016569308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)
+                        <h3>35,000원</h3>
+                        <span class="button_cart-3 button_plus" onclick="button_pluss(18)">
+                            담기
+                        </span>
+                        </span>
+
+                    </div>
+
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018059308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리
+                        <h3>35,000원</h3>
+                        <span class="button_cart-4 button_plus" onclick="button_pluss(19)">
+                            담기
+                        </span>
+                        </span>
+                
+                    </div>
+    
+                </div>
+    
+                <h3 class="tab_head" rel="tabf">미스트,오일</h3>
+                <div id="tabf" class="tabT_content">
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리 <h3>322,000원</h3>
+                            <span class="button_cart-1 button_plus" onclick="button_pluss(20)">
+                                담기
+                            </span>
+                        </span>
+                
+                
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018046102ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매) <h3>35,000원</h3>
+                            <span class="button_cart-2 button_plus" onclick="button_pluss(21)">
+                                담기
+                            </span>
+                        </span>
+                
+
+                    </div>
+                    <div class="teb_item">
+                        <div class="tab_img"><img
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016569308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)
+                        <h3>35,000원</h3>
+                        <span class="button_cart-3 button_plus" onclick="button_pluss(22)">
+                            담기
+                        </span>
+                        </span>
+
+                    </div>
+
+
+                    <div class="teb_item">
+                        <div class="tab_img"><img 
+                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018059308ko.jpg?l=ko"
+                                alt=""></div>
+                        <span>✨블루베리
+                        <h3>35,000원</h3>
+                        <span class="button_cart-4 button_plus" onclick="button_pluss(23)">
+                            담기
+                        </span>
+                        </span>
+                
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+    
+    
+    
+        </div>
+    </div>
+
+
+
+    <!-- 중앙 -->
     <div class="wraper">
-    <div class="card card2 panel">
+    <div class="card01 card2 panel">
         <!-- 1 -->
-        <div class="card_in-header"><p>Find Your Type.</p></div>
+        <div class="card_in-header"><p>Type Result.</p></div>
 
         <!-- 2 -->
         <div class="card_in-check">
             <div class="card_in-wrap">
-                <img class="tempImg" src="img/temp.jpg" alt="안녕">
+                <img class="tempImg" src="/img/RESULT.jpg" alt="안녕">
+                <span class="clickHere">Click Image</span>
+                <section class="wrap section1">
+                    <div class="chart1">
+                        <h1 th:text="|${result.user.userNick}님의 점수표|">치코리타님의 점수표</h1>
+
+                        <div id="container">
+                        </div>
+                        <h3>Scroll 하시면 비교페이지가 나옵니다</h3>
+                        <h4 class="showtext"></h4>
+                    </div>
+                </section>
+                <!-- 여기에 함수에 MTSP를 타임리프로 -->
+                <span class="clickHereDes" th:text="${result.rskin}"></span>
+                <span class="nonedis">Click Here</span>
+                <span class="nonedis2">detailed</span>
             </div>
         </div>
 
 
         <!-- 3 -->
-        <div class="card_in-describe">
-            <p>YOUR TYPE IS MSTP</p>
+        <div class="card_in-describe"><!-- 타임리프 -->
+            <p class="describe-view2">YOUR TYPE IS &nbsp <span class="describe-view" th:onclick="types([[${result.rskin}]])" th:text="${result.rskin}"></span></p>
         </div>
     </div>
 
-    <div class="card panel">
+    <div class="card01 panel">
         <div class="card_in-header"><p>Compare Item.</p></div>
 
 
         <div class="card_in-check">
             <div class="card_in-wrap">
-                <div class="left"><p>ITEM1</p><img src="./img/pexels1.jpg"></div>
+                <div class="left"><p>ITEM1</p><img src="/img/pexels1.jpg"></div>
                 <div class="choisItemL">
-                    <ul class="list">
-                        <li>item1 90</li>
-                        <li>item2 80</li>
-                        <li>item3 70</li>
-                        <li>item4 60</li>
-                        <li>item5 20</li>
-                    </ul>
+                    <table class="dynamicTable">
+                        <thead>
+                            <tr class="dynamicTable_head dynamicTable_head1">
+                                <th>전성분표</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody tbodyL">
+                            
+                        </tbody>
+                    </table>
                 </div>
-                <div class="right"><p>ITEM2</p><img src="./img/pexels2.jpg"></div>
+                <div class="right"><p>ITEM2</p><img src="/img/pexels2.jpg"></div>
                 <div class="choisItemR">
-                    <ul class="list2">
-                        <li>item1 90</li>
-                        <li>item2 80</li>
-                        <li>item3 70</li>
-                        <li>item4 60</li>
-                        <li>item5 20</li>
-                    </ul>
+                    <table class="dynamicTable">
+                        <thead>
+                            <tr class="dynamicTable_head dynamicTable_head2">
+                                <th>전성분표</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody tbodyR">
+                            
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -75,8 +463,8 @@
 
         <div class="card_in-bar">
             <ul class="tabs">
-                <li class="active" rel="tab1">Tab 1</li>
-                <li rel="tab2">Tab 2</li>
+                <li class="active" rel="tab1">Price</li>
+                <li rel="tab2">Score</li>
             </ul>
         
         
@@ -84,14 +472,16 @@
         
                 <h3 class="d_active tab_drawer_heading" rel="tab1">Tab 1</h3>
                 <div id="tab1" class="tab_content">
-                    <h2>Tab 1 content</h2>
+                    <h2>여기에 아이템1 이름</h2>
+                    <h3>여기에 아이템1 이름</h3>
                     <svg class="chart"></svg>
                 </div>
                 <!-- #tab1 -->
 
                 <h3 class="tab_drawer_heading" rel="tab2">Tab 2</h3>
                 <div id="tab2" class="tab_content">
-                    <h2>Tab 2 content</h2>
+                    <h2>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)</h2>
+                    <h3>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매)아아아아아아아아아아아아아아아아아아아아아</h3>
                     <svg class="chart2"></svg>
                 </div>
                 <!-- #tab2 -->
@@ -101,16 +491,120 @@
         </div>
 
     </div>
-    <div class="icon chartAni">
+<!--     <div class="icon chartAni">
         <i></i>
         <i></i>
         <i></i>
-    </div>
+    </div> -->
 
    <!--  <div class="chart-part">
         
 
     </div> -->
+
+   
+
+    
 </div>
+
+
+
+ <!-- 오른쪽 -->
+<div class="wraper3">
+    <div class="card4">
+        <h3>MTSP Description</h3>
+        <img class="button_x2" src="/img/asdqwe.png" alt="">
+
+
+        <div id="app" class="container">
+            <!-- O -->
+            <card class="images type_O"
+                data-image="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F81%2Fbe%2Fc1%2F81bec1b56c53f021d0fad92bab5d1694.jpg&type=sc960_832"
+                th:onmouseover="showText(${odText})">
+                <h1 slot="header" class="headers"></h1>
+                <p slot="content" class="titles"></p>
+                <p slot="content" class="contents"></p>
+            </card>
+        
+            <!-- D -->
+            <card class="images type_D" 
+                data-image="https://img.vogue.co.kr/vogue/2015/10/style_562eff574f8d8.jpg"
+                th:onmouseover="showText(1)">
+                <h1 slot="header" class="headers"></h1>
+                <p slot="content" class="titles"></p>
+                <p slot="content" class="contents"></p>
+            </card>
+        
+            <!-- R -->
+            <card class="images type_R"
+                data-image="https://cdn.newsculture.press/news/photo/202203/507436_614338_594.jpg"
+                th:onmouseover="showText(2)">
+                <h1 slot="header" class="headers"></h1>
+                <p slot="content" class="titles"></p>
+                <p slot="content" class="contents"></p>
+            </card>
+        
+            <!-- S -->
+            <card class="images type_S"
+                data-image="https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/auJQ/image/vqj1cna7SObzD-j77QjGp8Knvic.jpg"
+                th:onmouseover="showText(3)">
+                <h1 slot="header" class="headers"></h1>
+                <p slot="content" class="titles"></p>
+                <p slot="content" class="contents"></p>
+            </card>
+        
+            <!-- P -->
+            <card class="images type_P"
+                data-image="https://www.smlounge.co.kr/upload/NPFILE/202005/414261.jpg"
+                th:onmouseover="showText(4)">
+                <h1 slot="header" class="headers"></h1>
+                <p slot="content" class="titles"></p>
+                <p slot="content" class="contents"></p>
+            </card>
+        
+            <!-- N -->
+            <card class="images type_N"
+                data-image="https://i.namu.news/file/namunews/7f/7fb486214d18e30beb6b7ff9d71584fe735bd2a4a80af4dcee127d91547e40da.jpg"
+                th:onmouseover="showText(5)">
+                <h1 slot="header" class="headers"></h1>
+                <p slot="content" class="titles"></p>
+                <p slot="content" class="contents"></p>
+            </card>
+    
+            <!-- W -->
+            <card class="images type_W"
+                data-image="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjAyMTdfMTIg%2FMDAxNjQ1MDY3NjcwMzg1.fJMYiAlcgrARxpMFEgMCCBwLOu4VDeEYyR2bISOJJ4Ag.N_s8chkyK65I41VEvtjVpPrBCiMp8OQ3ptlVdEc86B0g.JPEG.marinavi1004%2Fphoto-1641116511407-dbe3e86a6ea3.jpg&type=sc960_832"
+                th:onmouseover="showText(6)">
+                <h1 slot="header" class="headers"></h1>
+                <p slot="content" class="titles"></p>
+                <p slot="content" class="contents">
+                </p>
+            </card>
+            
+            <!-- T -->
+            <card class="images type_T" 
+                data-image="https://cdn.stardailynews.co.kr/news/photo/202003/266982_303272_2138.jpg"
+                th:onmouseover="showText(7)">
+                <h1 slot="header" class="headers"></h1>
+                <p slot="content" class="titles"></p>
+                <p slot="content" class="contents"></p>
+            </card>
+        
+        </div>
+
+
+
+    </div>
+</div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D3QGRL14D2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D3QGRL14D2');
+</script>
+
 </body>
 </html>

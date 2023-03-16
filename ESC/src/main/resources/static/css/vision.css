@@ -20,6 +20,7 @@ h4 {
 
 body {
     background-color: rgb(110, 110, 110);
+    
     display: flex;
     justify-content: center;
     height: 100%;
@@ -55,7 +56,7 @@ body {
     display: none;
 }
 
-.card {
+.card01 {
 
     background-color: #e9e6e4;
     margin-top: 5vh;
@@ -63,10 +64,9 @@ body {
     min-height: 90vh;
     padding: 0 2rem;
     width: 50vh;
-    max-width: 100vh;
 
     max-height: 1200px;
-    max-width: 850px;
+    max-width: 485px;
     display: grid;
 
     position: relative;
@@ -95,6 +95,8 @@ body {
 
     justify-content: center;
     vertical-align: middle;
+
+    overflow: hidden; /* 임시 */
 }
 
 .tempImg {
@@ -108,6 +110,63 @@ body {
     transition: opacity 1.5s;
 
     text-align: center;
+    margin-top: 180px;
+    margin-bottom: 300px;
+
+    opacity: 1;
+    transition: top 1s ease-in-out;
+
+    cursor: pointer;
+}
+
+.tempImg.de_active {
+    display: none;
+}
+
+.tempImg.move {
+    opacity: 0;
+
+}
+
+
+.clickHere {
+    font-size: 40px;
+    font-weight: 800;
+    position: absolute;
+    /* color: rgb(69, 69, 69); */
+    color:rgb(227, 227, 227);
+    top:23%;
+
+    animation: blink-effect 3s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    display: block;
+}
+
+@keyframes blink-effect {
+
+
+    50% {
+      opacity: 33%;
+    }
+
+}
+
+.clickHere.de_active, .clickHereDes.de_active{
+    display: none;
+}
+
+.clickHereDes {
+    font-size: 40px;
+    font-weight: 800;
+    position: absolute;
+    /* color: rgb(69, 69, 69); */
+    color:rgb(227, 227, 227);
+    top:75%;
+
+    display: block;
+    transition: 1s;
+
+    z-index: 1;
 }
 
 
@@ -115,14 +174,20 @@ body {
     display: flex;
 }
 
+/* 여기수정중 */
 
-.card_in-describe > p {
+.describe-view2 {
     font-size: 2.1rem;
     color: rgb(69, 69, 69);
 
     display: flex;
     flex-basis: 100%;
     align-items: center;
+}
+
+.describe-view {
+    animation: changeColor 4s ease-in-out infinite;
+    cursor: pointer;
 }
 
 .card_in-describe >p::before{
@@ -284,7 +349,7 @@ body {
 .icon {
     position: absolute;
     top: 25vh;
-    left: 68vw;
+    left: 70vw;
     width: 16em;
     height: 16em;
     transform: translate(-50%, -50%);
@@ -453,11 +518,11 @@ body {
     /* color: aquamarine;  차트 아이템 글씨의 색상*/
 }
 
+
 .chart .tick text,
 .chart2 .tick text {
     font-size: 1rem;
     font-weight: 800;
-    display: none;
 }
 
 .chart .bar:nth-child(1),
@@ -544,6 +609,56 @@ ul.tabs li.active {
 .tab_content {
     padding: 20px;
     display: none;
+}
+
+.tab_content > h2 {
+    font-size: 20px;
+    font-family: 'Jua', sans-serif;
+    font-weight: 400;
+    color: #6c66b1;
+    text-align: left;
+    display: flex;
+    justify-content: left;
+    height: 30px;
+    text-overflow: ellipsis; 
+    overflow: hidden;
+    filter: grayscale(20%);
+    margin-top: 0.8rem;
+
+
+    
+}
+
+
+/* animation: fadeOutBG 12s ease-in-out infinite; */
+/* @keyframes fadeOutBG {
+  50% {
+    background-color: transparent;
+    color: #6c66b1;
+  }
+  
+} */
+
+
+
+.tab_content > h3 {
+    font-size: 20px;
+    font-family: 'Jua', sans-serif;
+    font-weight: 400;
+    color: rgb(177, 102, 102);
+    text-align: left;
+
+    display: flex;
+    justify-content: left;
+
+
+    filter: grayscale(20%);
+
+    height: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+   
 }
 
 .tab_drawer_heading {
@@ -643,5 +758,864 @@ ul.list2 li:hover {
 
     .chartAni {
         display: none;
+    }
+}
+
+
+/* 위에 차트 */
+
+.line {
+	stroke-width: 1px;
+	stroke: #485359;
+}
+text {
+	font-family: 'Jua', sans-serif;;
+	font-weight: 400;
+    fill: rgb(177, 102, 102);
+	font-size: 1.3em;
+}
+.level-mark {
+    font-size: 0.8em;
+}
+.ring-level{
+    stroke: #485359;
+    stroke-width: 1px;
+    fill: none;
+}
+[class^="radar-chart-"], .data-point {
+    opacity: 0.7;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+[class^="radar-chart-"]:hover, [class^="radar-chart-"]:hover ~ .data-group .data-point{
+    opacity: 0.5;
+}
+.data-point {
+    opacity: 0;
+    fill: #0e405b;
+}
+.data-point:hover {
+    opacity: 0;
+    fill: black;
+}
+.data-text {
+    opacity: 0;
+    transition: all 0.2s;
+}
+.data-point:hover ~ .data-text{
+    opacity: 1;
+}
+
+.top {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.section1 {
+    height: 100%;
+    width: 100%;
+}
+
+.section2 {
+    width: 100%;
+    height: 100%;
+    background-color: #5ca1c5;
+}
+
+.chart1 {
+    height: 100%;
+    justify-content: center;
+    background-color: #6c66b1;
+
+   transition: 2s;
+}
+
+.chart1 > h1 {
+
+    color: rgb(227, 227, 227);
+    font-size: 1.875rem;
+    text-align: center;
+    padding: 1.4% 0 1.4% 0;
+    font-family: 'Jua', sans-serif;
+    font-weight: 400;
+}
+
+.chart1 > h3 {
+
+    color: rgb(227, 227, 227);
+    text-align: center;
+    font-size: 20px;
+    
+    font-family: 'Jua', sans-serif;
+    font-weight: 400;
+
+    background-color: #b16666;
+    height: auto;
+
+    margin-top: -1.5%;
+}
+
+.chart1 > h4 {
+    color: rgb(227, 227, 227);
+    text-align: center;
+    padding-top: 2%;
+    font-size: 20px;
+    
+    font-family: 'Jua', sans-serif;
+    font-weight: 400;
+
+    background-color: #b16666;
+    height: 7.7%;
+
+    cursor: pointer;
+}
+
+
+#container {
+    margin-top: 0%;
+    width: 100%;
+    background-color: #f3f3f3;
+}
+
+
+
+
+
+
+/* 여기서부터 왼쪽 */
+
+.wraper2 {
+    display: none;
+
+
+    /* scroll-snap-type: mandatory;  for older browsers */
+	/*  scroll-snap-points-y: repeat(100vh);  for older browsers */
+}
+
+.card3 {
+    display: none;
+    
+}
+
+
+
+.wraper2.active {
+    position: absolute;
+    left: 14rem;
+
+
+    max-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.5s ease;
+    scroll-margin-top: 5vh;
+
+    display: block;
+}
+
+.card3.active {
+    background-color: #e9e6e4;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    min-height: 90vh;
+    padding: 0 2rem;
+    width: 19vw;
+
+    max-height: 1200px;
+    max-width: 485px;
+    display: grid;
+
+    position: relative;
+    overflow: hidden;
+
+    grid-template-rows: 10% 10% 70%;
+
+    align-content: space-evenly;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card3.active > h3 {
+    font-size: 2.5rem;
+    color: rgb(69, 69, 69);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+/* 탭 아이템 */
+.teb_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #f3f3f3;
+    background-color: #f3f3f3;
+    overflow: hidden;
+
+}
+
+.tab_img > img {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    max-width: 145px;
+    display: flex;
+    filter: grayscale(40%);
+}
+
+.tab_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c66b1;
+    /* border-right: 4px solid  rgb(69, 69, 69); */
+}
+
+.teb_item > span{
+    padding: 5px 5px 5px 10px;
+    width: 58%;
+    color: rgb(69, 69, 69);
+    font-family: 'jua', sans-serif;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 400;
+    word-break: keep-all;
+
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+
+.teb_item > h2 {
+    width: 100%;
+    display: inline-block;
+}
+.teb_item > span > h3 {
+    margin-top: 20px;
+    width: 100%;
+    display: inline-block;
+    color: rgb(69, 69, 69);
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.tempa {
+    margin: 15px 0;
+    background-color: #b16666;
+}
+
+.tempb {
+    background-color: #6c66b1;
+}
+
+.card3.active:first-child(0) {
+    background-color: #6c66b1;
+}
+
+
+
+
+/* 왼쪽탭 */
+
+ul.tabTs {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    height: 32px;
+    width: 100%;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fill, minmax(33%, auto));
+
+}
+
+ul.tabTs li {
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    padding: 0px 10px;
+    height: 31px;
+    line-height: 31px;
+    color: rgb(69, 69, 69);
+    overflow: hidden;
+    position: relative;
+
+    text-align: center;
+
+}
+
+
+ul.tabTs li:hover {
+    background-color: #6c66b1;
+    color: #f3f3f3;
+}
+
+ul.tabTs li.active {
+    background-color: rgb(177, 102, 102);
+    color: #f3f3f3;
+    display: block;
+}
+
+.tabT_container {
+/*     border-top: none;
+    clear: both;
+    float: left; */
+    width: 100%;
+    overflow: auto;
+
+    
+}
+
+.tabT_content {
+    padding: 0px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 22% 22% 22% 22%;
+    align-content: space-between;
+    max-height: 667px;
+}
+
+
+.tab_head {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 깜빡임 */
+
+.nonedis {
+    display: none;
+}
+
+.nonedis.active {
+    font-size: 20px;
+    font-weight: 800;
+    position: absolute;
+    color: rgb(69, 69, 69);
+    bottom:10%;
+    right: 4.35%;
+
+    animation: changeColor 4s ease-in-out infinite;
+
+    display: block;
+}
+
+.nonedis2 {
+   display: none;
+    
+}
+
+.nonedis2.active {
+    font-size: 20px;
+    font-weight: 800;
+    position: absolute;
+    color: rgb(69, 69, 69);
+    bottom:2%;
+    right: 6.2%;
+
+    display: block;
+
+    animation: changeColor 4s ease-in-out infinite;
+
+}
+
+@keyframes blink-effect {
+    50% {
+      opacity: 0;
+    }
+  }
+
+
+@keyframes changeColor {
+    50% {
+        color: rgb(177, 102, 102);
+    }
+}
+
+
+.button_x {
+    display: flex;
+    width: 20px;
+    height: auto;
+    position: absolute;
+    right: 2%;
+    top:1%;
+
+    filter: grayscale(50%);
+
+    cursor: pointer;
+}
+
+.button_x:hover {
+    scale: 1.5;
+}
+
+.button_x2 {
+    display: flex;
+    width: 20px;
+    height: auto;
+    position: absolute;
+    right: 2%;
+    top:1%;
+
+    filter: grayscale(50%);
+
+    cursor: pointer;
+}
+
+.button_x2:hover {
+    scale: 1.5;
+}
+
+.button_cart-1, .button_cart-2, .button_cart-3, .button_cart-4 {
+    display: flex;
+    width: 45px;
+    height: auto;
+
+    position: absolute;
+    cursor: pointer;
+
+}
+
+.button_cart-1:hover, .button_cart-2:hover, .button_cart-3:hover, .button_cart-4:hover {
+    filter: opacity(50%);
+}
+
+
+.button_cart-1 {
+    right: 5%;
+    top:40%;
+}
+.button_cart-2 {
+    right: 5%;
+    top:58.2%;
+}
+.button_cart-3 {
+    right: 5%;
+    bottom:21%;
+}
+.button_cart-4 {
+    right: 5%;
+    bottom:2.7%;
+}
+
+
+
+
+/* 여기서부터 오른쪽 */
+
+.wraper3 {
+    display: none;
+    
+    /* scroll-snap-type: mandatory;  for older browsers */
+	/*  scroll-snap-points-y: repeat(100vh);  for older browsers */
+}
+
+.card4 {
+    display: none;
+    
+}
+
+
+
+.wraper3.active {
+    position: absolute;
+    right:11rem;
+
+
+    max-height: 95vh;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.5s ease;
+    scroll-margin-top: 5vh;
+
+    display: block;
+
+
+    height: 95vh;
+    
+    scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        scroll-margin-top: 5vh;
+    
+}
+
+.card4.active {
+    background-color: #e9e6e4;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    min-height: 90vh;
+    width: 25vw;
+
+    max-height: 872px;
+    max-width: 485px;
+    display: grid;
+
+    position: relative;
+    overflow: hidden;
+
+    grid-template-rows: 10% 10% 70%;
+
+    align-content: space-evenly;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.card4.active > h3 {
+    font-size: 2.4rem;
+    color: rgb(69, 69, 69);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+
+/* 민석씨 부분 */
+
+
+
+
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll; /* Add this line */
+    height: 70vh; /* Add this line */
+
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
+    
+  }
+
+.container::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+  
+  .card-wrap {
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+    /* cursor: pointer; */
+  }
+  .card-wrap:hover .card-info {
+    transform: translateY(0);
+  }
+  .card-wrap:hover .card-info p {
+    opacity: 1;
+  }
+  .card-wrap:hover .card-info, .card-wrap:hover .card-info p {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .card-wrap:hover .card-info:after {
+    transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .card-wrap:hover .card-bg {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.8;
+  }
+  .card-wrap:hover .card {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, white 0 0 0 1px, rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
+  }
+  
+
+
+  .type_D, .type_N, .type_O, .type_P, .type_R, .type_S, .type_T, .type_W {
+    display: none;
+  }
+
+  .type_D.active, .type_N.active, .type_O.active, .type_P.active, .type_R.active, .type_S.active, .type_T.active, .type_W.active {
+    display: block;
+  }
+
+
+  .card {
+    position: relative;
+    flex: 0 0 240px;
+    width: 453px; /* 549 */
+    height: 735px; /* 969 */
+    background-color: #333;
+    overflow: hidden;
+   /*  box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+    transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95); */
+
+    margin-bottom: 10%;
+
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
+  }
+  
+  .card-bg {
+    opacity: 0.5;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+/*     transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+ */    pointer-events: none;
+  }
+  
+  .card-info {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    transform: translateY(40%);
+    /* transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1); */
+  
+  }
+  .card-info p {
+    opacity: 0;
+    text-shadow: black 0 2px 3px;
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-bottom: 10%;
+  }
+  .card-info * {
+    position: relative;
+    word-break: keep-all;
+    font-family: "Jua", sans-serif;
+
+  }
+  .card-info:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-blend-mode: overlay;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+  }
+  
+  .card-info h1 {
+    font-family: 'Jua', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 90%;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+    text-align: center;
+
+    word-break: keep-all;
+    text-align: left;
+
+  }
+  
+  .card:hover .card-bg {
+    transform: scale(1.05) translateZ(0);
+  }
+
+
+
+.dynamicTable {
+    width: 100%;
+    display: table;
+    overflow: scroll;
+}
+
+.dynamicTable_head{
+    width: 100%;
+    border: 1px solid #333;
+    display: table;
+    table-layout: fixed;
+    text-align: center;
+}
+
+.dynamicTable_head1 {
+    background-color: #6c66b1;
+}
+
+.dynamicTable_head2 {
+    background-color: #b16666;
+
+}
+
+.tbody {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: scroll;
+    background-color: #f3f3f3;
+}
+
+
+tr {
+    display: flex;
+    justify-content: flex-start;
+}
+
+td {
+    display: block;
+    width: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.tbody > tr > td:nth-child(1){
+/*     background-color: #5cc581;
+ */    
+    margin-right: 15px;
+    min-width: fit-content;
+    max-height: 25px;
+    text-align: center;
+}
+
+.tbody > tr > td:nth-child(2){
+    width: 85%;
+
+}
+
+th {
+    padding-left: 1%;
+}
+
+
+@media only screen and (min-height: 980px) {
+    .chart1 > h1 {
+
+        color: rgb(227, 227, 227);
+        font-size: 1.875rem;
+        text-align: center;
+        padding: 8% 0 3% 0;
+        height:10%;
+    }
+
+    .button_cart-1 {
+        right: 5%;
+        top:40.5%;
+    }
+    .button_cart-2 {
+        right: 5%;
+        top:58.2%;
+    }
+    .button_cart-3 {
+        right: 5%;
+        bottom:21.3%;
+    }
+    .button_cart-4 {
+        right: 5%;
+        bottom:3.5%;
+    }
+    
+    .wraper2.active {
+        left:13rem;
+        
+    }
+    .wraper3.active {
+        right:10rem;
+        
+    }
+
+}
+
+@media (max-width: 768px) {
+    .card01 {
+        width: 90vw;
+        padding: 1rem;
+    }
+
+
+    .icon {
+        top: 15vh;
+        left: 50vw;
+        width: 10em;
+        height: 10em;
+    }
+
+    .card_in-check {
+
+        max-width: 90vw;
+    }
+
+    .describe-view2 {
+        font-size: 1.92rem;
+    }
+
+    .nonedis.active {
+        right: 1.75%;
+        bottom:11%;
+    }
+
+    .nonedis2.active {
+        bottom:3.9%;
+        right:3.3%;
+    }
+
+    .chart1 > h4 {
+        padding-top:2px
+    }
+
+    .wraper2.active {
+        position:absolute;
+        z-index: 1;
+        left: 2%;
+    }
+
+    .card3.active {
+        width:82vw;
+    }
+
+    .wraper3.active {
+        right:2%;
+    }
+
+    .card4.active {
+        width:95vw;
     }
 }

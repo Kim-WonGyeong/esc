@@ -1,5 +1,6 @@
 package com.smhrd.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.smhrd.entity.Cosmetic;
 import com.smhrd.entity.Result;
 import com.smhrd.entity.User;
+import com.smhrd.service.RecommendationService;
 import com.smhrd.service.ResultService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class ResultController {
 	
+	private final RecommendationService recommendationService;
 	private final ResultService resultService;
 	private final HttpSession httpSession;
 	
@@ -68,24 +72,32 @@ public class ResultController {
 		
 		// ORNT
 		String OD = "D";
+		int odText = 1;
 		String RS = "R";
+		int rsText = 2; 
 		String NP = "N";
+		int npText = 5;
 		String TW = "T";
+		int twText = 7;
 		
 		if(roily >= 8) {
 			OD = "O";
+			odText = 0;
 		}
 		
 		if(rresistant >= 8) {
 			RS = "S";
+			rsText = 3;
 		}
 		
 		if (rnonPigment >= 8) {
 			NP = "P";
+			npText = 4;
 		}
 		
 		if (rtight >= 8) {
 			TW = "W";
+			twText = 6;
 		}
 		
 		// 피부타입 결정
@@ -104,7 +116,23 @@ public class ResultController {
 		// DB에 문진결과 저장
 		Result result = this.resultService.rsSave(rs);
 		model.addAttribute("result", result);
-		return "resultHS";
+		model.addAttribute("odtext", odText);
+		model.addAttribute("rstext", rsText);
+		model.addAttribute("nptext", npText);
+		model.addAttribute("twtext", twText);
+		
+		List<Cosmetic> cosmeticList = recommendationService.getCosmeticList(rskin);
+		model.addAttribute("cosmeticList", cosmeticList);
+		
+		List<Cosmetic> allinoneList = new ArrayList<Cosmetic>();
+		
+		for(int i = 0; i < 4; i++) {
+			allinoneList.add(cosmeticList.get(i));
+		};
+		
+		model.addAttribute("allinoneList", allinoneList);
+		
+		return "vision";
 	}
 	
 }
