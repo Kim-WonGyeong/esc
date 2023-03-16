@@ -62,7 +62,6 @@ public class RecommendationController {
 		System.out.println("사용자 피부타입 : "+rskin);
 		//==========================================================================
 		List<Cosmetic> cosmeticList = recommendationService.getCosmeticList(rskin);
-		
 		//==========================================================================
 		model.addAttribute("cosmeticList", cosmeticList);
 		

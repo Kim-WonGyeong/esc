@@ -1,9 +1,7 @@
 package com.smhrd.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -46,7 +44,7 @@ public class RecommendationService {
 		// type에서 민감-저항, 지성-건성만 뽑기 (앞의 2글자)
 		System.out.println("사용자 피부타입 확인 : " + type);
 		type = type.substring(0, 2);
-
+		
 		// 1. CSMT_TYPE 6개 CSMT_NO list 가져오기
 		List<Cosmetic> allinone = cosmeticRepository.findAllByCsmtType("allinone");
 		List<Cosmetic> toner = cosmeticRepository.findAllByCsmtType("toner");
@@ -132,9 +130,9 @@ public class RecommendationService {
 //				cosmeticList.add(essenceNo.get(i).getCsmt());
 //			}
 //
-			for(int i = 0; i < 4; i++) {
-				System.out.println(cosmeticList.get(i).getCsmtName()); 
-			}
+//			for(int i = 0; i < 4; i++) {
+//				System.out.println(cosmeticList.get(i).getCsmtName()); 
+//			}
 			
 		return cosmeticList;
 	}
