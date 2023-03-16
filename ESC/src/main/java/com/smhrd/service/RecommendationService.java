@@ -68,44 +68,44 @@ public class RecommendationService {
 
 		switch (type) {
 		case "OR": // 지성
-			allinoneNo = reviewRepository.findAllinoneOily(allinone).subList(0, 5);
-			tonerNo = reviewRepository.findTonerOily(toner).subList(0, 5);
-			lotionNo = reviewRepository.findLotionOily(lotion).subList(0, 5);
-			creamNo = reviewRepository.findCreamOily(cream).subList(0, 5);
-			mistNo = reviewRepository.findMistOily(mist).subList(0, 5);
-			essenceNo = reviewRepository.findEssenceOily(essence).subList(0, 5);
+			allinoneNo = reviewRepository.findAllinoneOily(allinone);
+			tonerNo = reviewRepository.findTonerOily(toner);
+			lotionNo = reviewRepository.findLotionOily(lotion);
+//			creamNo = reviewRepository.findCreamOily(cream);
+			mistNo = reviewRepository.findMistOily(mist);
+//			essenceNo = reviewRepository.findEssenceOily(essence);
 			break;
 		case "OS": // 지성, 민감성
 			// 민감성 2개
-			allinoneNo = reviewRepository.findAllinoneSens(allinone).subList(0, 2);
-			tonerNo = reviewRepository.findTonerSens(toner).subList(0, 2);
-			lotionNo = reviewRepository.findLotionSens(lotion).subList(0, 2);
-			creamNo = reviewRepository.findCreamSens(cream).subList(0, 2);
-			mistNo = reviewRepository.findMistSens(mist).subList(0, 2);
-			essenceNo = reviewRepository.findEssenceSens(essence).subList(0, 2);
+			allinoneNo = reviewRepository.findAllinoneSens(allinone);
+			tonerNo = reviewRepository.findTonerSens(toner);
+			lotionNo = reviewRepository.findLotionSens(lotion);
+//			creamNo = reviewRepository.findCreamSens(cream);
+			mistNo = reviewRepository.findMistSens(mist);
+//			essenceNo = reviewRepository.findEssenceSens(essence);
 			// 지성 2개
-			allinoneNo = reviewRepository.findAllinoneOily(allinone).subList(0, 2);
-			tonerNo = reviewRepository.findTonerOily(toner).subList(0, 2);
-			lotionNo = reviewRepository.findLotionOily(lotion).subList(0, 2);
-			creamNo = reviewRepository.findCreamOily(cream).subList(0, 2);
-			mistNo = reviewRepository.findMistOily(mist).subList(0, 2);
-			essenceNo = reviewRepository.findEssenceOily(essence).subList(0, 2);
+//			allinoneNo = reviewRepository.findAllinoneOily(allinone);
+//			tonerNo = reviewRepository.findTonerOily(toner);
+//			lotionNo = reviewRepository.findLotionOily(lotion);
+//			creamNo = reviewRepository.findCreamOily(cream);
+//			mistNo = reviewRepository.findMistOily(mist);
+//			essenceNo = reviewRepository.findEssenceOily(essence);
 			break;
 		case "DR": // 건성
 			allinoneNo = reviewRepository.findAllinoneDry(allinone);
 			tonerNo = reviewRepository.findTonerDry(toner);
 			lotionNo = reviewRepository.findLotionDry(lotion);
-			creamNo = reviewRepository.findCreamDry(cream);
+//			creamNo = reviewRepository.findCreamDry(cream);
 			mistNo = reviewRepository.findMistDry(mist);
-			essenceNo = reviewRepository.findEssenceDry(essence);
+//			essenceNo = reviewRepository.findEssenceDry(essence);
 			break;
 		case "DS": // 건성, 민감성
-			allinoneNo = reviewRepository.findAllinoneComb(allinone).subList(0, 2);
-			tonerNo = reviewRepository.findTonerComb(toner).subList(0, 2);
-			lotionNo = reviewRepository.findLotionComb(lotion).subList(0, 2);
-			creamNo = reviewRepository.findCreamComb(cream).subList(0, 2);
-			mistNo = reviewRepository.findMistComb(mist).subList(0, 2);
-			essenceNo = reviewRepository.findEssenceComb(essence).subList(0, 2);
+			allinoneNo = reviewRepository.findAllinoneComb(allinone);
+			tonerNo = reviewRepository.findTonerComb(toner);
+			lotionNo = reviewRepository.findLotionComb(lotion);
+//			creamNo = reviewRepository.findCreamComb(cream);
+			mistNo = reviewRepository.findMistComb(mist);
+//			essenceNo = reviewRepository.findEssenceComb(essence);
 			break;
 		}
 		System.out.println("2번 완료");
@@ -122,16 +122,16 @@ public class RecommendationService {
 			for (int i = 0; i < 4; i++) {
 				cosmeticList.add(lotionNo.get(i).getCsmt());
 			}
-			for (int i = 0; i < 4; i++) {
-				cosmeticList.add(creamNo.get(i).getCsmt());
-			}
+//			for (int i = 0; i < 4; i++) {
+//				cosmeticList.add(creamNo.get(i).getCsmt());
+//			}
 			for (int i = 0; i < 4; i++) {
 				cosmeticList.add(mistNo.get(i).getCsmt());
 			}
-			for (int i = 0; i < 4; i++) {
-				cosmeticList.add(essenceNo.get(i).getCsmt());
-			}
-
+//			for (int i = 0; i < 4; i++) {
+//				cosmeticList.add(essenceNo.get(i).getCsmt());
+//			}
+//
 			for(int i = 0; i < 4; i++) {
 				System.out.println(cosmeticList.get(i).getCsmtName()); 
 			}
