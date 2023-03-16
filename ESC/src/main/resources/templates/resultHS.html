@@ -12,5 +12,8 @@
 	<p th:text="|저항성 점수 : ${result.rresistant}|"></p>
 	<p th:text="|비색소성 점수 : ${result.rnonPigment}|"></p>
 	<p th:text="|탄력성 점수 : ${result.rtight}|"></p>
+	
+	
+	<a th:href="@{|/recommendation/csmtRecommendation/${result.rskin}|}">화장품 추천 받기</a>
 </body>
 </html>

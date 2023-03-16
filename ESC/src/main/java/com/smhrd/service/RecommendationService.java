@@ -41,14 +41,12 @@ public class RecommendationService {
 		return rcmCsmtList;
 	}
 
-	// type 정보를 보내면 --> 추천할 제품 list 불러오기 -- 0314 김원경
+	// type 정보를 보내면 --> 추천할 제품 list 불러오기 
 	public List<Cosmetic> getCosmeticList(String type) {
 		// type에서 민감-저항, 지성-건성만 뽑기 (앞의 2글자)
 		System.out.println("사용자 피부타입 확인 : " + type);
 		type = type.substring(0, 2);
 
-		List<String> category = new ArrayList<>(Arrays.asList("allinone", "toner", "lotion", "cream", "mist", "essnece"));
-		
 		// 1. CSMT_TYPE 6개 CSMT_NO list 가져오기
 		List<Cosmetic> allinone = cosmeticRepository.findAllByCsmtType("allinone");
 		List<Cosmetic> toner = cosmeticRepository.findAllByCsmtType("toner");
@@ -56,45 +54,88 @@ public class RecommendationService {
 		List<Cosmetic> cream = cosmeticRepository.findAllByCsmtType("cream");
 		List<Cosmetic> mist = cosmeticRepository.findAllByCsmtType("mist");
 		List<Cosmetic> essence = cosmeticRepository.findAllByCsmtType("essnece");
+		
+		System.out.println("1번 완료");
 
 		// 2. Reviews에서 CSMT_NO, type 정보로 CSMT 정보 가져오기
-		// input -- List<String> CsmtNo를 담은 List로 만들어준다, type
-		// Repository에서 CsmtNo만 가져오는 방법도 있음 <-- 일단 기능 구현되면 리팩토링
-		List<String> allinoneNo = allinone.stream().map(Cosmetic::getCsmtNo).collect(Collectors.toList());
-		List<String> tonerNo = toner.stream().map(Cosmetic::getCsmtNo).collect(Collectors.toList());
-		List<String> lotionNo = lotion.stream().map(Cosmetic::getCsmtNo).collect(Collectors.toList());
-		List<String> creamNo = cream.stream().map(Cosmetic::getCsmtNo).collect(Collectors.toList());
-		List<String> mistNo = mist.stream().map(Cosmetic::getCsmtNo).collect(Collectors.toList());
-		List<String> essenceNo = essence.stream().map(Cosmetic::getCsmtNo).collect(Collectors.toList());
 
-		// output -- List<Review> 대충 case로
+		List<Review> allinoneNo = new ArrayList<>();
+		List<Review> tonerNo = new ArrayList<>();
+		List<Review> lotionNo = new ArrayList<>();
+		List<Review> creamNo = new ArrayList<>();
+		List<Review> mistNo = new ArrayList<>();
+		List<Review> essenceNo = new ArrayList<>();
+
 		switch (type) {
-		case "OR" : // 지성
-			allinoneNo = reviewRepository.findCsmtNoByCsmtNoInOrderByOilyPosCntDesc(allinoneNo);
-			tonerNo = reviewRepository.findCsmtNoByCsmtNoInOrderByOilyPosCntDesc(tonerNo);
-			lotionNo = reviewRepository.findCsmtNoByCsmtNoInOrderByOilyPosCntDesc(lotionNo);
-			creamNo = reviewRepository.findCsmtNoByCsmtNoInOrderByOilyPosCntDesc(creamNo);
-			mistNo = reviewRepository.findCsmtNoByCsmtNoInOrderByOilyPosCntDesc(mistNo);
-			essenceNo = reviewRepository.findCsmtNoByCsmtNoInOrderByOilyPosCntDesc(essenceNo);
+		case "OR": // 지성
+			allinoneNo = reviewRepository.findAllinoneOily(allinone).subList(0, 5);
+			tonerNo = reviewRepository.findTonerOily(toner).subList(0, 5);
+			lotionNo = reviewRepository.findLotionOily(lotion).subList(0, 5);
+			creamNo = reviewRepository.findCreamOily(cream).subList(0, 5);
+			mistNo = reviewRepository.findMistOily(mist).subList(0, 5);
+			essenceNo = reviewRepository.findEssenceOily(essence).subList(0, 5);
 			break;
-		case "OS" : // 지성, 민감성
+		case "OS": // 지성, 민감성
+			// 민감성 2개
+			allinoneNo = reviewRepository.findAllinoneSens(allinone).subList(0, 2);
+			tonerNo = reviewRepository.findTonerSens(toner).subList(0, 2);
+			lotionNo = reviewRepository.findLotionSens(lotion).subList(0, 2);
+			creamNo = reviewRepository.findCreamSens(cream).subList(0, 2);
+			mistNo = reviewRepository.findMistSens(mist).subList(0, 2);
+			essenceNo = reviewRepository.findEssenceSens(essence).subList(0, 2);
+			// 지성 2개
+			allinoneNo = reviewRepository.findAllinoneOily(allinone).subList(0, 2);
+			tonerNo = reviewRepository.findTonerOily(toner).subList(0, 2);
+			lotionNo = reviewRepository.findLotionOily(lotion).subList(0, 2);
+			creamNo = reviewRepository.findCreamOily(cream).subList(0, 2);
+			mistNo = reviewRepository.findMistOily(mist).subList(0, 2);
+			essenceNo = reviewRepository.findEssenceOily(essence).subList(0, 2);
 			break;
-		case "DR" : // 건성
-			allinoneNo = reviewRepository.findCsmtNoByCsmtNoInOrderByDryPosCntDesc(allinoneNo);
-			tonerNo = reviewRepository.findCsmtNoByCsmtNoInOrderByDryPosCntDesc(tonerNo);
-			lotionNo = reviewRepository.findCsmtNoByCsmtNoInOrderByDryPosCntDesc(lotionNo);
-			creamNo = reviewRepository.findCsmtNoByCsmtNoInOrderByDryPosCntDesc(creamNo);
-			mistNo = reviewRepository.findCsmtNoByCsmtNoInOrderByDryPosCntDesc(mistNo);
-			essenceNo = reviewRepository.findCsmtNoByCsmtNoInOrderByDryPosCntDesc(essenceNo);
+		case "DR": // 건성
+			allinoneNo = reviewRepository.findAllinoneDry(allinone);
+			tonerNo = reviewRepository.findTonerDry(toner);
+			lotionNo = reviewRepository.findLotionDry(lotion);
+			creamNo = reviewRepository.findCreamDry(cream);
+			mistNo = reviewRepository.findMistDry(mist);
+			essenceNo = reviewRepository.findEssenceDry(essence);
 			break;
-		case "DS" : // 건성, 민감성
+		case "DS": // 건성, 민감성
+			allinoneNo = reviewRepository.findAllinoneComb(allinone).subList(0, 2);
+			tonerNo = reviewRepository.findTonerComb(toner).subList(0, 2);
+			lotionNo = reviewRepository.findLotionComb(lotion).subList(0, 2);
+			creamNo = reviewRepository.findCreamComb(cream).subList(0, 2);
+			mistNo = reviewRepository.findMistComb(mist).subList(0, 2);
+			essenceNo = reviewRepository.findEssenceComb(essence).subList(0, 2);
 			break;
 		}
+		System.out.println("2번 완료");
+		
+		// 3. Cosmetics에서 CSMT_NO으로 정보 가져오기 > 화면으로 출력
+		List<Cosmetic> cosmeticList = new ArrayList<>();
 
-		// 3. Cosmetics에서 CSMT_NO으로 정보 가져오기, 상위 4개씩
+			for (int i = 0; i < 4; i++) {
+				cosmeticList.add(allinoneNo.get(i).getCsmt());
+			}
+			for (int i = 0; i < 4; i++) {
+				cosmeticList.add(tonerNo.get(i).getCsmt());
+			}
+			for (int i = 0; i < 4; i++) {
+				cosmeticList.add(lotionNo.get(i).getCsmt());
+			}
+			for (int i = 0; i < 4; i++) {
+				cosmeticList.add(creamNo.get(i).getCsmt());
+			}
+			for (int i = 0; i < 4; i++) {
+				cosmeticList.add(mistNo.get(i).getCsmt());
+			}
+			for (int i = 0; i < 4; i++) {
+				cosmeticList.add(essenceNo.get(i).getCsmt());
+			}
 
-		List<Review> reviewList = reviewRepository.findByCsmtNo(null);
-		List<Cosmetic> cosmeticList = cosmeticRepository.findAllByCsmtNoIn(reviewList);
+			for(int i = 0; i < 4; i++) {
+				System.out.println(cosmeticList.get(i).getCsmtName()); 
+			}
+			
 		return cosmeticList;
 	}
 

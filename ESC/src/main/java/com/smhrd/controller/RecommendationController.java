@@ -54,11 +54,17 @@ public class RecommendationController {
 	}
 	
 	// 문진 후 결과페이지에 추천제품 출력 -- 0314 김원경
-	public String getCosmeticList(Model model) { // 문진 후 타입을 변수로 받아오기
-		// 점수를 날려서... 결과 가져오기 with 해성 4시부터~~
-		String type = (String) model.getAttribute("type"); // 모델 객체 이름 수정 필요
-		List<Cosmetic> cosmeticList = recommendationService.getCosmeticList(type);
-		model.addAttribute(cosmeticList);
-		return "cosmetic_list"; // 결과페이지 리턴
+	@GetMapping("/csmtRecommendation/{rskin}")
+	public String getCosmeticList(Model model, @PathVariable("rskin") String rskin) { // 문진 후 타입을 변수로 받아오기
+		// 점수 가져오기 with 해성 4시부터~~
+		// model.getAttribute("result");
+		System.out.println("사용자 피부타입 : "+rskin);
+		//==========================================================================
+		List<Cosmetic> cosmeticList = recommendationService.getCosmeticList(rskin);
+		
+		//==========================================================================
+		model.addAttribute("cosmeticList", cosmeticList);
+		
+		return "cosmetic_list"; 
 	}
 }

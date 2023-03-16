@@ -90,7 +90,7 @@ public class ResultController {
 		
 		// DB에 문진결과 저장
 		Result result = this.resultService.rsSave(rs);
-		model.addAttribute(result);
+		model.addAttribute("result", result);
 		return "resultHS";
 	}
 	
