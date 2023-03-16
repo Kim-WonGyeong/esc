@@ -21,7 +21,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Controller
 public class RecommendationController {
-
+	
+	// DI
 	private final RecommendationService recommendationService;
 	private final ResultService resultService;
 	private final CosmeticService cosmeticService;
