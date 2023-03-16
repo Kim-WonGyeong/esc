@@ -35,6 +35,9 @@ public interface ReviewRepository extends Repository<Review, String> {
 	public List<Review> findEssenceComb(@Param("list")List<Cosmetic> list);
 	
 	
+	@Query("select c.csmt_no from reviews r join r.cosmetic c where c.csmt_type = :csmtType order by r.comb_pos_cnt desc")
+	public List<Review> findCosmeticsByCsmtTypeAndCombPosCntDesc(@Param("csmtType") String csmtType);
+	
 	// Dry
 	@Query(value="select c.csmt_no from reviews r, cosmetics c where c.csmt_no in (select csmt_no from cosmetics where csmt_type='allinone') and r.csmt_no = c.csmt_no order by r.dry_pos_cnt desc",
 			nativeQuery = true)
