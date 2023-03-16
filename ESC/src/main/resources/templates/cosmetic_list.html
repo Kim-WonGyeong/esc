@@ -13,6 +13,22 @@
 
 </head>
 <body>
+
+<table>
+    <thead>
+        <tr>
+            <th>제품명</th>
+            <th>가격</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="cosmetic, index : ${cosmeticList}">
+            <td th:text="${cosmetic.csmtName}"></td>
+            <td th:text="${cosmetic.csmtPrice}"></td>
+        </tr>
+    </tbody>
+</table>
+
 	<table class="table table-bordered">
     <thead>
       <tr>
@@ -23,6 +39,7 @@
     </thead>
     <tbody>
       <tr>
+      <!-- 1. thymleaf 반복문으로 출력하기 2. 카테고리(스킨/로션/크림/...)별로 출력되도록 변경하기 -->
         <td><img height='200px' src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014839806ko.jpg?l=ko"></td>
         <td>웰라쥬 리얼 시카카밍 원데이키트 7개입</td>
         <td>웰라쥬</td>

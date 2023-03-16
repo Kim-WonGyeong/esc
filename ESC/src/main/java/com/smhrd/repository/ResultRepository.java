@@ -13,4 +13,5 @@ public interface ResultRepository extends JpaRepository<Result, Long>{
 	
 	public Result findByRseq(Long rseq);
 	public List<Result> findAllByUser(User user);
+	public List<Result> findAllByUserOrderByRseq(User user);
 }

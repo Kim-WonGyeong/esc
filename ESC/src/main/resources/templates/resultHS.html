@@ -6,11 +6,14 @@
 </head>
 <body>
 	resultHS 페이지.
-	<p th:text="|이름 : ${result.user.userId}|"></p>
+	<p th:text="|이름 : ${result.user.userNick}|"></p>
 	<p th:text="|피부유형 : ${result.rskin}|"></p>
 	<p th:text="|지성 점수 : ${result.roily}|"></p>
 	<p th:text="|저항성 점수 : ${result.rresistant}|"></p>
 	<p th:text="|비색소성 점수 : ${result.rnonPigment}|"></p>
 	<p th:text="|탄력성 점수 : ${result.rtight}|"></p>
+	
+	
+	<a th:href="@{|/recommendation/csmtRecommendation/${result.rskin}|}">화장품 추천 받기</a>
 </body>
 </html>

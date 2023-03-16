@@ -25,74 +25,89 @@
   
 </header>
     <body>
-      <main>
-        <p id="description"></p>
-        <form id="survey-form">
-          <h1 id="title">Baumann Skin Type Test</h1>
-
-<br><br>
-
-
-
-          <div id="cbx">
-            <div id="cbx1">
-              <p>
-                1. 건조한 환경에서 보습제, 자외선 차단제를 사용하지 않으면 얼굴 피부는 어떤가요?
-              </p>
-              <input type="radio" id="checkbox" name="radio" value="" />
-              <label>매우 건조하거나 갈라지는 느낌이 든다.</label> <br>
-              <input type="radio"  id="checkbox"name="radio" value="" />
-              <labal>당기는 느낌이 든다.</labal> <br>
-              <input type="radio" id="checkbox" name="radio" value="" />
-              <labal>정상적인 느낌이다.</labal> <br>
-              <input type="radio" id="checkbox" name="radio" value="" />
-              <labal>윤기가 있다. 혹은, 보습제가 필요하다고 느낀 적이 없다.</labal> <br>
-              <input type="radio" id="checkbox" name="radio" value="" />
-              <labal>잘 모르겠다.</labal> <br>
-            </div>
+      <div class="burger-wrap">
+        
+    </div>
+    
+    <h1>ESC</h1>
+      
+      <section class="main">
+      
+        <div class="menu-cover"></div>
+        
+      <div class="container">
+        <h1 style="font-size: 3em;"> Baumann Skin Type Test </h1><br><br><br><br>
+        <img width="400px" height="300px" src="./img/BACRI_161014.jpg" alt="">
+        <br>
+        <p class="drop-cap">Baumann 피부 유형 시스템은 16가지 피부 성격을
+            정의하는 피부 유형 분류 시스템입니다. <br>
+             이 분류 시스템은 연구 참가자를 특정 표현형으로
+            세분화하기 위해 마이애미 대학교 <br>피부과 
+            교수인  Leslie Baumann이 2004년에 개발했습니다.
+      </p>
+      
+      
+      
+      <br><br><br><br><br><br>
+      
+      
+      <form id="survey-form" th:action="@{/result/save}">
+      <div id="cbx">
+        <div id="cbx1">
+          <p>
+            1. 건조한 환경에서 보습제, 자외선 차단제를 사용하지 않으면 얼굴 피부는 어떤가요?
+          </p>
+          <input type="radio" id="checkbox" name="roily1" th:value="1" />
+          <label for="checkbox1" >매우 건조하거나 갈라지는 느낌이 든다.</label> <br>
+          <input type="radio"  id="checkbox"name="roily1" th:value="2" />
+          <labal for="checkbox2" >당기는 느낌이 든다.</labal> <br>
+          <input type="radio" id="checkbox" name="roily1" th:value="3" />
+          <labal for="checkbox3" >정상적인 느낌이다.</labal> <br>
+          <input type="radio" id="checkbox" name="roily1" th:value="4" />
+          <labal for="checkbox4" >윤기가 있다. 혹은, 보습제가 필요하다고 느낀 적이 없다.</labal> <br>
+          <input type="radio" id="checkbox" name="roily1" th:value="2.5" />
+          <labal for="checkbox5" >잘 모르겠다.</labal> <br>
+        </div>
 <br><br><br>
-            <div id="cbx2">
-              <p>2. 세안 후 보슴제, 자외선 차단제 등을 바르지 않은 상태에서 2~3시간 후 당신의 얼굴 피부는 어떤가요?</p>
-              <input type="radio" id="checkbox" name="radio2" value="" />
-              <label>매우 거칠거나, 각질이 일어나 있거나, 혹은 창백하다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio2" value="" />
-              <label>매우 당기는 느낌이 든다.</label>  <br>
-              <input type="radio" id="checkbox"  name="radio2" value="">
-              <label>겉보기에 빛의 반사가 없으며 촉촉한 느낌이다.</label> <br>
-              <input type="radio" id="checkbox" name="radio2" value="" />
-              <label>밝은 빛을 반사하며 윤기가 나는 상태이다.</label> <br>
-            </div>
+        <div id="cbx2">
+          <p>2. 세안 후 보슴제, 자외선 차단제 등을 바르지 않은 상태에서 2~3시간 후 당신의 얼굴 피부는 어떤가요?</p>
+          <input type="radio" id="checkbox" name="roily2" th:value="1" />
+          <label for="checkbox1" >매우 거칠거나, 각질이 일어나 있거나, 혹은 창백하다.</label>  <br>
+          <input type="radio" id="checkbox" name="roily2" th:value="2" />
+          <label for="checkbox2" >매우 당기는 느낌이 든다.</label>  <br>
+          <input type="radio" id="checkbox"  name="roily2" th:value="3">
+          <label for="checkbox3" >겉보기에 빛의 반사가 없으며 촉촉한 느낌이다.</label> <br>
+          <input type="radio" id="checkbox" name="roily2" th:value="4" />
+          <label for="checkbox4" >밝은 빛을 반사하며 윤기가 나는 상태이다.</label> <br>
+        </div>
 
-            <br><br><br>
+        <br><br><br>
 
-            
-
-            <div id="cbx">
-              <p>3.얼굴의 T존(이마-코 부분)에 유분은 어느정도 있나요?</p>
-              <input type="radio"  id="checkbox" name="radio4" value="" />
-              <label>전혀 없다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio4" value="" />
-              <label>때때로 있다.</label>  <br>
-              <input type="radio"  id="checkbox" name="radio4" value="">
-              <label>자주 있다.</label> <br>
-              <input type="radio" id="checkbox" name="radio4" value="" />
-              <label>항상 있다.</label> <br>
-              
-            </div>
+        <div id="cbx">
+          <p>3.얼굴의 T존(이마-코 부분)에 유분은 어느정도 있나요?</p>
+          <input type="radio"  id="checkbox" name="roily3" th:value="1" />
+          <label for="checkbox1" >전혀 없다.</label>  <br>
+          <input type="radio" id="checkbox" name="roily3" th:value="2" />
+          <label for="checkbox2" >때때로 있다.</label>  <br>
+          <input type="radio"  id="checkbox" name="roily3" th:value="3">
+          <label for="checkbox3" >자주 있다.</label> <br>
+          <input type="radio" id="checkbox" name="roily3" th:value="4" />
+          <label for="checkbox4" >항상 있다.</label> <br>
+        </div>
 
 
             <br><br><br>
             <div id="cbx4">
               <p>4.화장품 사용 후 얼굴에 뾰루지, 발진, 가려움증 혹은 따끔거림 증상이 나타난 적이 있나요?</p>
-              <input type="radio"  id="checkbox" name="radio4" value="" />
+              <input type="radio"  id="checkbox" name="rresistant1" th:value="1" />
               <label>전혀 없다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio4" value="" />
+              <input type="radio" id="checkbox" name="rresistant1" th:value="2" />
               <label>거의 없다.</label>  <br>
-              <input type="radio"  id="checkbox" name="radio4" value="">
+              <input type="radio"  id="checkbox" name="rresistant1" th:value="3">
               <label>자주 있다.</label> <br>
-              <input type="radio" id="checkbox" name="radio4" value="" />
+              <input type="radio" id="checkbox" name="rresistant1" th:value="4" />
               <label>항상 있다.</label> <br>
-              <input type="radio" id="checkbox" name="radio4" value="" />
+              <input type="radio" id="checkbox" name="rresistant1" th:value="2.5" />
               <label>얼굴에 화장품을 사용하지 않는다.</label> <br>
             </div>
 
@@ -101,15 +116,15 @@
             <div id="cbx5">
               <p>5.향료가 포함된 거품 입욕제, 오일, 로션 등을 사용하면 발진이 생기거나, 가렵거나 건조한 느낌이 있나요? (이런 제품에 의해 비부에 문제가 생겨서 사용하지 않을 시, 4로 답해주세요)
                                 </p>
-              <input type="radio"  id="checkbox"name="radio5" value="" />
+              <input type="radio"  id="checkbox"name="rresistant2" th:value="1" />
               <label>전혀 없다.</label>  <br>
-              <input type="radio"  id="checkbox"name="radio5" value="" />
+              <input type="radio"  id="checkbox"name="rresistant2" th:value="2" />
               <label>거의 없다</label>  <br>
-              <input type="radio"  id="checkbox" name="radio5" value="">
+              <input type="radio"  id="checkbox" name="rresistant2" th:value="3">
               <label>자주 나타난다.</label> <br>
-              <input type="radio"  id="checkbox"name="radio5" value="" />
+              <input type="radio"  id="checkbox"name="rresistant2" th:value="4" />
               <label>항상 그렇다.</label> <br>
-              <input type="radio" id="checkbox" name="radio5" value="" />
+              <input type="radio" id="checkbox" name="rresistant2" th:value="2.5" />
               <label>이런 종류의 제품은 전혀 사용하지 않는다.</label> <br>
             </div>
 
@@ -118,13 +133,13 @@
             <div id="cbx6">
               <p>6.운동, 스트레스 또는 격한 감정(분노 등),음주, 맵거나 뜨거운 음식을 먹을 때 얼굴과 목이 붉어지는 편인가요?
                 </p>
-              <input type="radio"  id="checkbox" name="radio6" value="" />
+              <input type="radio"  id="checkbox" name="rresistant3" th:value="1" />
               <label>전혀 그런 적이 없다</label>  <br>
-              <input type="radio" id="checkbox" name="radio6" value="" />
+              <input type="radio" id="checkbox" name="rresistant3" th:value="2" />
               <label>때때로 그렇다.</label>  <br>
-              <input type="radio"  id="checkbox" name="radio6" value="">
+              <input type="radio"  id="checkbox" name="rresistant3" th:value="3">
               <label>자주 그렇다.</label> <br>
-              <input type="radio" id="checkbox" name="radio6" value="" />
+              <input type="radio" id="checkbox" name="rresistant3" th:value="4" />
               <label>항상 그렇다.</label> <br>
             </div>
 
@@ -133,15 +148,15 @@
             <div id="cbx7">
               <p>7.몇일동안 계속해서 햇빛에 노출되는 경우 당신의 피부는 어떤 편인가요?
                 </p>
-              <input type="radio"  id="checkbox" name="radio7" value="" />
+              <input type="radio"  id="checkbox" name="rnonPigment1" th:value="1" />
               <label>햇빛에 타서 물집이 생겼으나 피부색은 변하지 않는다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio7" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment1" th:value="2" />
               <label>피부색이 약간 짙어진다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio7" value="">
+              <input type="radio" id="checkbox" name="rnonPigment1" th:value="3">
               <label>피부색이 많이 짙어진다.</label> <br>
-              <input type="radio" id="checkbox" name="radio7" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment1" th:value="4" />
               <label>원래의 피부색이 짙어서 더 짙어졌는지 구분이 어렵다.</label> <br>
-              <input type="radio" id="checkbox" name="radio7" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment1" th:value="2.5" />
               <label>잘 모르겠다.</label> <br>
             </div>
 
@@ -150,30 +165,30 @@
             <div id="cbx8">
               <p>8.햇볕에 노출되는 경우, 주근깨(작은 1~2mm의 편평한 점)가 생기나요?
                 </p>
-              <input type="radio" id="checkbox" name="radio8" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment2" th:value="1" />
               <label>전혀 생기지 않는다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio8" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment2" th:value="2" />
               <label>매년 약간씩 작은 주근깨가 생긴다.</label>  <br>
-              <input type="radio" id="checkbox"  name="radio8" value="">
+              <input type="radio" id="checkbox"  name="rnonPigment2" th:value="3">
               <label>자주 주근깨가 생긴다</label> <br>
-              <input type="radio" id="checkbox" name="radio8" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment2" th:value="4" />
               <label>피부가 이미 짙어서 주근깨가 있는지 구분이 어렵다.</label> <br>
-              <input type="radio" id="checkbox" name="radio8" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment2" th:value="2.5" />
               <label>햇볕에 전혀 나가지 않는다.</label> <br>
             </div>
 
             <br><br><br>
 
-            <div id="cbx9">
+            <div id="cbx9">s
               <p>9.얼굴,가슴,등 혹은 양 팔에 작은 갈색 점(주근깨)이 있거나,있었던 적이 있나요?
                 </p>
-              <input type="radio" id="checkbox"  name="radio9" value="" />
+              <input type="radio" id="checkbox"  name="rnonPigment3" th:value="1" />
               <label>없다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio9" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment3" th:value="2" />
               <label>약간 있다(1~5개).</label>  <br>
-              <input type="radio"  id="checkbox" name="radio9" value="">
+              <input type="radio"  id="checkbox" name="rnonPigment3" th:value="3">
               <label>많이 있다(6~15개)</label> <br>
-              <input type="radio" id="checkbox" name="radio9" value="" />
+              <input type="radio" id="checkbox" name="rnonPigment3" th:value="4" />
               <label>아주 많다(16개 이상)</label> <br>
             </div>
 
@@ -182,13 +197,13 @@
             <div id="cbx10">
               <p>10.얼굴에 주름이 있나요?
                 </p>
-              <input type="radio"  id="checkbox" name="radio10" value="" />
+              <input type="radio"  id="checkbox" name="rtight1" th:value="1" />
               <label>없다 웃거나 찡그리거나 눈썹을 치켜올릴 경우에도 거의 없다.</label>  <br>
-              <input type="radio"  id="checkbox"name="radio10" value="" />
+              <input type="radio"  id="checkbox"name="rtight1" th:value="2" />
               <label>웃거나 찡그리거나 눈썹을 치켜올릴 때에 생긴다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio10" value="">
+              <input type="radio" id="checkbox" name="rtight1" th:value="3">
               <label>있다. 얼굴을 움직이거나 움직임이 없는 상태에서도 약간 있다.</label> <br>
-              <input type="radio"  id="checkbox"name="radio10" value="" />
+              <input type="radio"  id="checkbox"name="rtight1" th:value="4" />
               <label>웃거나 찡그리거나 눈썹을 치켜올리지 않아도 주름이 있는 상태이다.</label> <br>
 
             </div>
@@ -198,13 +213,13 @@
             <div id="cbx11">
               <p>11.일상생활을 기준으로, 일상에서 햇빛에 노출되는 시간은 하루에 어느 정도인가요?
                 </p>
-              <input type="radio"  id="checkbox" name="radio11" value="" />
+              <input type="radio"  id="checkbox" name="rtight2" th:value="1" />
               <label>별로 없다(흐리거나 구름이 많은 장소에서 주로 지낸다.)</label>  <br>
-              <input type="radio" id="checkbox" name="radio11" value="" />
+              <input type="radio" id="checkbox" name="rtight2" th:value="2" />
               <label>약간 있다.(때때로 흐린 곳에서 살았지만, 규칙적으로 햇빛이 드는 장소에서 지냈다.)</label>  <br>
-              <input type="radio" id="checkbox" name="radio11" value="">
+              <input type="radio" id="checkbox" name="rtight2" th:value="3">
               <label>보통이다.(꽤 많은 양의 일광이 존재하는 장소에서 지냈다.)</label> <br>
-              <input type="radio" id="checkbox" name="radio11" value="" />
+              <input type="radio" id="checkbox" name="rtight2" th:value="4" />
               <label>많다(매우 화창한 장소에서 지냈다.)</label> <br>
             </div>
 
@@ -213,30 +228,37 @@
             <div id="cbx12">
               <p>12.나는 실제 나이에 비해 얼마나 나이 들어 보인다고 생각하나요?
                 </p>
-              <input type="radio"  id="checkbox" name="radio12" value="" />
+              <input type="radio"  id="checkbox" name="rtight3" th:value="1" />
               <label>실제 나이보다 1~5년 더 젊어 보인다.</label>  <br>
-              <input type="radio" id="checkbox" name="radio12"  value="" />
+              <input type="radio" id="checkbox" name="rtight3"  th:value="2" />
               <label>실제 나이처럼 보인다.</label>  <br>
-              <input type="radio"  id="checkbox" name="radio12" value="">
+              <input type="radio"  id="checkbox" name="rtight3" th:value="3">
               <label>실제 나이보다 5년 더 늙어 보인다.</label> <br>
-              <input type="radio" id="checkbox" name="radio12" value="" />
+              <input type="radio" id="checkbox" name="rtight3" th:value="4" />
               <label>실제 나이보다 5년 이상 더 늙어 보인다.</label> <br>
             </div>
 
             <br><br><br>
           </div>
           
-          <!--<input type="checkbox" id="checkbox" /> 체크박스 <br /><br />-->
-             <label>문의사항이나 개선방안을 기재해주세요</label><br>
-        <textarea placeholder="#"></textarea> 
-          
-       
-          <input type="Submit"  onclick="check()" name="submit" value="결과 확인" />
-        </form>
-      </main>
+        </div>
 
-    </form>
 
+        <br><br><br>
+      </div>
+
+      <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
+
+      <button name="submit"  data-label="결과 학인">결과 확인</button>
+  	
+          <!-- <input type="Submit"  onclick="check()" name="submit" th:value="결과 확인" /> --> 
+        </div>
+      </div>
+      
+      
+      </form>
+    </section>    
+  
 
     
 <script src="./js/SkinTest.js"></script>
