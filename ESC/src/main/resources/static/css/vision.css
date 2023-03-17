@@ -844,7 +844,7 @@ text {
     color: rgb(227, 227, 227);
     font-size: 1.875rem;
     text-align: center;
-    padding: 1.4% 0 1.4% 0;
+    padding: 2.4% 0 1.5% 0;
     font-family: 'Jua', sans-serif;
     font-weight: 400;
 }
@@ -1526,7 +1526,7 @@ th {
 }
 
 
-@media only screen and (min-height: 980px) {
+@media only screen and (min-height: 1008px) {
     .chart1 > h1 {
 
         color: rgb(227, 227, 227);

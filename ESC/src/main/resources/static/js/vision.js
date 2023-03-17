@@ -480,7 +480,7 @@ onclick에서 타임리프로 (이미지주소)를 보내고
 그걸 넣는 형식
 
 */
-const cart = ['img/pexels1.jpg','img/pexels2.jpg']; // 장바구니 배열
+const cart = ['/img/pexels1.jpg','/img/pexels2.jpg']; // 장바구니 배열
 const maxSize = 3; // 최대 크기
 
 function button_pluss(num) {

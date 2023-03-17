@@ -18,8 +18,6 @@
     padding: 0;
 }
 
-
-
 .header {
     top: 0;
     display: flex;
@@ -42,14 +40,39 @@
 .title {
     display: flex;
 
+    margin-left: 3.5rem;
+    margin-top: 3.375rem;
+    margin-right:0.5rem;
+    font-size: 3.375rem;
+    font-weight: 800;
+    text-align: left;
+    color: var(--font-color);
+
+    align-items: center;
+    justify-content: center;
+}
+
+/* .title {
+    display: flex;
+
     margin-left: 9.375rem;
     margin-top: 3.375rem;
     font-size: 3.375rem;
     font-weight: 800;
     text-align: left;
     color: var(--font-color);
-}
+} */
 
+/* .title.active {
+    flex-direction: column;
+    margin: 0;
+    text-align: center;
+    color: var(--font-color);
+    font-size: 4rem;
+    cursor: pointer;
+
+    transition: 1s;
+} */
 
 .title_last {
     font-size: 0.75rem;
@@ -60,11 +83,12 @@
 
 
 
+
 .header_link {
     position: relative;
     display: flex;
     list-style: none;
-    padding-left: 70%;
+    padding-left: 65%;
     padding-top: 1.25rem;
 }
 
@@ -235,7 +259,7 @@ a:hover { color: var(--font-color); text-decoration: none;}
     left: 0.188rem;
     top:-1.25rem;
     height: 1.275rem;
-    width: 3.3rem;
+    width: 3rem;
     background-color:#b5d5e9;
 }
 
@@ -244,9 +268,9 @@ a:hover { color: var(--font-color); text-decoration: none;}
     position: absolute;
     display: block;
     top:3rem;
-    left: 19.925rem;
+    left: 18rem;
     height: 1.275rem;
-    width: 4.275rem;
+    width: 4rem;
     background-color: var(--darkacent-color)
     /* #f06543; */
 }
@@ -819,5 +843,31 @@ footer > div >h1 {
     display: none;
 }
 
+.tranformEsc {
+    color: #333;
+    border-bottom: 16px solid #333;
+    font-family: cosolas;
+    text-transform: uppercase;
+}
 
+
+.tranformEsc::before {
+    content: attr(data-text);
+    position: absolute;
+    
+    width: 100%;
+    color: var(--point-color);
+    border-bottom: 16px solid var(--point-color);
+    animation: lod 5s linear infinite;
+    overflow: hidden;
+}
+
+@keyframes lod {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 5.8%;
+    }
+}
 

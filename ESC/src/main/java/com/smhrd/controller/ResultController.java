@@ -125,12 +125,27 @@ public class ResultController {
 		model.addAttribute("cosmeticList", cosmeticList);
 		
 		List<Cosmetic> allinoneList = new ArrayList<Cosmetic>();
+		List<Cosmetic> tonerList = new ArrayList<Cosmetic>();
+		List<Cosmetic> lotionList = new ArrayList<Cosmetic>();
+		List<Cosmetic> mistList = new ArrayList<Cosmetic>();
 		
 		for(int i = 0; i < 4; i++) {
 			allinoneList.add(cosmeticList.get(i));
 		};
+		for(int i = 4; i < 8; i++) {
+			tonerList.add(cosmeticList.get(i));
+		};
+		for(int i = 8; i < 12; i++) {
+			lotionList.add(cosmeticList.get(i));
+		};
+		for(int i = 12; i < 16; i++) {
+			mistList.add(cosmeticList.get(i));
+		};
 		
 		model.addAttribute("allinoneList", allinoneList);
+		model.addAttribute("tonerList", tonerList);
+		model.addAttribute("lotionList", lotionList);
+		model.addAttribute("mistList", mistList);
 		
 		return "vision";
 	}
