@@ -15,7 +15,7 @@ public interface ReviewRepository extends Repository<Review, String> {
 	public List<Review> findByCsmtNo(String csmtNo);
 	
 	// Comb
-	@Query(value="select c.csmt_no from reviews r, (select csmt_no from cosmetics where csmt_type='allinone') c where r.csmt_no = c.csmt_no and rownum <= 4 and rownum <= 4 order by r.comb_pos_cnt desc",
+	@Query(value="select c.csmt_no from reviews r, (select csmt_no from cosmetics where csmt_type='allinone') c where r.csmt_no = c.csmt_no and rownum <= 4 order by r.comb_pos_cnt desc",
 			nativeQuery = true)
 	public List<Review> findAllinoneComb(@Param("list")List<Cosmetic> list);
 	@Query(value="select c.csmt_no from reviews r, (select csmt_no from cosmetics where csmt_type='toner') c where r.csmt_no = c.csmt_no and rownum <= 4 order by r.comb_pos_cnt desc",

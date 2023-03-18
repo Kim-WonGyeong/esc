@@ -79,118 +79,31 @@
                 		</span>
                 	</div>
                 </div>
-                
     
                 <h3 class="tab_head" rel="tabd">크림</h3>
                 <div id="tabd" class="tabT_content">
-
-                    <div class="teb_item">
-                        <div class="tab_img"><img
-                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
-                                alt=""></div>
-                        <span>✨블루베리 <h3>322,000원</h3>
-                            <span class="button_cart-1 button_plus" onclick="button_pluss(12)">
-                                담기
-                            </span>
-                        </span>
-                
-                
-                    </div>
-                    <div class="teb_item">
-                        <div class="tab_img"><img
-                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018046102ko.jpg?l=ko"
-                                alt=""></div>
-                        <span>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매) <h3>35,000원</h3>
-                            <span class="button_cart-2 button_plus" onclick="button_pluss(13)">
-                                담기
-                            </span>
-                        </span>
-                
-
-                    </div>
-                    <div class="teb_item">
-                        <div class="tab_img"><img
-                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016569308ko.jpg?l=ko"
-                                alt=""></div>
-                        <span>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)
-                        <h3>35,000원</h3>
-                        <span class="button_cart-3 button_plus" onclick="button_pluss(14)">
-                            담기
-                        </span>
-                        </span>
-
-                    </div>
-
-
-                    <div class="teb_item">
-                        <div class="tab_img"><img
-                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018059308ko.jpg?l=ko"
-                                alt=""></div>
-                        <span>✨블루베리
-                        <h3>35,000원</h3>
-                        <span class="button_cart-4 button_plus" onclick="button_pluss(15)">
-                            담기
-                        </span>
-                        </span>
-                
-                    </div>
-    
+                	<div class="teb_item" th:each="cosmetic, index : ${creamList}">
+                		<div class="tab_img">
+                			<img th:src="${cosmetic.csmtImg}" alt="">
+                		</div>
+                		<span>[[${cosmetic.csmtName}]]
+                			<h3 th:text="${cosmetic.csmtPrice}"></h3>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+12})|">담기</span>
+                		</span>
+                	</div>
                 </div>
     
                 <h3 class="tab_head" rel="tabe">에센스</h3>
                 <div id="tabe" class="tabT_content">
-
-                    <div class="teb_item">
-                        <div class="tab_img"><img
-                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
-                                alt=""></div>
-                        <span>✨블루베리 <h3>322,000원</h3>
-                            <span class="button_cart-1 button_plus" onclick="button_pluss(16)">
-                                담기
-                            </span>
-                        </span>
-                
-                
-                    </div>
-                    <div class="teb_item">
-                        <div class="tab_img"><img
-                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018046102ko.jpg?l=ko"
-                                alt=""></div>
-                        <span>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매) <h3>35,000원</h3>
-                            <span class="button_cart-2 button_plus" onclick="button_pluss(17)">
-                                담기
-                            </span>
-                        </span>
-                
-
-                    </div>
-                    <div class="teb_item">
-                        <div class="tab_img"><img
-                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016569308ko.jpg?l=ko"
-                                alt=""></div>
-                        <span>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)
-                        <h3>35,000원</h3>
-                        <span class="button_cart-3 button_plus" onclick="button_pluss(18)">
-                            담기
-                        </span>
-                        </span>
-
-                    </div>
-
-
-                    <div class="teb_item">
-                        <div class="tab_img"><img
-                                src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018059308ko.jpg?l=ko"
-                                alt=""></div>
-                        <span>✨블루베리
-                        <h3>35,000원</h3>
-                        <span class="button_cart-4 button_plus" onclick="button_pluss(19)">
-                            담기
-                        </span>
-                        </span>
-                
-                    </div>
-    
+                	<div class="teb_item" th:each="cosmetic, index : ${essenceList}">
+                		<div class="tab_img">
+                			<img th:src="${cosmetic.csmtImg}" alt="">
+                		</div>
+                		<span>[[${cosmetic.csmtName}]]
+                			<h3 th:text="${cosmetic.csmtPrice}"></h3>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+16})|">담기</span>
+                		</span>
+                	</div>
                 </div>
     
                 <h3 class="tab_head" rel="tabf">미스트,오일</h3>
@@ -201,7 +114,7 @@
                 		</div>
                 		<span>[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
-                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+12})|">담기</span>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+20})|">담기</span>
                 		</span>
                 	</div>
                 </div>
