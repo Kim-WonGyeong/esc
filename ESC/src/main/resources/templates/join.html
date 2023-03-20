@@ -12,7 +12,7 @@
 				<th colspan="2">회원가입 페이지</th>
 			</tr>
 		</thead>
-			<form th:action="@{/user/join}" th:object="${User}" method="post">
+		<form th:action="@{/user/join}" method="post" th:object="${user}">
 			<tbody>
 				<tr>
 					<td>아이디</td>
@@ -20,7 +20,7 @@
 				</tr>
 				<tr> 
 					<td>비밀번호</td>
-					<td><input type="password" id="userPw" th:field="*{userPw}"></td>
+					<td><input type="password" th:field="*{userPw}"></td>
 				</tr>
 				<tr>
 					<td>닉네임</td>
@@ -29,8 +29,10 @@
 				<tr>
 					<td>성별</td>
 					<td align="center">
-						<input type="radio">남성 
-						<input type="radio">여성
+					<!-- th:field="*{userGender}" th:field="*{userGender}"  -->
+						<input type="radio" name="gender" value="male" th:field="*{userGender}">남성 
+						<input type="radio" name="gender" value="female" th:field="*{userGender}">여성
+
 					</td>
 				</tr>
 				<tr>

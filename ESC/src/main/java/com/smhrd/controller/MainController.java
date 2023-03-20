@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.smhrd.entity.User;
 
+import com.smhrd.entity.User;
+
 @Controller
 public class MainController {
 	
