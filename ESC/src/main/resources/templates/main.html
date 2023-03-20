@@ -56,21 +56,15 @@
             window.addEventListener('resize', handleScreenChange);
         }
     </script>
-
 </head>
 <body>
     <section class="container">
-    
-    
         <nav class="header section-s panel">
-    
             <div class="header_title">
                 <div class="title"><h1 class="tranformEsc" data-text="ESC">ESC</h1>
                     <span class="header_nonedis">click here</span>
                     <span class="text__first-bg "></span>
                     <span class="text__second-bg"></span>
-    
-    
                     <div class="header_link">
                         <li class="title_item title_item_one"><a href="#">소개</a></li>
                         <li class="title_item title_item_two" th:if="${user == null}"><a th:href="@{/signup}">진단</a></li>
@@ -79,18 +73,16 @@
                         <li class="title_item-none title_item title_item_three" th:if="${user == null}"><a th:href="@{/signup}">로그인|가입</a></li>
                         <li class="title_item-none title_item title_item_three" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
                     </div>
-    
                 </div>
                 <!--         <p class="title_last">PERFECT SKIN</p>-->
             </div>
-    
             <div class="header_text trigger"><span>EXPERT </span>SKINCARE
                 <span class="kk_first"></span>
                 <span class="kk_second"></span>
             </div>
         </nav>
-    
-    
+        
+        
         <section class="section1 panel2">
             <div class="slide_pic ">
                 <div class="slide_pic_wrap">
