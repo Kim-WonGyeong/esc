@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.entity.Cosmetic;
-import com.smhrd.entity.CosmeticIngredient;
+import com.smhrd.entity.Ingredient;
 import com.smhrd.entity.Result;
 import com.smhrd.entity.User;
 import com.smhrd.service.CosmeticService;
 import com.smhrd.service.RecommendationService;
 import com.smhrd.service.ResultService;
 
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 import lombok.RequiredArgsConstructor;
 
 @RequestMapping("/result")
@@ -140,14 +141,11 @@ public class ResultController {
 		List<Cosmetic> mistList = new ArrayList<Cosmetic>();
 		List<Cosmetic> essenceList = new ArrayList<Cosmetic>();
 		
-		List<CosmeticIngredient> tonerCiList = new ArrayList<CosmeticIngredient>();
-		
 		for(int i = 0; i < 4; i++) {
 			allinoneList.add(cosmeticList.get(i));
 		};
 		for(int i = 4; i < 8; i++) {
 			tonerList.add(cosmeticList.get(i));
-			tonerCiList.addAll(tonerList.get(i-4).getCosIng());
 		};
 		for(int i = 8; i < 12; i++) {
 			lotionList.add(cosmeticList.get(i));
@@ -165,7 +163,17 @@ public class ResultController {
 		System.out.println("리스트 분할 성공");
 		System.out.println("리스트 길이 : "+cosmeticList.size());
 		
-		model.addAttribute("tonerCiList", tonerCiList);
+		float rroily = (float)result.getRoily()/12;
+		float rrnonPigment = (float)result.getRnonPigment()/12;
+		float rrtight = (float)result.getRtight()/12;
+		float rrresistant = (float)result.getRresistant()/12;
+		float rtotal = (rroily+rrnonPigment+rrtight+rrresistant)/4;
+		
+		model.addAttribute("rtotal", rtotal);
+		model.addAttribute("roily", rroily);
+		model.addAttribute("rnonPigment", rrnonPigment);
+		model.addAttribute("rtight", rrtight);
+		model.addAttribute("rresistant", rrresistant);
 		
 		model.addAttribute("allinoneList", allinoneList);
 		model.addAttribute("tonerList", tonerList);
