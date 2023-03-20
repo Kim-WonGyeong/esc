@@ -278,3 +278,21 @@ button.loading {
 h1 {
   font-size: 50px;
 }
+
+  @media screen and (max-width: 800px) {
+    #survey-form {
+      width: 90%;
+    }
+  }
+
+  .image-container {
+    opacity: 0;
+    transition: opacity 1s;
+    transform: scale(1.1);
+  }
+  
+  .image-container.show {
+    opacity: 1;
+  }
+  
+  

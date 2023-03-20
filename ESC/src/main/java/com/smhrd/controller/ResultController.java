@@ -1,5 +1,6 @@
 package com.smhrd.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.smhrd.entity.Cosmetic;
 import com.smhrd.entity.Result;
 import com.smhrd.entity.User;
+import com.smhrd.service.RecommendationService;
 import com.smhrd.service.ResultService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +25,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class ResultController {
 	
+	private final RecommendationService recommendationService;
 	private final ResultService resultService;
 	private final HttpSession httpSession;
 	
@@ -68,29 +72,39 @@ public class ResultController {
 		
 		// ORNT
 		String OD = "D";
-		String RS = "R";
-		String NP = "N";
-		String TW = "T";
+		int odText = 1;
+		String RS = "S";
+		int rsText = 3; 
+		String NP = "P";
+		int npText = 4;
+		String TW = "W";
+		int twText = 6;
 		
 		if(roily >= 8) {
 			OD = "O";
+			odText = 0;
 		}
 		
 		if(rresistant >= 8) {
-			RS = "S";
+			RS = "R";
+			rsText = 2;
 		}
 		
 		if (rnonPigment >= 8) {
-			NP = "P";
+			NP = "N";
+			npText = 5;
 		}
 		
 		if (rtight >= 8) {
-			TW = "W";
+			TW = "T";
+			twText = 7;
 		}
 		
 		// 피부타입 결정
 		String ORNT = OD + RS + NP + TW;
 		String rskin = ORNT;
+		
+		System.out.println(rskin);
 		
 		// 저장할 Result 객체
 		Result rs = new Result();
@@ -104,7 +118,55 @@ public class ResultController {
 		// DB에 문진결과 저장
 		Result result = this.resultService.rsSave(rs);
 		model.addAttribute("result", result);
-		return "resultHS";
+		model.addAttribute("odtext", odText);
+		model.addAttribute("rstext", rsText);
+		model.addAttribute("nptext", npText);
+		model.addAttribute("twtext", twText);
+		
+		System.out.println("문진결과 저장 완료");
+		
+		List<Cosmetic> cosmeticList = recommendationService.getCosmeticList(rskin);
+		model.addAttribute("cosmeticList", cosmeticList);
+		
+		System.out.println("rcmService cosmeticList 불러오기 성공");
+		
+		List<Cosmetic> allinoneList = new ArrayList<Cosmetic>();
+		List<Cosmetic> tonerList = new ArrayList<Cosmetic>();
+		List<Cosmetic> lotionList = new ArrayList<Cosmetic>();
+		List<Cosmetic> creamList = new ArrayList<Cosmetic>();
+		List<Cosmetic> mistList = new ArrayList<Cosmetic>();
+		List<Cosmetic> essenceList = new ArrayList<Cosmetic>();
+		
+		for(int i = 0; i < 4; i++) {
+			allinoneList.add(cosmeticList.get(i));
+		};
+		for(int i = 4; i < 8; i++) {
+			tonerList.add(cosmeticList.get(i));
+		};
+		for(int i = 8; i < 12; i++) {
+			lotionList.add(cosmeticList.get(i));
+		};
+		for(int i = 12; i < 16; i++) {
+			creamList.add(cosmeticList.get(i));
+		};
+		for(int i = 16; i < 20; i++) {
+			mistList.add(cosmeticList.get(i));
+		};
+		for(int i = 20; i < 24; i++) {
+			essenceList.add(cosmeticList.get(i));
+		};
+		
+		System.out.println("리스트 분할 성공");
+		System.out.println("리스트 길이 : "+cosmeticList.size());
+		
+		model.addAttribute("allinoneList", allinoneList);
+		model.addAttribute("tonerList", tonerList);
+		model.addAttribute("lotionList", lotionList);
+		model.addAttribute("creamList", creamList);
+		model.addAttribute("mistList", mistList);
+		model.addAttribute("essenceList", essenceList);
+		
+		return "vision";
 	}
 	
 }

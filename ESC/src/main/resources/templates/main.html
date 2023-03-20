@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rework</title>
 
-    <!-- 주석태그를 지워서 사용하세요 -->  
+    <!-- 주석태그를 지워서 사용하세요
     <link th:href="@{/css/main.css}" rel="stylesheet">
-    <link th:href="@{/css/media.css}" media="only screen and (max-width: 768px)" rel="stylesheet">
-     
-   <!--  <link rel="stylesheet" href="/css/main.css">
+    <link th:href="@{/css/media.css}" media="only screen and (max-width: 768px)" rel="stylesheet"> 
+    -->   
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet"  media="only screen and (max-width: 768px)" href="/css/media.css">
-    <link rel="stylesheet" href="/css/font.css"> -->
+    <link rel="stylesheet" href="/css/font.css">
+
 
     <!-- 나중에 정리 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&family=Poppins:wght@700;800;900&family=Rubik:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
-
+	
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="https://kit.fontawesome.com/c8ca5d214a.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -63,7 +65,7 @@
         <nav class="header section-s panel">
     
             <div class="header_title">
-                <div class="title">ESC
+                <div class="title"><h1 class="tranformEsc" data-text="ESC">ESC</h1>
                     <span class="header_nonedis">click here</span>
                     <span class="text__first-bg "></span>
                     <span class="text__second-bg"></span>
@@ -71,12 +73,13 @@
     
                     <div class="header_link">
                         <li class="title_item title_item_one"><a href="#">소개</a></li>
-                        <li class="title_item title_item_two" th:if="${user == null}"><a th:href="@{/join}">진단</a></li>
+                        <li class="title_item title_item_two" th:if="${user == null}"><a th:href="@{/signup}">진단</a></li>
+                        <li class="title_item title_item_two" th:if="${user != null}"><a th:href="@{/test}">진단</a></li>
                         <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
-                        <li class="title_item-none" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
-                        <li class="title_item-none title_item title_item_three" th:if="${user == null}"><a th:href="@{/login}">로그인|가입</a></li>
-                        <li class="title_item-none" th:if="${user != null}"><a th:href="@{/test}">테스트</a></li>
+                        <li class="title_item-none title_item title_item_three" th:if="${user == null}"><a th:href="@{/signup}">로그인|가입</a></li>
+                        <li class="title_item-none title_item title_item_three" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
                     </div>
+    
                 </div>
                 <!--         <p class="title_last">PERFECT SKIN</p>-->
             </div>
@@ -91,7 +94,7 @@
         <section class="section1 panel2">
             <div class="slide_pic ">
                 <div class="slide_pic_wrap">
-                    <img class="slide_pic_img" src="./img/final2.jpg" alt="화장품">
+                    <img class="slide_pic_img" src="/img/final2.jpg" alt="화장품">
                 </div>
             </div>
     
@@ -151,7 +154,7 @@
     
                 <div class="warp_lev3_2 ">
                     <div class="lev3_img">
-                        <img src="./img/lev2pic1.png" art="how it work1">
+                        <img src="/img/lev2pic1.png" art="how it work1">
                     </div>
                     <div class="lev3_text1">
                         <h3><br></h3>
@@ -203,10 +206,10 @@
             <section class="section3-img">
                 <h4> </h4>
                 <ul class="wraper_img">
-                    <li><img src="./img/type/1.png" onclick="showText(12)"></li>
-                    <li><img src="./img/type/2.png" onclick="showText(13)"></li>
-                    <li><img src="./img/type/3.png" onclick="showText(0)"></li>
-                    <li><img src="./img/type/4.png" onclick="showText(1)"></li>
+                    <li><img src="/img/type/1.png" onclick="showText(12)"></li>
+                    <li><img src="/img/type/2.png" onclick="showText(13)"></li>
+                    <li><img src="/img/type/3.png" onclick="showText(0)"></li>
+                    <li><img src="/img/type/4.png" onclick="showText(1)"></li>
                 </ul>
     
             </section>
@@ -215,10 +218,10 @@
     
                 <ul class="wraper_img">
                     <h4> </h4>
-                    <li><img src="./img/type/5.png" onclick="showText(14)"></li>
-                    <li><img src="./img/type/6.png" onclick="showText(15)"></li>
-                    <li><img src="./img/type/7.png" onclick="showText(2)"></li>
-                    <li><img src="./img/type/8.png" onclick="showText(3)"></li>
+                    <li><img src="/img/type/5.png" onclick="showText(14)"></li>
+                    <li><img src="/img/type/6.png" onclick="showText(15)"></li>
+                    <li><img src="/img/type/7.png" onclick="showText(2)"></li>
+                    <li><img src="/img/type/8.png" onclick="showText(3)"></li>
                 </ul>
     
             </section>
@@ -227,10 +230,10 @@
     
                 <ul class="wraper_img">
                     <h4> </h4>
-                    <li><img src="./img/type/9.png" onclick="showText(8)"></li>
-                    <li><img src="./img/type/10.png" onclick="showText(9)"></li>
-                    <li><img src="./img/type/11.png" onclick="showText(4)"></li>
-                    <li><img src="./img/type/12.png" onclick="showText(5)"></li>
+                    <li><img src="/img/type/9.png" onclick="showText(8)"></li>
+                    <li><img src="/img/type/10.png" onclick="showText(9)"></li>
+                    <li><img src="/img/type/11.png" onclick="showText(4)"></li>
+                    <li><img src="/img/type/12.png" onclick="showText(5)"></li>
                 </ul>
     
             </section>
@@ -239,17 +242,18 @@
     
                 <ul class="wraper_img">
                     <h4> </h4>
-                    <li><img src="./img/type/13.png" onclick="showText(10)"></li>
-                    <li><img src="./img/type/14.png" onclick="showText(11)"></li>
-                    <li><img src="./img/type/15.png" onclick="showText(6)"></li>
-                    <li><img src="./img/type/16.png" onclick="showText(7)"></li>
+                    <li><img src="/img/type/13.png" onclick="showText(10)"></li>
+                    <li><img src="/img/type/14.png" onclick="showText(11)"></li>
+                    <li><img src="/img/type/15.png" onclick="showText(6)"></li>
+                    <li><img src="/img/type/16.png" onclick="showText(7)"></li>
                 </ul>
     
             </section>
             <section class="section3-text-top">
                 <div class="section3-text">
-                    DRPTDRNTDSPTDSNTDRPWDRNWDSPWDSNWDRPWPDSNTDR&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a
-                        href="#">CHECK&nbspYOUR&nbspTYPE</a>
+                    DRPTDRNTDSPTDSNTDRPWDRNWDSPWDSNWDRPWPDSNTDR&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a th:if="${user == null}" th:href="@{/signup}">CHECK&nbspYOUR&nbspTYPE</a>
+                    <a th:if="${user != null}" th:href="@{/test}">CHECK&nbspYOUR&nbspTYPE</a>
                 </div>
             </section>
             <span class="check_showtxt"></span>
@@ -261,7 +265,7 @@
             <div class="warp_lev3_2_re">
     
                 <div class="lev3_img2">
-                    <img src="./img/lev2pic2.png" art="how it work1">
+                    <img src="/img/lev2pic2.png" art="how it work1">
                 </div>
     
     
@@ -276,7 +280,7 @@
     
             <div class="warp_lev3_2_re2 panel">
                 <div class="lev3_img3">
-                    <img src="./img/lev2pic3.png" art="how it work1">
+                    <img src="/img/lev2pic3.png" art="how it work1">
     
                 </div>
     
@@ -297,7 +301,7 @@
     
         </section>
     
-        <span class="btn">Join us!</span>
+        <span class="btn"><a th:href="@{/signup}">Join us!</a></span>
     
         <section class="section4_bottom panel2">
             <div class="bottom_left">
@@ -313,8 +317,8 @@
     
                 </div>
                 <div class="oh_wrap">
-                    <img class="oh" src="./img/oh1.png"><img class="oh" src="./img/oh2.png"><img class="oh"
-                        src="./img/oh3.png">
+                    <img class="oh" src="/img/oh1.png"><img class="oh" src="/img/oh2.png"><img class="oh"
+                        src="/img/oh3.png">
                 </div>
             </div>
         </section>
@@ -336,6 +340,6 @@
     </footer>
 
 
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
 </body>
 </html>

@@ -11,6 +11,11 @@ public class MainController {
 	
 //	@ResponseBody : URL 요청의 응답으로 문자열 리턴
 	
+	@GetMapping("/signup")
+	public String signup() {
+		return "signup";
+	}
+	
 	@GetMapping("/main")
 	public String main() {
 		return "main";

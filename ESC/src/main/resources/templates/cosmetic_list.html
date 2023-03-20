@@ -14,19 +14,25 @@
 </head>
 <body>
 
-<table>
+<table border="1">
     <thead>
         <tr>
             <th>제품명</th>
             <th>가격</th>
         </tr>
     </thead>
-    <tbody>
-        <tr th:each="cosmetic, index : ${cosmeticList}">
-            <td th:text="${cosmetic.csmtName}"></td>
-            <td th:text="${cosmetic.csmtPrice}"></td>
+    <tbody th:each="cosmetic, index : ${cosmeticList}">
+        <tr th:each="csmt, index : ${cosmetic}">
+            <td th:text="${csmt.csmtName}"></td>
+            <td th:text="${csmt.csmtPrice}"></td>
+        </tr>
+        <tr th:each="cosing, index : ${cosmetic.cosIng}">
+        	<td th:text="${cosing.ing.ingName}"></td>
+        	<td th:text="${cosing.ing.ingEwg}"></td>
         </tr>
     </tbody>
+    
+    
 </table>
 
 	<table class="table table-bordered">
