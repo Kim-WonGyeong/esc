@@ -25,6 +25,13 @@
 
 </head>
 <body>
+	<div class="hidden_val">
+        <div class="hidden1" th:text='|{ "axis": "총점", "value": ${rtotal} }|'></div>
+        <div class="hidden2" th:text='|{ "axis": "지성", "value": ${roily} }|'></div>
+        <div class="hidden3" th:text='|{ "axis": "저항성", "value": ${rresistant} }|'></div>
+        <div class="hidden4" th:text='|{ "axis": "비색소성", "value": ${rnonPigment} }|'></div>
+        <div class="hidden5" th:text='|{ "axis": "탄력성", "value": ${rtight} }|'></div>
+    </div>
     <!-- 왼쪽 -->
     <div class="title"><h1 class="tranformEsc" data-text="HOME"><a>HOME</a></h1></div>
     <div class="wraper2">
@@ -52,10 +59,6 @@
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
                 			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index})|">담기</span>
                 			<section class="hidejun">text</section>
-                			<!-- <th:block th:each="ci : ${cosmetic.cosIng}">
-                				<section class="hidejun" th:text="|Skindeep: ${ci.ing.ingEwg} # Name: ${ci.ing.ingName}|">
-                				</section>
-                			</th:block> -->
                 		</span>
                 	</div>
                 </div>
