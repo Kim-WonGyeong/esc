@@ -22,6 +22,10 @@ public class UserService {
 		return userinfo;
 	}
 	
+	public void joinService(User user) {
+		repository.save(user);
+	}
+
 	// userId로 객체 찾기
 	public User findUserService(String userId) {
 		Optional<User> user = repository.findById(userId);
@@ -32,3 +36,5 @@ public class UserService {
 		}
 	}
 }
+
+

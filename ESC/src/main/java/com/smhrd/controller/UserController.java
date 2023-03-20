@@ -29,7 +29,8 @@ public class UserController {
 	}
 	
 	@PostMapping("/join")
-	public String join(@RequestParam("user") User user) {
+	public String join(User user) {
+		service.joinService(user);
 		return "main";
 	}
 	

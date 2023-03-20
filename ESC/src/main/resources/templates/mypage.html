@@ -26,9 +26,9 @@
       
                 <div class="header_link">
                     <li class="title_item title_item_one "><a href="#">소개</a></li>
-                    <li class="title_item title_item_two"><a href="#">진단</a></li>
+                    <li class="title_item title_item_two"><a th:href="@{/test}">진단</a></li>
                     <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
-                    <li class="title_item-none title_item_three"><a href="#">로그인</a></li>
+                    <li class="title_item title_item_three" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
                 </div>
       
             </div>
