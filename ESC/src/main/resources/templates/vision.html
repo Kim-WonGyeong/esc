@@ -26,6 +26,7 @@
 </head>
 <body>
     <!-- 왼쪽 -->
+    <div class="title"><h1 class="tranformEsc" data-text="HOME"><a>HOME</a></h1></div>
     <div class="wraper2">
     
         <div class="card3">
@@ -47,9 +48,14 @@
                 		<div class="tab_img">
                 			<img th:src="${cosmetic.csmtImg}" alt="">
                 		</div>
-                		<span>[[${cosmetic.csmtName}]]
+                		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
                 			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index})|">담기</span>
+                			<section class="hidejun">text</section>
+                			<!-- <th:block th:each="ci : ${cosmetic.cosIng}">
+                				<section class="hidejun" th:text="|Skindeep: ${ci.ing.ingEwg} # Name: ${ci.ing.ingName}|">
+                				</section>
+                			</th:block> -->
                 		</span>
                 	</div>
                 </div>
@@ -60,9 +66,10 @@
                 		<div class="tab_img">
                 			<img th:src="${cosmetic.csmtImg}" alt="">
                 		</div>
-                		<span>[[${cosmetic.csmtName}]]
+                		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
                 			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+4})|">담기</span>
+                			<section class="hidejun">text</section>
                 		</span>
                 	</div>
                 </div>
@@ -73,9 +80,10 @@
                 		<div class="tab_img">
                 			<img th:src="${cosmetic.csmtImg}" alt="">
                 		</div>
-                		<span>[[${cosmetic.csmtName}]]
+                		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
                 			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+8})|">담기</span>
+                			<section class="hidejun">text</section>
                 		</span>
                 	</div>
                 </div>
@@ -86,9 +94,10 @@
                 		<div class="tab_img">
                 			<img th:src="${cosmetic.csmtImg}" alt="">
                 		</div>
-                		<span>[[${cosmetic.csmtName}]]
+                		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
                 			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+12})|">담기</span>
+                			<section class="hidejun">text</section>
                 		</span>
                 	</div>
                 </div>
@@ -99,9 +108,10 @@
                 		<div class="tab_img">
                 			<img th:src="${cosmetic.csmtImg}" alt="">
                 		</div>
-                		<span>[[${cosmetic.csmtName}]]
+                		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
                 			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+16})|">담기</span>
+                			<section class="hidejun">text</section>
                 		</span>
                 	</div>
                 </div>
@@ -112,9 +122,10 @@
                 		<div class="tab_img">
                 			<img th:src="${cosmetic.csmtImg}" alt="">
                 		</div>
-                		<span>[[${cosmetic.csmtName}]]
+                		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
                 			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+20})|">담기</span>
+                			<section class="hidejun">text</section>
                 		</span>
                 	</div>
                 </div>
@@ -170,6 +181,7 @@
         <div class="card_in-check">
             <div class="card_in-wrap">
                 <div class="left"><p>ITEM1</p><img src="/img/pexels1.jpg"></div>
+                <h2 class="left_des">사진을 클릭하면</h2>
                 <div class="choisItemL">
                     <table class="dynamicTable">
                         <thead>
@@ -184,6 +196,7 @@
                     </table>
                 </div>
                 <div class="right"><p>ITEM2</p><img src="/img/pexels2.jpg"></div>
+                <h2 class="right_des">전성분이 보입니다</h2>
                 <div class="choisItemR">
                     <table class="dynamicTable">
                         <thead>
@@ -211,7 +224,7 @@
             <div class="tab_container">
         
                 <h3 class="d_active tab_drawer_heading" rel="tab1">Tab 1</h3>
-                <div id="tab1" class="tab_content">
+                <div id="tab1" class="tab_content tab_contentN">
                     <h2>여기에 아이템1 이름</h2>
                     <h3>여기에 아이템1 이름</h3>
                     <svg class="chart"></svg>
@@ -219,7 +232,7 @@
                 <!-- #tab1 -->
 
                 <h3 class="tab_drawer_heading" rel="tab2">Tab 2</h3>
-                <div id="tab2" class="tab_content">
+                <div id="tab2" class="tab_content tab_contentC">
                     <h2>[한정기획] 라로슈포제 유비데아 안뗄리오스 톤업 로지 30ml (+에빠폼 15ml)</h2>
                     <h3>[한정기획] 라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매)아아아아아아아아아아아아아아아아아아아아아</h3>
                     <svg class="chart2"></svg>

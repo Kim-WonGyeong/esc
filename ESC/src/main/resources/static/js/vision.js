@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* 
 
-// Data
+// Data 탭 data
 const data = [
     { item: "item2", value: 30, label: "지성" },
     { item: "item1", value: 20, label: "지성" }
@@ -233,6 +233,7 @@ right.addEventListener('click', ()=> {
 
     $('.choisItemR').addClass('active');
     $('.right').addClass('de_active');
+    $('.right_des').addClass('de_active');
     /* $('.right').removeClass('active'); */
   
 })
@@ -240,6 +241,7 @@ right.addEventListener('click', ()=> {
 left.addEventListener('click', ()=>{
     $('.choisItemL').addClass('active');
     $('.left').addClass('de_active');
+    $('.left_des').addClass('de_active');
 })
 
 function clickv (side) {
@@ -253,13 +255,13 @@ function clickv (side) {
 }
 
 
-
 list_right.forEach(item => {
 
     item.addEventListener('click', () => {
 
         $('.choisItemR').removeClass('active');
         $('.right').removeClass('de_active');
+        $('.right_des').removeClass('de_active');        
         
     })
     
@@ -271,7 +273,7 @@ list_left.forEach(item => {
 
         $('.choisItemL').removeClass('active');
         $('.left').removeClass('de_active');
-        
+        $('.left_des').removeClass('de_active');
         
     })
 });
@@ -448,54 +450,45 @@ function clickk2 () {
 }
 
 
+
 const button_plus = document.querySelector('.button_plus');
 const left_img = document.querySelector('.left> img');
-const right_img = document.querySelector('.right> img')
+const right_img = document.querySelector('.right> img');
+
+const left_name = document.querySelector('#tab1 h2');
+const right_name = document.querySelector('#tab1 h3');
+
+const left_name_t2 = document.querySelector('#tab2 h2');
+const right_name_t2 = document.querySelector('#tab2 h3');
+
+const left_cost = document.querySelector('tab_contentC > h2');
+const right_cost = document.querySelector('tab_contentC > h3');
+
+
+
 
 const tempsrc = "https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015857913ko.jpg?l=ko"
 
-const images = document.querySelectorAll('.tab_img > img'); // .tab_img > img 선택자로 요소들을 선택합니다.
+const images = document.querySelectorAll('.tab_img > img'); 
 const srcList = [];
 
+const images_name = document.querySelectorAll('.img_name');
+const imagesNList = [];
+
+const images_cost = document.querySelector('.img_name > h3').childNodes[0].nodeValue;
+const imagesCList = [];
+
+
 for (let i = 0; i < images.length; i++) {
-  srcList.push(images[i].src); // 선택된 이미지 요소들의 src 속성 값을 배열에 추가합니다.
+    srcList.push(images[i].src); 
+
+    const tempnn = images_name[i].firstChild.data;
+
+
+    imagesNList.push(tempnn);
+
+    imagesCList.push(images_cost[i]);
 }
-
-/* item에 타임리프 */
-/* function button_pluss (item) {
-
-    
-    left_img.src = srcList[item];
-    console.log(srcList)
-    
-    
-}  */
-
-/* $('left>img').addClass('over'); */
-
-/*
-
-아마 이걸 써야할 겁니다
-onclick에서 타임리프로 (이미지주소)를 보내고
-그걸 넣는 형식
-
-*/
-const cart = ['/img/pexels1.jpg','/img/pexels2.jpg']; // 장바구니 배열
-const maxSize = 3; // 최대 크기
-
-function button_pluss(num) {
-  
-  
-  cart.push(srcList[num]); // 이미지 주소를 장바구니 배열에 추가합니다.
-  if (cart.length >= maxSize) {
-    cart.shift(); // 배열에서 맨 처음 값을 삭제합니다.
-  }
-
-  left_img.src = cart[0]
-  right_img.src = cart[1]
-}
-
-
 
 /* tempImg.style.position = 'absolute';
 tempImg.style.bottom = '0';
@@ -532,10 +525,42 @@ tempImg.addEventListener('click', () => {
  */
 
 
-/* 차트 */
+/* 차트  axis 이름 value 값 (백분율) 
+
+function asyncTest(csmtNo){
+	let url = '/test';
+	fetch(url + "?csmtNo=" + csmtNo)
+	.then(res=>{
+		res.text().then(function(rs){
+		
+	})
+	.catch(err=>{
+		console.log(err);
+	})
+}
+
+fetch로 reponse request
+json / string
+>> const asdf(예시) = []
+cosnt 받아온녀석들
+const 최대길이
+
+for i < 최대길이
+
+asdf.push(받아온 녀석들)
+
+asdf[0] 알락꼬리꼬마도요
+asdf[1] value
+
+axis asdf[0]
+value asdf[1]
+
+*/
 
 
 !function () {
+	
+	
 
     var data = [
         [   /* 비율 */
@@ -737,109 +762,112 @@ $(".tabTs >li").click(function () {
    
 });
 
+const cart = ['img/pexels1.jpg', 'img/pexels2.jpg'];
+const maxSize = 3; 
 
-/* Extra class "tab_last" 
-   to add border to right side
-   of last tab *//* 
-$('ul.tabTs li').last().addClass("tab_last"); */
+const cartn = ['1', '2'];
+const cartc = ['1', '2'];
+const cartj = ["SkinDeep: 1, Name: 'Yak1'"];
 
+const data2 = [];
 
-/* 민석씨 */
-
-/* 데이터3도 비슷하게 만들어서 넣으면 됩니다 */
-const data2 = [
-    { SkinDeep: 1, Name: "Yak1" },
-    { SkinDeep: 2, Name: "Yak2" },
-    { SkinDeep: "3-4", Name: "하이드롤라이즈드하이알루로닉애씨드" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yakkkkkkkkk4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-    { SkinDeep: 4, Name: "Yak4" },
-];
-
-// 테이블 요소 참조 가져오기
 const table = document.getElementsByClassName(".dynamicTable");
 const tbodyL = document.querySelectorAll(".tbodyL")[0];
 const tbodyR = document.querySelectorAll(".tbodyR")[0];
 const yak = document.querySelectorAll(".tbody > tr > td:nth-child(1)");
-
-// 데이터를 기반으로 테이블 행 추가
-data2.forEach((item) => {
-    const row = tbodyL.insertRow();
-
-    const nameCell = row.insertCell();
-    const numCell = row.insertCell();
-
-    nameCell.textContent = item.SkinDeep;
-    numCell.textContent = item.Name;
-});
-
-// 테이블 행이 추가된 후에 실행되도록 setTimeout 사용
-setTimeout(() => {
-    const yak = document.querySelectorAll(".tbody > tr > td:nth-child(1)");
-
-    yak.forEach((element) => {
-        if (
-            element.textContent == "?" ||
-            element.textContent == "0"
-        ) {
-            element.style.backgroundColor = "#a6a6a6";
-        } else if (
-            element.textContent == "1" ||
-            element.textContent == "1-2" ||
-            element.textContent == "1-3" ||
-            element.textContent == "1-4" ||
-            element.textContent == "2-3" ||
-            element.textContent == "2-4" ||
-            element.textContent == "2"
-        ) {
-            element.style.backgroundColor = "#009d4f";
-        } else if (
-            element.textContent == "3" ||
-            element.textContent == "3-4" ||
-            element.textContent == "3-5" ||
-            element.textContent == "3-6" ||
-            element.textContent == "4" ||
-            element.textContent == "4-5" ||
-            element.textContent == "4-6" ||
-            element.textContent == "5" ||
-            element.textContent == "5-6" ||
-            element.textContent == "6" ||
-            element.textContent == "6-8" ||
-            element.textContent == "6-9"
-        ) {
-            element.style.backgroundColor = "#ff9e18";
-        } else if (
-            element.textContent == "7" ||
-            element.textContent == "8" ||
-            element.textContent == "9"
-        ) {
-            element.style.backgroundColor = "#e43d30";
-        }
+function button_pluss(num) {
+    const hidejunss = document.querySelectorAll('.hidejun')[num].firstChild;
+    cart.push(srcList[num]);
+    cartn.push(imagesNList[num]);
+    cartc.push(imagesCList[num]);
+    cartj.push(hidejunss);
+  
+    if (cart.length >= maxSize) {
+      cart.shift();
+      cartn.shift();
+      cartc.shift();
+      cartj.shift();
+    }
+  
+    left_img.src = cart[0];
+    right_img.src = cart[1];
+    left_name.textContent = cartn[0];
+    left_name_t2.textContent = cartn[0];
+    right_name.textContent = cartn[1];
+    right_name_t2.textContent = cartn[1];
+  
+    // 새로운 data2 계산
+    const newData = [];
+    cartj.forEach((elem) => {
+      const text = elem.textContent.trim();
+      const [, skinDeepText, nameText] = text.match(/Skindeep:\s*([\d-]+)\s*#\s*Name:\s*(.*)/i);
+      const skinDeep = skinDeepText.trim();
+      const name = nameText.trim();
+      newData.push({ SkinDeep: skinDeep, Name: name });
     });
-}, 0);
+    data2.length = 0;
+    data2.push(...newData);
+  
+    if (data2.length >= maxSize) {
+      data2.shift();
+    }
+  
+    // 테이블 업데이트
+    tbodyL.innerHTML = '';
+    tbodyR.innerHTML = '';
+    data2.forEach((item, index) => {
+      const rowL = tbodyL.insertRow();
+      const nameCellL = rowL.insertCell();
+      const numCellL = rowL.insertCell();
+      const rowR = tbodyR.insertRow();
+      const nameCellR = rowR.insertCell();
+      const numCellR = rowR.insertCell();
+      nameCellL.textContent = item.SkinDeep;
+      numCellL.textContent = item.Name;
+      nameCellR.textContent = item.SkinDeep;
+      numCellR.textContent = item.Name;
 
-    
+      switch (item.SkinDeep) {
+        case '1':
+        case '1-2':
+        case '1-3':
+        case '1-4':
+        case '2-3':
+        case '2-4':
+        case '2':
+            bgColor = '#009d4f'; // 초록색
+            break;
+        case '?':
+        case '0':
+            bgColor = '#a6a6a6'; // 노란색
+            break;
+        case '3':
+        case '3-4':
+        case '3-5':
+        case '3-6':
+        case '4':
+        case '4-5':
+        case '4-6':
+        case '5':
+        case '5-6':
+        case '6':
+        case '6-8':
+        case '6-9':
+            bgColor = '#ff9e18'; // 빨간색
+            break;
+        case '7':
+        case '8':
+        case '9':
+            bgColor = '#ff9e18'; // 빨간색
+            break;
+        default:
+            bgColor = ''; // 기본값
+            break;
+    }
+        nameCellL.style.backgroundColor = bgColor;
+        nameCellR.style.backgroundColor = bgColor;
 
 
-/* 이걸 data3로 */
-data2.forEach((item) => {
-    const row2 = tbodyR.insertRow();
 
-    const nameCell2 = row2.insertCell();
-    const numCell2 = row2.insertCell();
-
-    nameCell2.textContent = item.SkinDeep;
-    numCell2.textContent = item.Name;
-});
+    });
+  }
