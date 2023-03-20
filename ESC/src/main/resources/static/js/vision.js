@@ -563,14 +563,14 @@ value asdf[1]
 	
 
     var data = [
-        [   /* 비율 */
-            { axis: '알락꼬리꼬마도요', value: 0.95 },
-            { axis: '트러블', value: 0.45 },
-            { axis: '주름', value: 0.24 },
-            { axis: '미백', value: 0.63 },
-            { axis: '지성', value: 0.23 },
-        ],
-    ];
+        [
+          JSON.parse(document.querySelector('.hidden1').textContent),
+          JSON.parse(document.querySelector('.hidden2').textContent),
+          JSON.parse(document.querySelector('.hidden3').textContent),
+          JSON.parse(document.querySelector('.hidden4').textContent),
+          JSON.parse(document.querySelector('.hidden5').textContent)
+        ]
+      ];
 
     var RadarChart = function (id, data, options) {
         var config = {
