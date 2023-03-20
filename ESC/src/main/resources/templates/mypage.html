@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/mypage.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+    <nav class="header section-s panel">
+    
+        <div class="header_title">
+            <div class="title">ESC
+                <span class="text__first-bg "></span>
+                <span class="text__second-bg"></span>
+      
+      
+                <div class="header_link">
+                    <li class="title_item title_item_one "><a href="#">소개</a></li>
+                    <li class="title_item title_item_two"><a href="#">진단</a></li>
+                    <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
+                    <li class="title_item-none title_item_three"><a href="#">로그인</a></li>
+                </div>
+      
+            </div>
+            <!--         <p class="title_last">PERFECT SKIN</p>-->
+        </div>
+      
+        <div class="header_text trigger"><span>EXPERT </span>SKINCARE
+            <span class="kk_first"></span>
+            <span class="kk_second"></span>
+        </div>
+      </nav>
+    <div class="slider__warpper">
+        <div class="flex__container flex--pikachu flex--active" data-slide="1">
+          <div class="flex__item flex__item--left">
+            <div class="flex__content">
+              <p class="text--sub">???님의 마이페이지</p>
+              <h1 class="text--big">마이히스토리</h1>
+              <p class="text--normal">
+                <div id="htchart">
+                </div>
+                <div>
+                <a href="#" class="slide-nav btn-gradient cyan mini" data-slide="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#" class="slide-nav btn-gradient orange mini" data-slide="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#" class="slide-nav btn-gradient blue mini" data-slide="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#" class="slide-nav btn-gradient purple mini" data-slide="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#" class="slide-nav btn-gradient green mini" data-slide="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#" class="slide-nav btn-gradient yellow mini" data-slide="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#" class="slide-nav btn-gradient red mini" data-slide="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <a href="#" class="btn-gradient values mini">진단결과점수</a>
+                <a href="#" class="btn-gradient title mini">ESC 진단 히스토리</a>
+                </div>
+              </p>
+            </div>
+            <p class="text__background">마이히스토리</p>
+          </div>
+          <div class="flex__item flex__item--right"></div>
+        </div>
+        <div class="flex__container flex--piplup animate--start" data-slide="2">
+          <div class="flex__item flex__item--left">
+            <div class="flex__content">
+              <p class="text--sub2">???님의 마이페이지</p>
+              <h1 class="text--big2">추천제품</h1>
+              <p class="text--normal">
+                <div class="flex-container">
+                <div class="spinner"><p>
+                    <div class="cube1"></div>
+                    <div class="cube2"></div>
+                    </p>
+                </div>
+                <div class="flex-slide home">
+                    <div class="flex-title flex-title-home">스킨/토너</div>
+                    <div class="flex-about flex-about-home">
+                        <img class="imggs ig1" src="/img/토너1.jpg">
+                        <div class="textboxx tb1">
+                            <div class="textt">아비브 어성초 카밍 토너 스킨부스터</div>
+                        </div>
+                        <img class="imggs ig2" src="/img/토너2.jpg">
+                        <div class="textboxx tb2">
+                            <div class="textt">넘버즈인 3번 결광가득 에센스 토너 300ml</div>
+                        </div>
+                        <img class="imggs ig3" src="/img/토너3.jpg">
+                        <div class="textboxx tb3">
+                            <div class="textt">브링그린 티트리시카 수딩토너 대용량</div>
+                        </div>
+                        <img class="imggs ig4" src="/img/토너4.jpg">
+                        <div class="textboxx tb4">
+                            <div class="textt">닥터지 레드 블레미쉬 클리어 수딩 토너 500ml</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-slide about">
+                    <div class="flex-title">로션/에멀젼</div>
+                    <div class="flex-about">                      
+                        <img class="imggs ig5" src="/img/로션1.jpg">
+                        <div class="textboxx tb5">
+                            <div class="textt">닥터지 더모이스처 배리어 D 로션세트(200ml+30ml)</div>
+                        </div>
+                        <img class="imggs ig6" src="/img/로션2.jpg">
+                        <div class="textboxx tb6">
+                            <div class="textt">에스트라 아토베리어365 예민보습 로션 기획</div>
+                        </div>
+                        <img class="imggs ig7" src="/img/로션3.jpg">
+                        <div class="textboxx tb7">
+                            <div class="textt">리얼베리어 익스트림 로션 150ml 기획(150ml+50ml)</div>
+                        </div>
+                        <img class="imggs ig8" src="/img/로션4.jpg">
+                        <div class="textboxx tb8">
+                            <div class="textt">라운드랩 포 맨 자작나무 수분 로션 200ml</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-slide work">
+                    <div class="flex-title">에센스/세럼</div>
+                    <div class="flex-about">
+                        <img class="imggs ig9" src="/img/에센스1.jpg">
+                        <div class="textboxx tb9">
+                            <div class="textt">토리든 다이브인 세럼 50ml 리필 한정기획(+50ml 리필팩+밸런스풀 크림 20ml)</div>
+                        </div>
+                        <img class="imggs ig10" src="/img/에센스2.jpg">
+                        <div class="textboxx tb10">
+                            <div class="textt">넘버즈인 3번 보들보들 결 세럼 80ml 대용량</div>
+                        </div>
+                        <img class="imggs ig11" src="/img/에센스3.jpg">
+                        <div class="textboxx tb11">
+                            <div class="textt">구달 청귤 비타C 잡티케어 세럼 30ml 기획 (+세럼 10ml +마스크팩 1매 증정)</div>
+                        </div>
+                        <img class="imggs ig12" src="/img/에센스4.jpg">
+                        <div class="textboxx tb12">
+                            <div class="textt">라운드랩 소나무 진정 시카 앰플 30ml 더블기획</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-slide contact">
+                    <div class="flex-title">크림</div>
+                        <div class="flex-about">
+                            <img class="imggs ig13" src="/img/크림1.jpg">
+                            <div class="textboxx tb13">
+                                <div class="textt">라운드랩 자작나무 수분 크림 80ml 1+1 기획(+수분패드 4매)</div>
+                            </div>
+                            <img class="imggs ig14" src="/img/크림2.jpg">
+                            <div class="textboxx tb14">
+                                <div class="textt">라로슈포제 시카플라스트 밤B5+ 100ml+100ml 더블 기획</div>
+                            </div>
+                            <img class="imggs ig15" src="/img/크림3.jpg">
+                            <div class="textboxx tb15">
+                                <div class="textt">피지오겔 DMT 페이셜크림 100ml+100ml 기획세트</div>
+                            </div>
+                            <img class="imggs ig16" src="/img/크림4.jpg">
+                            <div class="textboxx tb16">
+                                <div class="textt">닥터지 레드블레미쉬 클리어 모이스처 크림 70ml+50ml 한정기획</div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="flex-slide home hh">
+            <div class="flex-title flex-title-home">미스트/오일</div>
+            <div class="flex-about flex-about-home">                         
+                <img class="imggs ig17" src="/img/미스트1.jpg">
+                <div class="textboxx tb17">
+                    <div class="textt">아벤느 오떼르말 300ml 2입 기획</div>
+                </div>
+                <img class="imggs ig18" src="/img/미스트2.jpg">
+                <div class="textboxx tb18">
+                    <div class="textt">바이오힐보 판테놀시카 배리어 크림미스트 더블기획(120ml*2)</div>
+                </div>
+                <img class="imggs ig19" src="/img/미스트3.jpg">
+                <div class="textboxx tb19">
+                    <div class="textt">자트인사이트 울트라 셋팅 진짜 픽서 110ml</div>
+                </div>
+                <img class="imggs ig20" src="/img/미스트4.jpg">
+                <div class="textboxx tb20">
+                    <div class="textt">바이오힐보 판테놀시카 배리어 크림미스트 120ml</div>
+                </div></div>
+        </div>
+        <div class="flex-slide about aa">
+            <div class="flex-title">올인원</div>
+            <div class="flex-about">                        
+                <img class="imggs ig21" src="/img/올인원1.jpg">
+                <div class="textboxx tb21">
+                    <div class="textt">닥터지 레드 블레미쉬 포 맨 올인원 플루이드 150ml+75ml 기획</div>
+                </div>
+                <img class="imggs ig22" src="/img/올인원2.jpg">
+                <div class="textboxx tb22">
+                    <div class="textt">라네즈옴므 크림 스킨 옴므 올인원 150ml 기획(+25ml+25ml 증정)</div>
+                </div>
+                <img class="imggs ig23" src="/img/올인원3.jpg">
+                <div class="textboxx tb23">
+                    <div class="textt">무슈제이 베이직 아쿠아 올인원 1+1 기획(200ml+200ml)</div>
+                </div>
+                <img class="imggs ig24" src="/img/올인원4.jpg">
+                <div class="textboxx tb24">
+                    <div class="textt">아이디얼포맨 시카 올인원 플루이드 호호와거난이 콜라보 더블기획(키링+엽서 증정)</div>
+                </div></div>
+        </div>                
+            </div>
+            </div>
+            <p class="text__background">추천제품</p>
+          </div>
+          <div class="flex__item flex__item--right"></div>
+        </div>
+      </div>
+      
+      <div class="slider__navi">
+        <a href="#" class="slide-nav active" data-slide="1">마이히스토리</a>
+        <a href="#" class="slide-nav" data-slide="2">추천제품</a>
+      </div>
+
+    <script type="text/javascript" src="/js/mypage.js"></script>      
+</body>
+</html>
