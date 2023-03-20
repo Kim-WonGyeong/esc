@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.entity.Cosmetic;
+import com.smhrd.entity.CosmeticIngredient;
 import com.smhrd.entity.Result;
 import com.smhrd.entity.User;
+import com.smhrd.service.CosmeticService;
 import com.smhrd.service.RecommendationService;
 import com.smhrd.service.ResultService;
 
@@ -26,6 +28,7 @@ import lombok.RequiredArgsConstructor;
 public class ResultController {
 	
 	private final RecommendationService recommendationService;
+	private final CosmeticService cosmeticService;
 	private final ResultService resultService;
 	private final HttpSession httpSession;
 	
@@ -137,11 +140,14 @@ public class ResultController {
 		List<Cosmetic> mistList = new ArrayList<Cosmetic>();
 		List<Cosmetic> essenceList = new ArrayList<Cosmetic>();
 		
+		List<CosmeticIngredient> tonerCiList = new ArrayList<CosmeticIngredient>();
+		
 		for(int i = 0; i < 4; i++) {
 			allinoneList.add(cosmeticList.get(i));
 		};
 		for(int i = 4; i < 8; i++) {
 			tonerList.add(cosmeticList.get(i));
+			tonerCiList.addAll(tonerList.get(i-4).getCosIng());
 		};
 		for(int i = 8; i < 12; i++) {
 			lotionList.add(cosmeticList.get(i));
@@ -158,6 +164,8 @@ public class ResultController {
 		
 		System.out.println("리스트 분할 성공");
 		System.out.println("리스트 길이 : "+cosmeticList.size());
+		
+		model.addAttribute("tonerCiList", tonerCiList);
 		
 		model.addAttribute("allinoneList", allinoneList);
 		model.addAttribute("tonerList", tonerList);

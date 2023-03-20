@@ -177,7 +177,7 @@ body {
 /* 여기수정중 */
 
 .describe-view2 {
-    font-size: 2.1rem;
+    font-size: 2rem;
     color: rgb(69, 69, 69);
 
     display: flex;
@@ -1514,6 +1514,7 @@ td {
     min-width: fit-content;
     max-height: 25px;
     text-align: center;
+    width: 35px;
 }
 
 .tbody > tr > td:nth-child(2){
@@ -1525,6 +1526,93 @@ th {
     padding-left: 1%;
 }
 
+.title {
+    position: absolute;
+    display: flex;
+    left: 2rem;
+    top: 2rem;
+    padding: 0;
+    margin: 0;
+
+    font-size: 16px;
+
+    text-align: left;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.tranformEsc {
+    color: #333;
+    border-bottom: 16px solid rgb(233, 230, 228);
+    font-family: 'Jua', sans-serif;
+    text-transform: uppercase;
+
+    font-size: 3rem;
+    color: #e9e6e4;
+
+    font-weight: 400;
+    cursor: pointer;
+}
+
+
+.tranformEsc::before {
+    content: attr(data-text);
+    position: absolute;
+    
+
+    border-bottom: 16px solid #6c66b1;
+    animation: lod 8s linear infinite;
+    overflow: hidden;
+
+    font-size: 3rem;
+}
+
+@keyframes lod {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+        border-color: #b16666;
+    }
+}
+
+.left_des {
+    position: absolute;
+    left: 18%;
+    bottom: 35%;
+    font-family: 'Jua', sans-serif;
+    
+}
+
+.left_des.de_active {
+    display: none;
+}
+
+.right_des {
+    position: absolute;
+    right: 16%;
+    bottom: 35%;
+    font-family: 'Jua', sans-serif;
+    
+}
+
+.right_des.de_active {
+    display: none;
+}
+
+.hidejun {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.hidden_val {
+    display: none;
+    width: 0;
+    height: 0;
+}
 
 @media only screen and (min-height: 1008px) {
     .chart1 > h1 {
