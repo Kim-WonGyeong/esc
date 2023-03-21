@@ -2,6 +2,7 @@ package com.smhrd.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,11 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	
 	private final UserService service;
+	
+	@GetMapping("/main")
+	public String main(Model model) {
+		return "main";
+	}
 
 	@PostMapping("/login")
 	public String login(Model model, @RequestParam("UserId") String UserId, @RequestParam("UserPw") String UserPw) {
@@ -32,6 +38,11 @@ public class UserController {
 	public String join(User user) {
 		service.joinService(user);
 		return "main";
+	}
+	
+	@GetMapping("/mypage")
+	public String gomypage(Model model) {
+		return "mypage";
 	}
 	
 }

@@ -19,13 +19,11 @@
     <nav class="header section-s panel">
     
         <div class="header_title">
-            <div class="title">ESC
+            <div class="title"><a th:href="@{/user/main}">ESC</a>
                 <span class="text__first-bg "></span>
                 <span class="text__second-bg"></span>
-      
-      
                 <div class="header_link">
-                    <li class="title_item title_item_one "><a href="#">소개</a></li>
+                    <li class="title_item title_item_one"><a href="#">소개</a></li>
                     <li class="title_item title_item_two"><a th:href="@{/test}">진단</a></li>
                     <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
                     <li class="title_item title_item_three" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
@@ -44,7 +42,7 @@
         <div class="flex__container flex--pikachu flex--active" data-slide="1">
           <div class="flex__item flex__item--left">
             <div class="flex__content">
-              <p class="text--sub">???님의 마이페이지</p>
+              <p class="text--sub">[[${user.userNick}]]님의 마이페이지</p>
               <h1 class="text--big">마이히스토리</h1>
               <p class="text--normal">
                 <div id="htchart">
