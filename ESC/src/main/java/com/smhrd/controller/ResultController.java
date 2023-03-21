@@ -33,6 +33,11 @@ public class ResultController {
 	private final ResultService resultService;
 	private final HttpSession httpSession;
 	
+	@GetMapping("/main")
+	public String main() {
+		return "main";
+	}
+	
 	@GetMapping("/detail/{rseq}")
 	public String rsDetail(Model model, @PathVariable("rseq") Long rseq) {
 		Result result = this.resultService.getResult(rseq);
