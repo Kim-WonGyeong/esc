@@ -39,27 +39,19 @@
 </nav>
 
 
-
-
-
-
-
-
-
-
 <br>
     <div class="container" id="container">
 
         <div class="form-container sign-up-container">
           <form>
             <h1>회원가입</h1>
-            <div class="social-container">
+            <!-- <div class="social-container">
               <a href="#" class="social"><i class="fab fa-instagram"></i></a>
               <a href="#" class="social"><i class="fab fa-google"></i></a>
               <a href="#" class="social"> <i class="fab fa-kakao">
                 <img src="/img/2111683.png"  width="14px" height="13px" alt=""></i>
               </a>
-            </div>
+            </div> -->
             <input type="text" placeholder="이름" />
             <input type="email" placeholder="아이디" />
             <input type="password" placeholder="비밀번호" />
@@ -75,13 +67,9 @@
     -->   
        
     <label style="display: inline-block;">
-      <input type="radio" name="gender" value="male">
-      남자
-    </label>
+      <input type="radio" name="gender" value="male">남자</label>
     <label style="display: inline-block;">
-      <input type="radio" name="gender" value="female">
-      여자
-    </label>
+      <input type="radio" name="gender" value="female">여자</label>
             
             <button onclick="return false;">회원가입</button>
           </form>
@@ -90,13 +78,13 @@
         <div class="form-container sign-in-container">
           <form th:action="@{/user/login}" method="post">
             <h1>로그인</h1>
-            <div class="social-container">
+            <!-- <div class="social-container">
               <a href="#" class="social"><i class="fab fa-instagram"></i></a>
               <a href="#" class="social"><i class="fab fa-google"></i></a>
               <a href="#" class="social"> <i class="fab fa-kakao">
                 <img src="/img/2111683.png"  width="14px" height="13px" alt=""></i>
             </a>
-            </div>
+            </div> -->
 
             <input type="text" name="UserId" th:value="${UserId}" placeholder="아이디" />
             <input type="password" name="UserPw" th:value="${UserPw}" placeholder="비밀번호" />
