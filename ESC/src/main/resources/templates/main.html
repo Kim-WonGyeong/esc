@@ -14,17 +14,14 @@
     <link rel="stylesheet"  media="only screen and (max-width: 768px)" href="/css/media.css">
     <link rel="stylesheet" href="/css/font.css">
 
-
     <!-- 나중에 정리 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&family=Poppins:wght@700;800;900&family=Rubik:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
-	
 	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="https://kit.fontawesome.com/c8ca5d214a.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
@@ -69,10 +66,10 @@
                         <li class="title_item title_item_one"><a href="#">소개</a></li>
                         <li class="title_item title_item_two" th:if="${user == null}"><a th:href="@{/signup}">진단</a></li>
                         <li class="title_item title_item_two" th:if="${user != null}"><a th:href="@{/test}">진단</a></li>
-                        <li class="title_item title_item_two" th:if="${user != null}"><a th:href="@{/mypage}">마이페이지</a></li>
-                        <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
+                        <li class="title_item title_item_two" th:if="${user != null}"><a th:href="@{/user/mypage}">마이페이지</a></li>
                         <li class="title_item-none title_item title_item_three" th:if="${user == null}"><a th:href="@{/signup}">로그인|가입</a></li>
                         <li class="title_item-none title_item title_item_three" th:if="${user != null}"><a th:href="@{/logout}">로그아웃</a></li>
+                        <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
                     </div>
                 </div>
                 <!--         <p class="title_last">PERFECT SKIN</p>-->

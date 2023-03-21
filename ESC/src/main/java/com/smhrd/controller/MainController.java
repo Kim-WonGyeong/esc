@@ -59,9 +59,8 @@ public class MainController {
 		return "redirect:/main";
 	}
 	
-	@GetMapping("/mypage")
-	public String gomypage() {
-		return "mypage";
-	}
+	
+	
+	
 	
 }
