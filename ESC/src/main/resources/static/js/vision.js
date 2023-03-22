@@ -854,7 +854,7 @@ $(".tabTs >li").click(function () {
 });
 
 
-const cart = ['img/pexels1.jpg', 'img/pexels2.jpg'];
+const cart = ['/img/pexels1.jpg', '/img/pexels2.jpg'];
 const maxSize = 3;
 
 const cartn = ['1', '2'];
@@ -877,16 +877,17 @@ async function fetchData() {
     const json = await response.json();
 
     const letters = ['a', 'b', 'c', 'd'];
+    const letters2 = ['d', 'c', 'b', 'a'];
     const randomIndex = (Math.floor(Math.random() * 4)).toString();
 
-    const haha = letters[randomIndex]
-    const haha2 = letters[randomIndex]
+    let haha = letters[randomIndex]
+    let haha2 = letters2[randomIndex]
 
-    data22 = json.a;
-    data33 = json.a;
+    data22 = json[haha];
+    data33 = json[haha2];
 
     data2.push(data22)
-    data3.push(data22)
+    data3.push(data33)
 
   } catch (error) {
     console.error('Error:', error);
