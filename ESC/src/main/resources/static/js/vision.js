@@ -8,20 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 
-/* 
-
-// Data 탭 data
-const data = [
-    { item: "item2", value: 30, label: "지성" },
-    { item: "item1", value: 20, label: "지성" }
-];
-
-
-svg.selectAll(".text")
-    .text(d => `${d.label}: ${d.value}`); // 레이블과 값 표시
-
-
-*/
 const right = document.querySelector('.right');
 const left = document.querySelector('.left');
 
@@ -33,16 +19,81 @@ const bgColorsBody = ["#ffb457",  "#BCAAA4", "rgb(110, 110, 110)", "#BCAAA4", "r
 
 const key = { item: "item2", value: 5500 };/* 예시 */
 
-// Data
-const data = [
-    { item: "item2", value: 5500 },
-    { item: "item1", value: 3000 }
+/* 요기 수정중 */
+const priceElements = document.querySelectorAll(".teb_item .img_name h3");
+const prices = Array.from(priceElements).map(element => parseInt(element.textContent.replace(/,/g, "").replace("원", "")));
+/* 요까지 추가함 */
+let pricesss = [3000, 5000]
+
+const scoreee1 = document.querySelectorAll(".hidejun");
+const scoreee3 = Array.from(scoreee1).map(el => parseInt(el.textContent.trim(), 10));
+
+const scoreee2 = [100,100]
+
+function pricee (num) {
+    pricesss.push(prices[num])/* 요거추가 */
+    scoreee2.push(scoreee3[num])
+    
+    if (pricesss.length >= maxSize) {
+        pricesss.shift()
+        scoreee2.shift()
+    }
+    updateData(pricesss);
+    updateData2(scoreee2);
+}
+
+console.log(prices)
+console.log(pricesss)
+
+let data = [
+    { item: "item1", value: pricesss[1] },
+    { item: "item2", value: pricesss[0] }
 ];
+
+// Data11
+
+function updateChart(newData) {
+    // Update the data
+    bars.data(newData);
+    const labels = svg.selectAll(".label").data(newData);
+  
+    // Update the bars
+    bars.transition()
+      .duration(2000)
+      .attr("width", d => xScale(d.value)/80+(xScale(d.value)/60+90));
+      /* 값을보고 여길 수정 */
+  
+    labels
+      .attr("x", d => xScale(1000)) 
+      .attr("y", d => yScale(d.item) + yScale.bandwidth() / 2)
+      .text(d => d.value);
+    
+    labels.enter()
+      .append("text")
+      .attr("class", "label")
+      .attr("x", d => xScale(1000)) 
+      .attr("y", d => yScale(d.item) + yScale.bandwidth() / 2)
+      .attr("dy", "0.35em")
+      .text(d => d.value);
+    
+    labels.exit().remove();
+      
+
+  }
+  
+  
+  function updateData(newValues) {
+    let newData = newValues.map((value, index) => {
+      return { item: `item${index + 1}`, value: value };
+    });
+  
+    updateChart(newData);
+  }
 
 
 // SVG setup
 const margin = { top: 20, right: 20, bottom: 30, left: 0 };
-const width = 300 - margin.left - margin.right;
+const width = 450 - margin.left - margin.right; /* 여기고침 */
 const height = 100 - margin.top - margin.bottom;
 
 const svg = d3.select(".chart")
@@ -79,37 +130,12 @@ svg.selectAll(".text")
     .enter()
     .append("text")
     .attr("class", "label")
-    .attr("x", d => xScale(d.value) - 10) // 바 중앙 x좌표
+    .attr("x", d => xScale(d.value) /2+20) // 바 중앙 x좌표
     .attr("y", d => yScale(d.item) + yScale.bandwidth() / 2) // 바 중앙 y좌표
     .attr("dy", "0.35em") // 텍스트 위치 조정
     .text(d => d.value);
 
     
-// Difference between the two values
-/*       svg.selectAll(".difference")
-.data(data)
-.enter()
-.append("text")
-.attr("class", "difference")
-.attr("x", d => xScale(d.value) + 10) // 바 오른쪽에 표시할 x좌표
-.attr("y", d => yScale(d.item) + yScale.bandwidth() / 2) // 바 중앙 y좌표
-.attr("dy", "0.35em") // 텍스트 위치 조정
-.text(d => `${d.value - data[0].value}`); // 두 값의 차이 표시
-*/
-
-/*  svg.selectAll(".difference")
-.data(data)
-.enter()
-.append("text")
-.attr("class", "difference")
-.attr("x", d => xScale(d.value) + 20) // 바 오른쪽에 표시할 x좌표
-.attr("y", d => yScale(d.item) + yScale.bandwidth() / 2) // 바 중앙 y좌표
-.attr("dy", "0.35em") // 텍스트 위치 조정
-.text(d => {
-const diff = d.value - data[0].value;
-return diff > 0 ? `^${diff}` : diff === 0 ? `0` : `${diff}`;
-}); */
-// Animation
 
 bars.transition()
     .duration(2000)
@@ -133,10 +159,76 @@ const yAxis = d3.axisLeft(yScale)
 svg.append("g")
     .call(yAxis)
     .selectAll(".tick text")
-    .text(d => d) // 아이템 이름 추가
+    .text(d => d); // 아이템 이름 추가
 
 
-    
+
+/* 바2 */
+
+function updateChart2(newData) {
+    // Update the data
+    bars2.data(newData);
+    const labels2 = svg2.selectAll(".label2").data(newData);
+
+    // Update the bars
+    bars2.transition()
+        .duration(2000)
+        .attr("width", d => xScale2(d.value));
+    /* 값을보고 여길 수정 */
+
+    labels2
+        .attr("x", d => xScale2(100))
+        .attr("y", d => yScale(d.item) + yScale2.bandwidth() / 2)
+        .text(d => d.value);
+
+    labels2.enter()
+        .append("text")
+        .attr("class", "label")
+        .attr("x", d => xScale2(100))
+        .attr("y", d => yScale(d.item) + yScale2.bandwidth() / 2)
+        .attr("dy", "0.35em")
+        .text(d => d.value);
+
+    labels2.exit().remove();
+
+
+}
+
+
+function updateData2(newValues) {
+    let newData = newValues.map((value, index) => {
+        return { item: `item${index + 1}`, value: value };
+    });
+
+    updateChart2(newData);
+}
+
+
+
+let dataa = [
+    { item: "item1", value: scoreee2[0] },
+    { item: "item2", value: scoreee2[1] }
+];
+
+const xScale2 = d3.scaleLinear()
+    .domain([0, d3.max(dataa, d => d.value)])
+    .range([0, width]);
+
+const yScale2 = d3.scaleBand()
+    .range([height, 0])
+    .padding(0.1)
+    .domain(dataa.map(d => d.item));
+
+const xAxis2 = d3.axisBottom(xScale2)
+    .tickSizeOuter(0)
+    .ticks(5)
+    .tickSizeInner(-height);
+const yAxis2 = d3.axisLeft(yScale2)
+    .tickSize(0)
+    .tickSizeOuter(0)
+    .ticks(5);
+
+
 
 
 const svg2 = d3.select(".chart2")
@@ -146,23 +238,22 @@ const svg2 = d3.select(".chart2")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
 const bars2 = svg2.selectAll(".bar2")
-    .data(data)
+    .data(dataa)
     .enter()
     .append("rect")
     .attr("class", "bar2")
-    .attr("x", 0)
-    .attr("y", d => yScale(d.item))
+    .attr("x", d => 0)
+    .attr("y", d => yScale2(d.item))
     .attr("width", 0)
-    .attr("height", yScale.bandwidth());
+    .attr("height", yScale2.bandwidth());
 
-svg2.selectAll(".text")
-    .data(data)
+svg2.selectAll(".label2")
+    .data(dataa)
     .enter()
     .append("text")
-    .attr("class", "label")
-    
-    .attr("x", d => xScale(d.value)-10) // 바 중앙 x좌표
-    .attr("y", d => yScale(d.item) + yScale.bandwidth() / 2) // 바 중앙 y좌표
+    .attr("class", "label2")
+    .attr("x", d => 1000) // 바 중앙 x좌표
+    .attr("y", d => 1000) // 바 중앙 y좌표
     .attr("dy", "0.35em") // 텍스트 위치 조정
     .text(d => d.value);
 
@@ -170,7 +261,7 @@ svg2.selectAll(".text")
 
 bars2.transition()
     .duration(2000)
-    .attr("width", d => xScale(d.value));
+    .attr("width", d => xScale2(d.value));
 
     
 svg2.append("g")
@@ -762,72 +853,101 @@ $(".tabTs >li").click(function () {
    
 });
 
+
 const cart = ['img/pexels1.jpg', 'img/pexels2.jpg'];
-const maxSize = 3; 
+const maxSize = 3;
 
 const cartn = ['1', '2'];
 const cartc = ['1', '2'];
 const cartj = ["SkinDeep: 1, Name: 'Yak1'"];
+const cartj2 = [];
 
-const data2 = [];
+// 상위 스코프에서 data2와 data3를 선언하고 초기값을 설정합니다.
+let data2 = [];
+let data3 = [];
+
+async function fetchData() {
+  try {
+    const response = await fetch('/json/fake2.json');
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const json = await response.json();
+
+    const letters = ['a', 'b', 'c', 'd'];
+    const randomIndex = (Math.floor(Math.random() * 4)).toString();
+
+    const haha = letters[randomIndex]
+    const haha2 = letters[randomIndex]
+
+    data22 = json.a;
+    data33 = json.a;
+
+    data2.push(data22)
+    data3.push(data22)
+
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+async function main() {
+    // fetchData 함수를 호출하고 완료될 때까지 기다립니다.
+    await fetchData();
+    
+    // 이 시점에서 data2와 data3는 값이 할당되어 있습니다.
+    console.log(data2);
+}
+
+main();
+console.log(data2);
+
 
 const table = document.getElementsByClassName(".dynamicTable");
 const tbodyL = document.querySelectorAll(".tbodyL")[0];
 const tbodyR = document.querySelectorAll(".tbodyR")[0];
 const yak = document.querySelectorAll(".tbody > tr > td:nth-child(1)");
-function button_pluss(num) {
-    const hidejunss = document.querySelectorAll('.hidejun')[num].firstChild;
-    cart.push(srcList[num]);
-    cartn.push(imagesNList[num]);
-    cartc.push(imagesCList[num]);
-    cartj.push(hidejunss);
-  
-    if (cart.length >= maxSize) {
-      cart.shift();
-      cartn.shift();
-      cartc.shift();
-      cartj.shift();
-    }
-  
-    left_img.src = cart[0];
-    right_img.src = cart[1];
-    left_name.textContent = cartn[0];
-    left_name_t2.textContent = cartn[0];
-    right_name.textContent = cartn[1];
-    right_name_t2.textContent = cartn[1];
-  
-    // 새로운 data2 계산
-    const newData = [];
-    cartj.forEach((elem) => {
-      const text = elem.textContent.trim();
-      const [, skinDeepText, nameText] = text.match(/Skindeep:\s*([\d-]+)\s*#\s*Name:\s*(.*)/i);
-      const skinDeep = skinDeepText.trim();
-      const name = nameText.trim();
-      newData.push({ SkinDeep: skinDeep, Name: name });
-    });
-    data2.length = 0;
-    data2.push(...newData);
-  
-    if (data2.length >= maxSize) {
-      data2.shift();
-    }
-  
-    // 테이블 업데이트
-    tbodyL.innerHTML = '';
-    tbodyR.innerHTML = '';
-    data2.forEach((item, index) => {
-      const rowL = tbodyL.insertRow();
-      const nameCellL = rowL.insertCell();
-      const numCellL = rowL.insertCell();
-      const rowR = tbodyR.insertRow();
-      const nameCellR = rowR.insertCell();
-      const numCellR = rowR.insertCell();
-      nameCellL.textContent = item.SkinDeep;
-      numCellL.textContent = item.Name;
-      nameCellR.textContent = item.SkinDeep;
-      numCellR.textContent = item.Name;
 
-      switch (item.SkinDeep) {
+function button_pluss(num) {
+/*   const hidejunss = document.querySelectorAll('.hidejun')[num].innerHTML;
+ */
+  cart.push(srcList[num]);
+  cartn.push(imagesNList[num]);
+  cartc.push(imagesCList[num]);
+  cartj.push(data2[0]);
+   
+  if (cart.length >= maxSize) {
+    cart.shift();
+    cartn.shift();
+    cartc.shift();
+    cartj.shift();
+  }
+  
+  left_img.src = cart[0];
+  right_img.src = cart[1];
+  left_name.textContent = cartn[0];
+  left_name_t2.textContent = cartn[0];
+  right_name.textContent = cartn[1];
+  right_name_t2.textContent = cartn[1];
+
+  
+
+  // 테이블 업데이트
+  tbodyL.innerHTML = '';
+  tbodyR.innerHTML = '';
+  let bgColor ="";
+
+  data2[0].forEach((item, index) => {
+    const rowL = tbodyL.insertRow();
+    const nameCellL = rowL.insertCell();
+    const numCellL = rowL.insertCell();
+    nameCellL.textContent = item.SkinDeep;
+    numCellL.textContent = item.Name;
+
+
+    switch (item.SkinDeep) {
         case '1':
         case '1-2':
         case '1-3':
@@ -865,9 +985,63 @@ function button_pluss(num) {
             break;
     }
         nameCellL.style.backgroundColor = bgColor;
-        nameCellR.style.backgroundColor = bgColor;
 
 
 
     });
+
+    data3[0].forEach((item, index) => {
+        const rowR = tbodyR.insertRow();
+        const nameCellR = rowR.insertCell();
+        const numCellR = rowR.insertCell();
+        nameCellR.textContent = item.SkinDeep;
+        numCellR.textContent = item.Name;
+    
+    
+          switch (item.SkinDeep) {
+            case '1':
+            case '1-2':
+            case '1-3':
+            case '1-4':
+            case '2-3':
+            case '2-4':
+            case '2':
+                bgColor = '#009d4f'; // 초록색
+                break;
+            case '?':
+            case '0':
+                bgColor = '#a6a6a6'; // 노란색
+                break;
+            case '3':
+            case '3-4':
+            case '3-5':
+            case '3-6':
+            case '4':
+            case '4-5':
+            case '4-6':
+            case '5':
+            case '5-6':
+            case '6':
+            case '6-8':
+            case '6-9':
+                bgColor = '#ff9e18'; // 빨간색
+                break;
+            case '7':
+            case '8':
+            case '9':
+                bgColor = '#ff9e18'; // 빨간색
+                break;
+            default:
+                bgColor = ''; // 기본값
+                break;
+        }
+            nameCellR.style.backgroundColor = bgColor;
+    
+    
+    
+        });
+
+
+
+
   }

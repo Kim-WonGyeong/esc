@@ -19,7 +19,7 @@
   <nav class="header section-s panel">
     
     <div class="header_title">
-        <div class="title" align="center">ESC<div>
+        <div class="title">ESC<div>
                 <!--                 <li class="title_item-three"><a href="#">다크모드</a></li> -->
                 
             </div>
@@ -39,7 +39,7 @@
     <div class="container" id="container">
 
         <div class="form-container sign-up-container">
-          <form>
+          <form th:action="@{/user/join}" method="post">
             <h1>회원가입</h1>
             <div class="social-container">
              <!--  <a href="#" class="social"><i class="fab fa-instagram"></i></a>
@@ -48,9 +48,9 @@
                 <img src="/img/2111683.png"  width="14px" height="13px" alt=""></i>
               </a> -->
             </div>
-            <input type="text" placeholder="이름" />
-            <input type="email" placeholder="아이디" />
-            <input type="password" placeholder="비밀번호" />
+            <input type="text" name="userNick" placeholder="이름" />
+            <input type="text" name="userId" placeholder="아이디" />
+            <input type="password" name="userPw" placeholder="비밀번호" />
             
 <!--
             <form name="flexForm" >
@@ -60,18 +60,16 @@
     -->   
        
     <label style="display: inline-block;">
-      <input type="radio" name="gender" value="male">남자</label>
+      <input type="radio" name="userGender" value="male">남자</label>
     <label style="display: inline-block;">
-      <input type="radio" name="gender" value="female">
-      여자
-    </label>
-            <button onclick="return false;">회원가입</button>
+      <input type="radio" name="userGender" value="female">여자</label>
+            <button type="submit">회원가입</button>     
           </form>
         </div>
         <div class="form-container sign-in-container">
           <form th:action="@{/user/login}" method="post">
             <h1>로그인</h1>
-            <!-- <div class="social-container">
+            <!-- <div class="social-container">                    
               <a href="#" class="social"><i class="fab fa-instagram"></i></a>
               <a href="#" class="social"><i class="fab fa-google"></i></a>
               <a href="#" class="social"> <i class="fab fa-kakao">
