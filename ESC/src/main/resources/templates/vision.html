@@ -57,8 +57,11 @@
                 		</div>
                 		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
-                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index})|">담기</span>
-                			<section class="hidejun">text</section>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index}), pricee(${index.index})|">담기</span>
+                			<section class="hidejun" th:if="${roily>7 && rresistant>7}" th:text="${cosmetic.review.oilyPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily>7 && rresistant<8}" th:text="${cosmetic.review.oilyPosCnt+cosmetic.review.sensPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant>7}" th:text="${cosmetic.review.dryPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant<8}" th:text="${cosmetic.review.dryPosCnt+cosmetic.review.sensPosCnt}"></section>
                 		</span>
                 	</div>
                 </div>
@@ -71,8 +74,11 @@
                 		</div>
                 		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
-                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+4})|">담기</span>
-                			<section class="hidejun">text</section>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+4}), pricee(${index.index+4})|">담기</span>
+                			<section class="hidejun" th:if="${roily>7 && rresistant>7}" th:text="${cosmetic.review.oilyPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily>7 && rresistant<8}" th:text="${cosmetic.review.oilyPosCnt+cosmetic.review.sensPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant>7}" th:text="${cosmetic.review.dryPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant<8}" th:text="${cosmetic.review.dryPosCnt+cosmetic.review.sensPosCnt}"></section>
                 		</span>
                 	</div>
                 </div>
@@ -85,8 +91,11 @@
                 		</div>
                 		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
-                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+8})|">담기</span>
-                			<section class="hidejun">text</section>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+8}), pricee(${index.index+8})|">담기</span>
+                			<section class="hidejun" th:if="${roily>7 && rresistant>7}" th:text="${cosmetic.review.oilyPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily>7 && rresistant<8}" th:text="${cosmetic.review.oilyPosCnt+cosmetic.review.sensPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant>7}" th:text="${cosmetic.review.dryPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant<8}" th:text="${cosmetic.review.dryPosCnt+cosmetic.review.sensPosCnt}"></section>
                 		</span>
                 	</div>
                 </div>
@@ -99,8 +108,11 @@
                 		</div>
                 		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
-                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+12})|">담기</span>
-                			<section class="hidejun">text</section>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+12}), pricee(${index.index+12})|">담기</span>
+                			<section class="hidejun" th:if="${roily>7 && rresistant>7}" th:text="${cosmetic.review.oilyPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily>7 && rresistant<8}" th:text="${cosmetic.review.oilyPosCnt+cosmetic.review.sensPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant>7}" th:text="${cosmetic.review.dryPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant<8}" th:text="${cosmetic.review.dryPosCnt+cosmetic.review.sensPosCnt}"></section>
                 		</span>
                 	</div>
                 </div>
@@ -113,8 +125,11 @@
                 		</div>
                 		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
-                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+16})|">담기</span>
-                			<section class="hidejun">text</section>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+16}), pricee(${index.index}+16)|">담기</span>
+                			<section class="hidejun" th:if="${roily>7 && rresistant>7}" th:text="${cosmetic.review.oilyPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily>7 && rresistant<8}" th:text="${cosmetic.review.oilyPosCnt+cosmetic.review.sensPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant>7}" th:text="${cosmetic.review.dryPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant<8}" th:text="${cosmetic.review.dryPosCnt+cosmetic.review.sensPosCnt}"></section>
                 		</span>
                 	</div>
                 </div>
@@ -127,8 +142,11 @@
                 		</div>
                 		<span class="img_name">[[${cosmetic.csmtName}]]
                 			<h3 th:text="${cosmetic.csmtPrice}"></h3>
-                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+20})|">담기</span>
-                			<section class="hidejun">text</section>
+                			<span th:class="|button_cart-${index.count} button_plus|" th:onclick="|button_pluss(${index.index+20}), pricee(${index.index+20})|">담기</span>
+                			<section class="hidejun" th:if="${roily>7 && rresistant>7}" th:text="${cosmetic.review.oilyPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily>7 && rresistant<8}" th:text="${cosmetic.review.oilyPosCnt+cosmetic.review.sensPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant>7}" th:text="${cosmetic.review.dryPosCnt}"></section>
+                			<section class="hidejun" th:if="${roily<8 && rresistant<8}" th:text="${cosmetic.review.dryPosCnt+cosmetic.review.sensPosCnt}"></section>
                 		</span>
                 	</div>
                 </div>

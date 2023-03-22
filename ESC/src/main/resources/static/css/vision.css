@@ -18,6 +18,10 @@ h4 {
     font-weight: 800;
 }
 
+a:link { color: var(--font-color); text-decoration: none;}
+a:visited { color: var(--font-color); text-decoration: none;}
+a:hover { color: var(--font-color); text-decoration: none;}
+
 body {
     background-color: rgb(110, 110, 110);
     
@@ -527,13 +531,15 @@ body {
 
 .chart .bar:nth-child(1),
 .chart2 .bar2:nth-child(1) {
-    fill: #b16666;
+    
+        fill: #6c66b1;
+    
 }
 
 
 .chart .bar:nth-child(2),
 .chart2 .bar2:nth-child(2) {
-    fill: #6c66b1;
+	fill: #b16666;
 }
 
 
@@ -1706,4 +1712,6 @@ th {
     .card4.active {
         width:95vw;
     }
+    
+    
 }

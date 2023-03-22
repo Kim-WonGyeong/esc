@@ -224,6 +224,7 @@ button {
 	border-radius:.25rem;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
+  	z-index: 1;
 }
 
 button,
@@ -306,4 +307,73 @@ h1 {
     opacity: 1;
   }
   
-  
+
+
+
+.title {
+  display: none;
+}
+
+.title.active {
+  position: absolute;
+  bottom: 0;
+  left: 920px;
+
+    display: flex;
+
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    color: #34B5D9;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.tranformEsc {
+    color: #333;
+    border-bottom: 16px solid rgb(233, 230, 228);
+    font-family: 'Jua', sans-serif;
+    text-transform: uppercase;
+
+    color: #e9e6e4;
+
+    font-weight: 400;
+    cursor: pointer;
+    line-height: normal;
+}
+
+.tranformEsc > h1 {
+  position: relative;
+}
+
+.tranformEsc::before {
+    content: attr(data-text);
+    width: 100%;
+
+    border-bottom: 16px solid #6c66b1;
+    animation: lod 8s linear infinite;
+    overflow: hidden;
+
+    color: #6c66b1;
+    line-height: normal;
+
+    overflow: hidden;
+
+    position: absolute;
+    left: 0;
+
+}
+
+@keyframes lod {
+  0% {
+      width: 0;
+  }
+  100% {
+      width: 100%;
+      border-color: #b16666;
+  }
+}
+a:link { color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { text-decoration: none;}
