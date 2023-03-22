@@ -88,7 +88,7 @@ public class RecommendationService {
 //         creamNo = reviewRepository.findCreamOily(cream);
 //         mistNo = reviewRepository.findMistOily(mist);
 //         essenceNo = reviewRepository.findEssenceOily(essence);
-//         break;
+         break;
       case "DR": // 건성
          allinoneNo = reviewRepository.findAllinoneDry(allinone);
          tonerNo = reviewRepository.findTonerDry(toner);
