@@ -15,7 +15,7 @@ const list_left = document.querySelectorAll('.tbodyL');
 const list_right = document.querySelectorAll('.tbodyR');
 
 const body = document.body;
-const bgColorsBody = ["#ffb457",  "#BCAAA4", "rgb(110, 110, 110)", "#BCAAA4", "rgb(110, 110, 110)"];
+const bgColorsBody = ["#ffb457",  "#BCAAA4", "rgb(50, 50, 50)", "#BCAAA4", "rgb(50, 50, 50)"];
 
 const key = { item: "item2", value: 5500 };/* 예시 */
 
